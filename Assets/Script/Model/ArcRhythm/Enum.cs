@@ -70,13 +70,15 @@ namespace ArcRhythm
     }
     [System.Serializable]
     //数据类型
-    public enum InputKeyType_PC
+    public enum InputType
     {
         TAP = 1,//单个Key按下
 
         SLIDE = 2,//滑动
 
         LONG_TAP = 3,//长按
+
+        Drag = 4,//触控即可
     }
     [System.Serializable]
     //判定结果
