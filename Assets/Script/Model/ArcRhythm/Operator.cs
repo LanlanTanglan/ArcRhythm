@@ -7,6 +7,7 @@ using DG.Tweening;
 
 namespace ArcRhythm
 {
+    [System.Serializable]
     /// <summary>
     /// 干员
     /// </summary>

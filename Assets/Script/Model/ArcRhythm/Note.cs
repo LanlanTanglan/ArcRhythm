@@ -7,6 +7,7 @@ using DG.Tweening;
 
 namespace ArcRhythm
 {
+    [System.Serializable]
     public class NoteSet
     {
         public List<Note> tapNotes;
@@ -25,24 +26,29 @@ namespace ArcRhythm
         public NoteSet SetParam(JToken jt)
         {
             JArray tn = (JArray)jt["tapNotes"];
-            for (int i = 0, len = tn.Count; i < len; i++)
-                tapNotes.Add(new TapNote().SetParam(jt));
+            if (tn != null)
+                for (int i = 0, len = tn.Count; i < len; i++)
+                    tapNotes.Add(new TapNote().SetParam(tn[i]));
 
             JArray psn = (JArray)jt["pushNotes"];
-            for (int i = 0, len = psn.Count; i < len; i++)
-                tapNotes.Add(new PushNote().SetParam(jt));
+            if (psn != null)
+                for (int i = 0, len = psn.Count; i < len; i++)
+                    tapNotes.Add(new PushNote().SetParam(psn[i]));
 
             JArray pln = (JArray)jt["pullNotes"];
-            for (int i = 0, len = pln.Count; i < len; i++)
-                tapNotes.Add(new PullNote().SetParam(jt));
+            if (pln != null)
+                for (int i = 0, len = pln.Count; i < len; i++)
+                    tapNotes.Add(new PullNote().SetParam(pln[i]));
 
             JArray ltn = (JArray)jt["longTapNotes"];
-            for (int i = 0, len = ltn.Count; i < len; i++)
-                tapNotes.Add(new LongTapNote().SetParam(jt));
+            if (ltn != null)
+                for (int i = 0, len = ltn.Count; i < len; i++)
+                    tapNotes.Add(new LongTapNote().SetParam(ltn[i]));
 
             return this;
         }
     }
+    [System.Serializable]
     public class Note
     {
         public NOTE_TYPE noteType;
@@ -74,6 +80,7 @@ namespace ArcRhythm
         }
     }
 
+    [System.Serializable]
     public class TapNote : Note
     {
         public bool isFake = false;
@@ -96,6 +103,7 @@ namespace ArcRhythm
         }
     }
 
+    [System.Serializable]
     public class LongTapNote : Note
     {
         public float duraTime;
@@ -112,6 +120,7 @@ namespace ArcRhythm
         }
     }
 
+    [System.Serializable]
     public class PushNote : Note
     {
         public List<float> endTimeList;
@@ -126,17 +135,20 @@ namespace ArcRhythm
         public override Note SetParam(JToken jt)
         {
             JArray etl = (JArray)jt["endTimeList"];
-            for (int i = 0; i < etl.Count; i++)
-                endTimeList.Add((float)etl[i]);
+            if (etl != null)
+                for (int i = 0; i < etl.Count; i++)
+                    endTimeList.Add((float)etl[i]);
 
             JArray ta = (JArray)jt["targetOpers"];
-            for (int i = 0; i < ta.Count; i++)
-                targetOpers.Add((int)ta[i]);
+            if (ta != null)
+                for (int i = 0; i < ta.Count; i++)
+                    targetOpers.Add((int)ta[i]);
 
             return base.SetParam(jt);
         }
     }
 
+    [System.Serializable]
     public class PullNote : Note
     {
         public PullNote()

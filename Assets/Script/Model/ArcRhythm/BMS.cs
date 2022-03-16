@@ -7,6 +7,7 @@ using DG.Tweening;
 
 namespace ArcRhythm
 {
+    [System.Serializable]
     public class BMS
     {
         public BMSInfo BMSInfo;
@@ -30,7 +31,7 @@ namespace ArcRhythm
             return this;
         }
     }
-
+    [System.Serializable]
     //铺面信息
     public class BMSInfo
     {

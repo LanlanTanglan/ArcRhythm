@@ -31,7 +31,7 @@
             {
                 "noteType": 3,
                 "enemy": 1,
-                "operatorIdx": 3,
+                "targetOperId": 3,
                 "attackId": 1,
                 "speed": 1,
                 "endTime": 1,
@@ -50,7 +50,7 @@
             "keyType": 97,
             "animCommands": [
                 {
-                    "animCommandType": 4,
+                    "animCommandType": 1,
                     "beginTime": -5,
                     "endTime": 1,
                     "endPos": [

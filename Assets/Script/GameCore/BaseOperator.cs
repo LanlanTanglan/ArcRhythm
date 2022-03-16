@@ -11,6 +11,14 @@ public class BaseOperator : MonoBehaviour
 {
 
     public Operator o;
+    public int oaIdx = 0;//判定线动画指针
+    public bool isStopGame = false;
+
+    void Awake()
+    {
+        //注册事件
+        Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
+    }
     void Start()
     {
 
@@ -18,29 +26,50 @@ public class BaseOperator : MonoBehaviour
 
     void Update()
     {
-
+        if (!isStopGame)
+        {
+            UpdateOperterAnim();
+        }
     }
 
+    #region 事件注册块
+    //暂停游戏
+    private void StopGame(bool key)
+    {
+        this.isStopGame = key;
+    }
+
+    #endregion
 
     //初始化变量以及相关动画
     public void Init(Operator o)
     {
         this.o = o;
-
-        //初始化判定线动画
-        InitOperatorAnim();
     }
 
-    //初始化判定线(干员)动画
-    private void InitOperatorAnim()
+
+    //更新判定线动画
+    private void UpdateOperterAnim()
     {
-        //创建一个Sequence
-        Sequence sq = DOTween.Sequence();
-        //循环遍历动画命令
-        foreach (AnimCommand ac in o.animCommands)
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+
+        while (ct >= o.animCommands[oaIdx].beginTime)
         {
-            sq.Append(ac.GetTween(this.transform));
+            //动画基于SpriteRender
+            if (o.animCommands[oaIdx].animCommandType == ANIM_COMMAND.OP_CA)
+            {
+                SpriteRenderer sp = this.GetComponent<SpriteRenderer>();
+                o.animCommands[oaIdx].GetTween(sp).Play();
+            }
+            //使用Transform
+            else
+            {
+                o.animCommands[oaIdx].GetTween(this.transform).Play();
+            }
         }
+        //向下移动
+        oaIdx++;
     }
+
 
 }
