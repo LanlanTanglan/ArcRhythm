@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class test : MonoBehaviour
     void Start()
     {
         this.bms = new BMS().SetParam(JsonUtil.readJSON("StaffData\\" + "testStaff1" + ".json"));
+        BaseOperator bo = this.GetComponent<BaseOperator>();
+        bo.o = bms.operSet[0];
     }
 
     // Update is called once per frame

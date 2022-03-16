@@ -83,7 +83,7 @@ namespace ArcRhythm
 
         public override AnimCommand SetParam(JToken jt)
         {
-            this.endPos = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]);
+            this.endPos = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]) / 100;
 
             return base.SetParam(jt);
         }
@@ -132,7 +132,7 @@ namespace ArcRhythm
         }
         public override AnimCommand SetParam(JToken jt)
         {
-            this.endalpha = (float)jt["endalpha"] / 255;
+            this.endalpha = (float)jt["endAlpha"] / 255;
             return base.SetParam(jt);
         }
     }

@@ -51,14 +51,32 @@
             "animCommands": [
                 {
                     "animCommandType": 1,
-                    "beginTime": -5,
+                    "beginTime": -2,
                     "endTime": 1,
+                    "motionType": 1,
                     "endPos": [
-                        -500,
-                        -200,
+                        0,
+                        0,
                         0
-                    ],
-                    "motionType": 1
+                    ]
+                },
+                {
+                    "animCommandType": 2,
+                    "beginTime": -2,
+                    "endTime": 1,
+                    "motionType": 1,
+                    "endRotate": [
+                        0,
+                        0,
+                        60
+                    ]
+                },
+                {
+                    "animCommandType": 3,
+                    "beginTime": -2,
+                    "endTime": 1,
+                    "motionType": 1,
+                    "endAlpha":100
                 }
             ]
         }

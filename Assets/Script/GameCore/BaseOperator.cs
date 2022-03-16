@@ -53,7 +53,7 @@ public class BaseOperator : MonoBehaviour
     {
         float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
 
-        while (ct >= o.animCommands[oaIdx].beginTime)
+        while (oaIdx < o.animCommands.Count && ct >= o.animCommands[oaIdx].beginTime)
         {
             //动画基于SpriteRender
             if (o.animCommands[oaIdx].animCommandType == ANIM_COMMAND.OP_CA)
@@ -66,10 +66,8 @@ public class BaseOperator : MonoBehaviour
             {
                 o.animCommands[oaIdx].GetTween(this.transform).Play();
             }
+            //下一条命令
+            oaIdx++;
         }
-        //向下移动
-        oaIdx++;
     }
-
-
 }
