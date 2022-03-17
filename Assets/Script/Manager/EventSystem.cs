@@ -21,4 +21,10 @@ public class GameProcessManager : Singleton<GameProcessManager>
     {
         this.StopGameEvent(key);
     }
+
+    //铺面事件
+    public delegate void BMSHandel();
+
+    //铺面加载完成
+    public event BMSHandel BMSLoaded;
 }
