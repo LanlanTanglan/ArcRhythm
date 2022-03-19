@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 游戏时钟管理器
+/// 管理游戏进程的时钟，与铺面延迟有着相似的关系
+/// </summary>
 public class GameClockManager : Singleton<GameClockManager>
 {
     public bool isStopGame = false;
