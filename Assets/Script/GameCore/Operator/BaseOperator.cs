@@ -19,7 +19,6 @@ public class BaseOperator : MonoBehaviour
     {
         //注册事件
         Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
-
     }
     void Start()
     {
