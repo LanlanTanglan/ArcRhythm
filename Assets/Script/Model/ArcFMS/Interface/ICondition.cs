@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace ArcFMS
+namespace ArcState
 {
-    public interface ICondition<T>
+    interface ICondition
     {
 
     }
