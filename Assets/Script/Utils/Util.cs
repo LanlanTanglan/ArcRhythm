@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
-using ArcM2;
+using ArcRhythm;
 
 
 namespace Util
@@ -85,8 +85,34 @@ namespace Util
         //生成敌人的初始位置 TODO 传入的是速度曲线
         public static Vector3 EnemyInitialPos(TapNote note, Operator oper)
         {
-            
+
             return new Vector3(0, 0, 0);
+        }
+
+        //根据Note生成对应的位置
+        public static Vector3 GeneratePos(Note note, Operator oper)
+        {
+
+            float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+            float distance = 0;//长度
+
+            int idx = 0;
+            //找到ct的位置
+            while (idx < oper.opsvList.Count && ct > oper.opsvList[idx].beginTime)
+                idx++;
+            idx--;
+
+            //计算ct与endTime的距离
+            distance -= (ct - oper.opsvList[idx].beginTime) * oper.opsvList[idx].newSpeed;
+            while (idx < oper.opsvList.Count - 1 && note.endTime > oper.opsvList[idx + 1].beginTime)
+            {
+                distance += (oper.opsvList[idx + 1].beginTime - oper.opsvList[idx].beginTime) * oper.opsvList[idx].newSpeed;
+                idx++;
+            }
+            distance += (note.endTime - oper.opsvList[idx].beginTime) * oper.opsvList[idx].newSpeed;
+
+
+            return Vector3.zero;
         }
 
     }
