@@ -24,6 +24,7 @@ public class BMSManager : Singleton<BMSManager>
         //注册事件
         Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
         operatorObjs = new List<GameObject>();
+        baseOperators = new List<BaseOperator>();
     }
     private void StopGame(bool key)
     {
@@ -32,7 +33,9 @@ public class BMSManager : Singleton<BMSManager>
 
     public BMS bms;//铺面
     public bool isLoadBMS = false;//是否加载铺面
-    public List<GameObject> operatorObjs;
+    public List<GameObject> operatorObjs;//干员obj存储
+    public List<Operator> operators;//干员信息
+    public List<BaseOperator> baseOperators;
     public int[] noteIdx = new int[4] { 0, 0, 0, 0 };//Note的idx
 
     void Update()
@@ -45,6 +48,8 @@ public class BMSManager : Singleton<BMSManager>
             {
                 LoadNotes();
             }
+
+            //TODO   
         }
     }
 
@@ -52,7 +57,11 @@ public class BMSManager : Singleton<BMSManager>
     public void StopLoadBMS()
     {
         this.bms = null;
+
         this.noteIdx = new int[4] { 0, 0, 0, 0 };
+
+        operatorObjs = new List<GameObject>();
+        baseOperators = new List<BaseOperator>();
     }
 
     /// <summary>
@@ -93,6 +102,8 @@ public class BMSManager : Singleton<BMSManager>
             BaseOperator bo = opObj.AddComponent<BaseOperator>();
             //传入参数初始化
             bo.Init(o);
+            operatorObjs.Add(opObj);
+            baseOperators.Add(bo);
         }
 
     }
@@ -135,7 +146,7 @@ public class BMSManager : Singleton<BMSManager>
     {
         float ct = GameClockManager.Instance.currentGamePalyTime;
         //加载TapNote
-        while (bms.noteSet.longTapNotes != null &&noteIdx[1] < bms.noteSet.longTapNotes.Count && bms.noteSet.longTapNotes[noteIdx[1]].endTime - ct <= 5f)
+        while (bms.noteSet.longTapNotes != null && noteIdx[1] < bms.noteSet.longTapNotes.Count && bms.noteSet.longTapNotes[noteIdx[1]].endTime - ct <= 5f)
         {
             Note n = bms.noteSet.longTapNotes[noteIdx[1]];
             GameObject nObj = Instantiate((GameObject)Resources.Load(ArcPath.prefebDirOfEnemy + Enum.GetName(typeof(ENEMY), (int)n.enemy)));
@@ -154,7 +165,7 @@ public class BMSManager : Singleton<BMSManager>
     {
         float ct = GameClockManager.Instance.currentGamePalyTime;
         //加载TapNote
-        while (bms.noteSet.pushNotes != null &&noteIdx[2] < bms.noteSet.pushNotes.Count && bms.noteSet.pushNotes[noteIdx[2]].endTime - ct <= 5f)
+        while (bms.noteSet.pushNotes != null && noteIdx[2] < bms.noteSet.pushNotes.Count && bms.noteSet.pushNotes[noteIdx[2]].endTime - ct <= 5f)
         {
             Note n = bms.noteSet.pushNotes[noteIdx[2]];
             GameObject nObj = Instantiate((GameObject)Resources.Load(ArcPath.prefebDirOfEnemy + Enum.GetName(typeof(ENEMY), (int)n.enemy)));
@@ -173,7 +184,7 @@ public class BMSManager : Singleton<BMSManager>
     {
         float ct = GameClockManager.Instance.currentGamePalyTime;
         //加载TapNote
-        while (bms.noteSet.pullNotes != null &&noteIdx[3] < bms.noteSet.pullNotes.Count && bms.noteSet.pullNotes[noteIdx[0]].endTime - ct <= 5f)
+        while (bms.noteSet.pullNotes != null && noteIdx[3] < bms.noteSet.pullNotes.Count && bms.noteSet.pullNotes[noteIdx[0]].endTime - ct <= 5f)
         {
             Note n = bms.noteSet.pullNotes[noteIdx[3]];
             GameObject nObj = Instantiate((GameObject)Resources.Load(ArcPath.prefebDirOfEnemy + Enum.GetName(typeof(ENEMY), (int)n.enemy)));

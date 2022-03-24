@@ -56,7 +56,6 @@ namespace ArcRhythm
         public int targetOperId;
         public int attackId;
         public DIRECTION direction;
-        public float speed;
 
         public float endTime;
 
@@ -72,7 +71,7 @@ namespace ArcRhythm
             this.targetOperId = (int)jt["targetOperId"];
             this.attackId = (int)jt["attackId"];
             this.direction = (DIRECTION)(int)jt["direction"];
-            this.speed = (float)jt["speed"];
+            
 
             this.endTime = (float)jt["endTime"];
 

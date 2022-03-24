@@ -1,10 +1,10 @@
 using UnityEngine;
-using ArcM2;
 using Util;
 
 
 /// <summary>
 /// 游戏进程事件管理
+/// TODO 使用事件池作为事件接收中心
 /// </summary>
 public class GameProcessManager : Singleton<GameProcessManager>
 {

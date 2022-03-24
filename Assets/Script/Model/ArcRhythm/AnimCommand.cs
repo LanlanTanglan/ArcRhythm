@@ -2,6 +2,10 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
 
+/// <summary>
+/// 我们规定，单元的像素长度是100，并且写的时候是以 x * 100的形式表达
+/// </summary>
+
 namespace ArcRhythm
 {
     [System.Serializable]
@@ -83,7 +87,7 @@ namespace ArcRhythm
 
         public override AnimCommand SetParam(JToken jt)
         {
-            this.endPos = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]) / 100;
+            this.endPos = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]) / ArcNum.pixelPreUnit;
 
             return base.SetParam(jt);
         }
@@ -152,6 +156,12 @@ namespace ArcRhythm
         public OpSV()
         {
 
+        }
+
+        public OpSV(float beginTime, float s)
+        {
+            this.newSpeed = s;
+            this.beginTime = beginTime;
         }
     }
 

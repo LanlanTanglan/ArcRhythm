@@ -9,6 +9,9 @@ public class BaseTapNote : MonoBehaviour
 {
     public Note note;
     public bool isStopGame = false;
+    public bool isJudged = false;
+    public BaseOperator targetBaseOperator;
+    //public float currentSpeed;
 
     void Awake()
     {
@@ -22,8 +25,22 @@ public class BaseTapNote : MonoBehaviour
 
     void Update()
     {
-
+        if (!isStopGame)
+        {
+            //TODO 判定提示动画(就是类似于一个小圈圈)
+            //判定
+            if (!isJudged)
+            {
+                UpdateJudge();
+            }
+            //更新位置
+            UpdatePos();
+        }
     }
+
+    #region 事件发布块
+
+    #endregion
 
     #region 事件注册块
     //暂停游戏
@@ -33,9 +50,83 @@ public class BaseTapNote : MonoBehaviour
     }
 
     #endregion
-    
+
     public void Init(Note n)
     {
+        //初始化信息
         this.note = n;
+        this.targetBaseOperator = Singleton<BMSManager>.Instance.baseOperators[n.targetOperId];
+
+        //将其绑定在父物体上
+        this.transform.SetParent(Singleton<BMSManager>.Instance.operatorObjs[n.targetOperId].transform);
+        //设置在正确的攻击范围上
+        this.transform.localPosition = ArcMUtil.GetNoteOffset(targetBaseOperator.o.attackRange, note.attackId);
+        //设置note生成位置
+        this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, ArcMUtil.GenerateNotePos(note, targetBaseOperator.o)) / 100;
+    }
+
+    /// <summary>
+    /// 更新Note的位置
+    /// </summary>
+    private void UpdatePos()
+    {
+        //注意负号
+        this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, -targetBaseOperator.o.speed * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// 铺面判定相关
+    /// </summary>
+    private void UpdateJudge()
+    {
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+
+        //开始判定的时间范围
+        if (ct - note.endTime >= ArcNum.prJudgeTime && ct - note.endTime <= ArcNum.neJudgeTime)
+        {
+            //时刻监听输入器中是否有需要的输入状态
+            //如果监听到了就在下一帧转到 判定完美度判断
+            if (Singleton<KeyboardInputManager>.Instance.LoadInputState(targetBaseOperator.o.keyType, InputType.TAP))
+            {
+                isJudged = true;
+                return;
+            }
+        }
+        //MISS
+        //超出了判定时间了, 代表着miss
+        else if (ct - note.endTime > ArcNum.neJudgeTime)
+        {
+            Debug.Log("Miss");
+            Debug.Log(ct - note.endTime);
+            Destroy(this.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// 处理判定结果，TODO并播放动画
+    /// </summary>
+    private void UpdateJudgeResult()
+    {
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+        if (isJudged)
+        {
+            float c = ct - note.endTime;
+            //Bad
+            if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.perJudgeTime)
+            {
+                Debug.Log("Bad");
+            }
+            //Good
+            if ((c >= -2 * ArcNum.perJudgeTime && c < ArcNum.perJudgeTime) || (ct > ArcNum.perJudgeTime && ct <= 2 * ArcNum.perJudgeTime))
+            {
+                Debug.Log("Good");
+            }
+
+            //Perfect
+            if ((c >= -ArcNum.perJudgeTime && c <= 0) || (ct >= 0 && ct <= ArcNum.perJudgeTime))
+            {
+                Debug.Log("Perfect");
+            }
+        }
     }
 }

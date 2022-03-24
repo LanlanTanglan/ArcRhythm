@@ -1,4 +1,5 @@
 using UnityEngine;
+using ArcRhythm;
 
 /// <summary>
 /// 游戏时钟管理器
@@ -8,7 +9,7 @@ public class GameClockManager : Singleton<GameClockManager>
 {
     public bool isStopGame = false;
     public float globalTime = 0;//游戏全局时间
-    public float currentGamePalyTime = -5f;//当前游戏时间
+    public float currentGamePalyTime = ArcNum.defaultBeginTime;//当前游戏时间
     public bool isGameBeginGlobal = false;
     public bool isGameBegin = false;
 

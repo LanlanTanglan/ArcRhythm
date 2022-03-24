@@ -14,10 +14,9 @@
             {
                 "noteType": 1,
                 "enemy": 1,
-                "targetOperId": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
-                "speed": 7,
                 "endTime": 0.276,
                 "isFake": 0,
                 "fakePos": [
@@ -31,9 +30,8 @@
             {
                 "noteType": 3,
                 "enemy": 1,
-                "targetOperId": 3,
+                "targetOperId": 0,
                 "attackId": 1,
-                "speed": 1,
                 "endTime": 1,
                 "direction": 4,
                 "endTimeList": [],
@@ -43,7 +41,8 @@
     },
     "operSet": [
         {
-            "idx": 1,
+            "idx": 0,
+            "speed":7,
             "operatorType": 1,
             "attackRange": 2,
             "direction": 3,

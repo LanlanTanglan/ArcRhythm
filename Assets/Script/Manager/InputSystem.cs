@@ -51,6 +51,71 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         {
             // Debug.Log("A键抬起");
         }
+
+        //S
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            // Debug.Log("A键按下");
+            AddInputState(KeyCode.S, InputType.TAP, 2);
+            AddInputState(KeyCode.S, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            // Debug.Log("A键持续ing~~");
+            AddInputState(KeyCode.S, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            // Debug.Log("A键抬起");
+        }
+        //A
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            // Debug.Log("A键按下");
+            AddInputState(KeyCode.K, InputType.TAP, 2);
+            AddInputState(KeyCode.K, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            // Debug.Log("A键持续ing~~");
+            AddInputState(KeyCode.K, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            // Debug.Log("A键抬起");
+        }
+        //A
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            // Debug.Log("A键按下");
+            AddInputState(KeyCode.L, InputType.TAP, 2);
+            AddInputState(KeyCode.L, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKey(KeyCode.L))
+        {
+            // Debug.Log("A键持续ing~~");
+            AddInputState(KeyCode.L, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            // Debug.Log("A键抬起");
+        }
+        //A
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Debug.Log("A键按下");
+            AddInputState(KeyCode.Space, InputType.TAP, 2);
+            AddInputState(KeyCode.Space, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            // Debug.Log("A键持续ing~~");
+            AddInputState(KeyCode.Space, InputType.LONG_TAP, 1);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            // Debug.Log("A键抬起");
+        }
     }
 
     //更新按键状态栈
@@ -64,7 +129,14 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         }
     }
 
-    //占有某个按键状态
+    
+
+    /// <summary>
+    /// 占有某个按键状态
+    /// </summary>
+    /// <param name="k"></param>
+    /// <param name="it"></param>
+    /// <returns></returns>
     public bool LoadInputState(KeyCode k, InputType it)
     {
         foreach (BaseInput b in currentInputState)

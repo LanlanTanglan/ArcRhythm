@@ -70,7 +70,7 @@ namespace Util
     public class ArcMUtil
     {
         //获取敌人对不同攻击范围的偏移量
-        public static Vector3 GetEnemyOffset(ATTACK_RANGE_TYPE art, int attackId)
+        public static Vector3 GetNoteOffset(ATTACK_RANGE_TYPE art, int attackId)
         {
             if (art == ATTACK_RANGE_TYPE.Vanguard_2)
             {
@@ -89,8 +89,8 @@ namespace Util
             return new Vector3(0, 0, 0);
         }
 
-        //根据Note生成对应的位置
-        public static Vector3 GeneratePos(Note note, Operator oper)
+        ///根据Note的放置时间, 以及oper的命令效果，生成距离判定点的距离
+        public static float GenerateNotePos(Note note, Operator oper)
         {
 
             float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
@@ -111,9 +111,34 @@ namespace Util
             }
             distance += (note.endTime - oper.opsvList[idx].beginTime) * oper.opsvList[idx].newSpeed;
 
-
-            return Vector3.zero;
+            return distance * 100;
         }
 
+
+        /// <summary>
+        /// 根据Note的朝向设置其位置
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="len"></param>
+        public static Vector3 GetPosByDirection(DIRECTION dir, float len)
+        {
+            if (dir == DIRECTION.LEFT)
+            {
+                return new Vector3(len, 0, 0);
+            }
+            else if (dir == DIRECTION.UP)
+            {
+                return new Vector3(0, -len, 0);
+            }
+            else if (dir == DIRECTION.RIGHT)
+            {
+                return new Vector3(-len, 0, 0);
+            }
+            else if (dir == DIRECTION.DOWN)
+            {
+                return new Vector3(0, len, 0);
+            }
+            return Vector3.zero;
+        }
     }
 }

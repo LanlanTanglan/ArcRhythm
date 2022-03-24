@@ -86,4 +86,13 @@ public class BaseOperator : MonoBehaviour
             oaIdx++;
         }
     }
+
+    /// <summary>
+    /// 生成判定动画
+    /// </summary>
+    /// <param name="note"></param>
+    public void CreateJudgeAnim(Note note)
+    {
+
+    }
 }
