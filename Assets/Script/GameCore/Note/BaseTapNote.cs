@@ -28,11 +28,9 @@ public class BaseTapNote : MonoBehaviour
         if (!isStopGame)
         {
             //TODO 判定提示动画(就是类似于一个小圈圈)
+            UpdateJudge();
             //判定
-            if (!isJudged)
-            {
-                UpdateJudge();
-            }
+            UpdateJudge();
             //更新位置
             UpdatePos();
         }
@@ -96,8 +94,8 @@ public class BaseTapNote : MonoBehaviour
         //超出了判定时间了, 代表着miss
         else if (ct - note.endTime > ArcNum.neJudgeTime)
         {
+            targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
             Debug.Log("Miss");
-            Debug.Log(ct - note.endTime);
             Destroy(this.gameObject);
         }
     }
@@ -114,18 +112,24 @@ public class BaseTapNote : MonoBehaviour
             //Bad
             if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.perJudgeTime)
             {
+                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
                 Debug.Log("Bad");
+                Destroy(this.gameObject);
             }
             //Good
             if ((c >= -2 * ArcNum.perJudgeTime && c < ArcNum.perJudgeTime) || (ct > ArcNum.perJudgeTime && ct <= 2 * ArcNum.perJudgeTime))
             {
+                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
                 Debug.Log("Good");
+                Destroy(this.gameObject);
             }
 
             //Perfect
             if ((c >= -ArcNum.perJudgeTime && c <= 0) || (ct >= 0 && ct <= ArcNum.perJudgeTime))
             {
-                Debug.Log("Perfect");
+                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
+                Debug.Log("Miss");
+                Destroy(this.gameObject);
             }
         }
     }

@@ -2,6 +2,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
 using ArcRhythm;
+using System;
 
 
 /// <summary>
@@ -53,7 +54,7 @@ public class BaseOperator : MonoBehaviour
         Color color = this.spriteRenderer.color;
         color.a = 1;
         this.spriteRenderer.color = color;
-        
+
         //TODO Note信息统计
 
         //TODO 设置Obj的攻击范围
@@ -91,8 +92,30 @@ public class BaseOperator : MonoBehaviour
     /// 生成判定动画
     /// </summary>
     /// <param name="note"></param>
-    public void CreateJudgeAnim(Note note)
+    public void CreateJudgeAnim(Note note, JUDGE_RESULT jr)
     {
+        //根据枚举初始化一个物体
+        GameObject pObj = Instantiate((GameObject)Resources.Load("Prefab/Judge/" + Enum.GetName(typeof(JUDGE_RESULT), jr)));
+        pObj.transform.SetParent(this.transform);
+        //让这个物体绑定对应的脚本
+        BaseJudgePerfor bjp = null;
+        if (jr == JUDGE_RESULT.Perfect)
+        {
+            bjp = pObj.AddComponent<Perfect>();
+        }
+        else if (jr == JUDGE_RESULT.Good)
+        {
+            bjp = pObj.AddComponent<Perfect>();
+        }
+        else if (jr == JUDGE_RESULT.Bad)
+        {
+            bjp = pObj.AddComponent<Perfect>();
+        }
+        else
+        {
+            bjp = pObj.AddComponent<Perfect>();
+        }
 
+        bjp.Init(o.attackRange, note.attackId);
     }
 }
