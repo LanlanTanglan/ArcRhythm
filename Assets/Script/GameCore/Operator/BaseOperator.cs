@@ -105,15 +105,15 @@ public class BaseOperator : MonoBehaviour
         }
         else if (jr == JUDGE_RESULT.Good)
         {
-            bjp = pObj.AddComponent<Perfect>();
+            bjp = pObj.AddComponent<Good>();
         }
         else if (jr == JUDGE_RESULT.Bad)
         {
-            bjp = pObj.AddComponent<Perfect>();
+            bjp = pObj.AddComponent<Bad>();
         }
         else
         {
-            bjp = pObj.AddComponent<Perfect>();
+            bjp = pObj.AddComponent<Miss>();
         }
 
         bjp.Init(o.attackRange, note.attackId);

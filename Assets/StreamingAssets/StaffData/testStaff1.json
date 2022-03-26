@@ -17,7 +17,7 @@
                 "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
-                "endTime": 0.276,
+                "endTime": 0.5,
                 "isFake": 0,
                 "fakePos": [
                     0,
@@ -42,41 +42,13 @@
     "operSet": [
         {
             "idx": 0,
-            "speed":7,
+            "speed":3,
             "operatorType": 1,
             "attackRange": 2,
             "direction": 3,
             "keyType": 97,
             "animCommands": [
-                {
-                    "animCommandType": 1,
-                    "beginTime": -2,
-                    "endTime": 1,
-                    "motionType": 1,
-                    "endPos": [
-                        0,
-                        0,
-                        0
-                    ]
-                },
-                {
-                    "animCommandType": 2,
-                    "beginTime": -2,
-                    "endTime": 1,
-                    "motionType": 1,
-                    "endRotate": [
-                        0,
-                        0,
-                        60
-                    ]
-                },
-                {
-                    "animCommandType": 3,
-                    "beginTime": -2,
-                    "endTime": 1,
-                    "motionType": 1,
-                    "endAlpha":100
-                }
+                
             ]
         }
     ]

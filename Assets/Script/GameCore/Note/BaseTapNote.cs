@@ -28,9 +28,10 @@ public class BaseTapNote : MonoBehaviour
         if (!isStopGame)
         {
             //TODO 判定提示动画(就是类似于一个小圈圈)
-            UpdateJudge();
+            UpdateJudgeResult();
             //判定
             UpdateJudge();
+
             //更新位置
             UpdatePos();
         }
@@ -94,8 +95,8 @@ public class BaseTapNote : MonoBehaviour
         //超出了判定时间了, 代表着miss
         else if (ct - note.endTime > ArcNum.neJudgeTime)
         {
-            targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
-            Debug.Log("Miss");
+            Debug.Log("Miss" + (ct - note.endTime) + this.transform.localPosition);
+            targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Miss);
             Destroy(this.gameObject);
         }
     }
@@ -110,25 +111,29 @@ public class BaseTapNote : MonoBehaviour
         {
             float c = ct - note.endTime;
             //Bad
-            if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.perJudgeTime)
+            if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
             {
-                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
-                Debug.Log("Bad");
+
+                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Bad);
+                Debug.Log("Bad" + c + this.transform.localPosition);
                 Destroy(this.gameObject);
             }
+
             //Good
-            if ((c >= -2 * ArcNum.perJudgeTime && c < ArcNum.perJudgeTime) || (ct > ArcNum.perJudgeTime && ct <= 2 * ArcNum.perJudgeTime))
+            if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (ct > ArcNum.perJudgeTime && ct <= 2 * ArcNum.perJudgeTime))
             {
-                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
-                Debug.Log("Good");
+                Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Good);
+                Debug.Log("Good" + c + this.transform.localPosition);
                 Destroy(this.gameObject);
             }
 
             //Perfect
             if ((c >= -ArcNum.perJudgeTime && c <= 0) || (ct >= 0 && ct <= ArcNum.perJudgeTime))
             {
+                Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
                 targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
-                Debug.Log("Miss");
+                Debug.Log("Perfect" + c + this.transform.localPosition);
                 Destroy(this.gameObject);
             }
         }

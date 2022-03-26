@@ -9,7 +9,12 @@ public class Perfect : BaseJudgePerfor
     // Start is called before the first frame update
     void Start()
     {
-
+        this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 0.84f, 0), 0.5f)
+                .SetEase(Ease.OutQuart)
+                .OnComplete(() =>
+                {
+                    Destroy(this.gameObject);
+                });
     }
 
     // Update is called once per frame
@@ -21,11 +26,5 @@ public class Perfect : BaseJudgePerfor
     public override void Init(ATTACK_RANGE_TYPE art, int idx)
     {
         base.Init(art, idx);
-        this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 0.64f, 0), 0.5f)
-        .SetEase(Ease.OutElastic)
-        .OnComplete(() =>
-        {
-            Destroy(this.gameObject);
-        });
     }
 }

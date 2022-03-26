@@ -32,6 +32,11 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         }
     }
 
+    public void Init()
+    {
+        
+    }
+
     //监听常用按键
     public void InputListener()
     {
