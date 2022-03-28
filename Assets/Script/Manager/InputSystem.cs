@@ -44,7 +44,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         if (Input.GetKeyDown(KeyCode.A))
         {
             // Debug.Log("A键按下");
-            AddInputState(KeyCode.A, InputType.TAP, 2);
+            AddInputState(KeyCode.A, InputType.TAP, 10);
             AddInputState(KeyCode.A, InputType.LONG_TAP, 1);
         }
         if (Input.GetKey(KeyCode.A))
@@ -61,7 +61,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         if (Input.GetKeyDown(KeyCode.S))
         {
             // Debug.Log("A键按下");
-            AddInputState(KeyCode.S, InputType.TAP, 2);
+            AddInputState(KeyCode.S, InputType.TAP, 10);
             AddInputState(KeyCode.S, InputType.LONG_TAP, 1);
         }
         if (Input.GetKey(KeyCode.S))
@@ -77,7 +77,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         if (Input.GetKeyDown(KeyCode.K))
         {
             // Debug.Log("A键按下");
-            AddInputState(KeyCode.K, InputType.TAP, 2);
+            AddInputState(KeyCode.K, InputType.TAP, 10);
             AddInputState(KeyCode.K, InputType.LONG_TAP, 1);
         }
         if (Input.GetKey(KeyCode.K))
@@ -93,7 +93,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         if (Input.GetKeyDown(KeyCode.L))
         {
             // Debug.Log("A键按下");
-            AddInputState(KeyCode.L, InputType.TAP, 2);
+            AddInputState(KeyCode.L, InputType.TAP, 10);
             AddInputState(KeyCode.L, InputType.LONG_TAP, 1);
         }
         if (Input.GetKey(KeyCode.L))
@@ -109,7 +109,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Debug.Log("A键按下");
-            AddInputState(KeyCode.Space, InputType.TAP, 2);
+            AddInputState(KeyCode.Space, InputType.TAP, 10);
             AddInputState(KeyCode.Space, InputType.LONG_TAP, 1);
         }
         if (Input.GetKey(KeyCode.Space))

@@ -22,11 +22,19 @@ public class BaseTapNote : MonoBehaviour
     {
 
     }
-
+    public bool mutex = true;
     void Update()
     {
         if (!isStopGame)
         {
+            if(mutex)
+            {
+                if(Singleton<GameClockManager>.Instance.currentGamePalyTime >= note.endTime)
+                {
+                    Debug.Log("正中央当前位置:" + this.transform.localPosition);
+                    mutex = false;
+                }
+            }
             //TODO 判定提示动画(就是类似于一个小圈圈)
             UpdateJudgeResult();
             //判定
@@ -113,27 +121,26 @@ public class BaseTapNote : MonoBehaviour
             //Bad
             if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
             {
-
-                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Bad);
                 Debug.Log("Bad" + c + this.transform.localPosition);
+                targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Bad);
                 Destroy(this.gameObject);
             }
 
             //Good
             if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (ct > ArcNum.perJudgeTime && ct <= 2 * ArcNum.perJudgeTime))
             {
+                Debug.Log("Good" + c + this.transform.localPosition);
                 Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
                 targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Good);
-                Debug.Log("Good" + c + this.transform.localPosition);
                 Destroy(this.gameObject);
             }
 
             //Perfect
             if ((c >= -ArcNum.perJudgeTime && c <= 0) || (ct >= 0 && ct <= ArcNum.perJudgeTime))
             {
+                Debug.Log("Perfect" + c + this.transform.localPosition);
                 Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
                 targetBaseOperator.CreateJudgeAnim(note, JUDGE_RESULT.Perfect);
-                Debug.Log("Perfect" + c + this.transform.localPosition);
                 Destroy(this.gameObject);
             }
         }

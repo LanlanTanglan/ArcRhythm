@@ -9,7 +9,7 @@ public class Bad : BaseJudgePerfor
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 0.84f, 0), 0f)
+        this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 0.84f, 0), 0.5f)
                 .SetEase(Ease.OutQuart)
                 .OnComplete(() =>
                 {
