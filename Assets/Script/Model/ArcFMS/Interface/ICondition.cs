@@ -1,7 +1,0 @@
-namespace ArcState
-{
-    interface ICondition
-    {
-
-    }
-}
