@@ -13,7 +13,7 @@ public class BaseOperator : MonoBehaviour
 
     public Operator o;
     public int oaIdx = 0;//判定线动画指针
-    public bool isStopGame = false;
+    
     public SpriteRenderer spriteRenderer;
 
     void Awake()
@@ -35,6 +35,7 @@ public class BaseOperator : MonoBehaviour
     }
 
     #region 事件注册块
+    public bool isStopGame = false;
     //暂停游戏
     private void StopGame(bool key)
     {
@@ -49,11 +50,11 @@ public class BaseOperator : MonoBehaviour
         this.o = o;
         //设置Obj的初始位置
         this.transform.localPosition = Vector3.zero;
-        //设置Alpha值
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
-        Color color = this.spriteRenderer.color;
-        color.a = 1;
-        this.spriteRenderer.color = color;
+        //TODO //设置Alpha值
+        // spriteRenderer = this.GetComponent<SpriteRenderer>();
+        // Color color = this.spriteRenderer.color;
+        // color.a = 1;
+        // this.spriteRenderer.color = color;
 
         //TODO Note信息统计
 

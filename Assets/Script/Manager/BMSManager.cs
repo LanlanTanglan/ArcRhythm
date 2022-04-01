@@ -100,8 +100,10 @@ public class BMSManager : Singleton<BMSManager>
             opObj.name = ArcStr.operatorName + "(" + objn + ")";
             //绑定Operator脚本
             BaseOperator bo = opObj.AddComponent<BaseOperator>();
+            BaseOperatorController boc = opObj.AddComponent<BaseOperatorController>();
             //传入参数初始化
             bo.Init(o);
+            boc.Init(o);
             operatorObjs.Add(opObj);
             baseOperators.Add(bo);
         }

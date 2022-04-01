@@ -76,7 +76,7 @@ namespace Util
             {
                 if (attackId == 1)
                 {
-                    return new Vector3(128, 0, 0) / parma.perUnit;
+                    return new Vector3(250, 0, 0) / parma.perUnit;
                 }
             }
             return new Vector3(0, 0, 0);

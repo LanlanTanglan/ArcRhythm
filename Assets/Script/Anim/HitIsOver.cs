@@ -25,7 +25,7 @@ public class HitIsOver : StateMachineBehaviour
         }
         if (stateInfo.normalizedTime > hitLen)
         {
-            animator.SetBool("is_hit", false);
+            animator.SetBool("isAttacking", false);
         }
     }
 

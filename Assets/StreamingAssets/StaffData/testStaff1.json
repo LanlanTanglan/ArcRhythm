@@ -42,7 +42,7 @@
     "operSet": [
         {
             "idx": 0,
-            "speed":3,
+            "speed":7,
             "operatorType": 1,
             "attackRange": 2,
             "direction": 3,
