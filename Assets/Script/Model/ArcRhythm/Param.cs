@@ -1,3 +1,4 @@
+using UnityEngine;
 namespace ArcRhythm
 {
     /// <summary>
@@ -24,5 +25,6 @@ namespace ArcRhythm
         public static float badJudgeTime = 0.03f;//判定失败单位格子宽度
         public static float prJudgeTime = -(perJudgeTime * 2 + badJudgeTime);//判定区间
         public static float neJudgeTime = 2 * perJudgeTime;//判定区间
+        public static Vector3 perY = new Vector3(0, pixelPreUnit, 0);//单位Y长度
     }
 }

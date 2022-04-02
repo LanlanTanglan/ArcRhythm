@@ -13,7 +13,7 @@ public class BaseOperator : MonoBehaviour
 
     public Operator o;
     public int oaIdx = 0;//判定线动画指针
-    
+
     public SpriteRenderer spriteRenderer;
 
     void Awake()
@@ -60,6 +60,16 @@ public class BaseOperator : MonoBehaviour
 
         //TODO 设置Obj的攻击范围
 
+        //根据干员的朝向设置朝向
+        setDirection(o.direction);
+    }
+
+    public void setDirection(DIRECTION d)
+    {
+        if (d == DIRECTION.LEFT)
+        {
+            this.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+        }
     }
 
 
@@ -71,12 +81,13 @@ public class BaseOperator : MonoBehaviour
         while (oaIdx < o.animCommands.Count && ct >= o.animCommands[oaIdx].beginTime)
         {
             //动画基于SpriteRender
+            //TODO 暂时不考虑透明度变化问题
             if (o.animCommands[oaIdx].animCommandType == ANIM_COMMAND.OP_CA)
             {
-                SpriteRenderer sp = this.GetComponent<SpriteRenderer>();
-                o.animCommands[oaIdx].GetTween(sp).Play();
-                //TODO 一级子节点变化
-                //TODO 二级子节点变化
+                // SpriteRenderer sp = this.GetComponent<SpriteRenderer>();
+                // o.animCommands[oaIdx].GetTween(sp).Play();
+                // //TODO 一级子节点变化
+                // //TODO 二级子节点变化
 
             }
             //使用Transform

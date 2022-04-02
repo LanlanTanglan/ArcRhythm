@@ -60,7 +60,7 @@ namespace ArcRhythm
         OP_CM = 1,
         OP_CR = 2,
         OP_CA = 3,
-        OP_SV,
+        OP_SV = 4,
     }
     [System.Serializable]
     //攻击范围(加上自身的位置)

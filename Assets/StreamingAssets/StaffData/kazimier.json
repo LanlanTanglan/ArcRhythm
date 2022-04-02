@@ -1,595 +1,690 @@
 {
-    "staffInfo": {
-        "musicName": "kazimier",
-        "staffName": "kazimier",
+    "BMSInfo": {
+        "musicName": "speed_of_night",
+        "BMSName": "speed_of_night",
         "author": "lltl",
-        "media": "kazimier.mp4",
+        "musicAuthor": "Arc",
+        "media": "xxx.mp4",
         "level": 1,
         "length": 111000,
-        "total": 20
+        "noteNum": 20
     },
-    "note": {
+    "noteSet": {
         "tapNotes": [
             {
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 1.477,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+                
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 1.477,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+                
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 1.935,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 2.077,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 2.189,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 2.340,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 2.446,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 2.841,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 3.336,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 3.784,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 3.935,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 4.031,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 4.137,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 4.266,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 4.707,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 5.207,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+ 
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 5.650,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 5.750,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 5.850,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 5.950,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+                
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 6.050,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+                
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 6.556,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 7.056,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 7.487,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 7.487,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 7.832,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 7.832,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             } ,{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 8.170,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             } ,{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 8.170,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             } ,{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 8.515,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 8.515,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 8.875,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 9.118,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 9.344,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 9.792,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 10.292,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 10.792,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 11.168,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 11.168,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 11.710,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 12.210,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 12.710,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 13.023,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 13.023,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 13.473,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 2,
+                "targetOperId": 1,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 13.932,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             },{
-                "type": 1,
+                "noteType": 1,
                 "enemy": 1,
-                "operatorIdx": 1,
+                "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 13.932,
-                "offset": [
+                "isFake": 0,
+                "fakePos": [
                     0,
                     0,
                     0
                 ]
+
             }
         ],
         "pushNotes": []
     },
-    "operators": [
+    "operSet": [
         {
-            "idx": 1,
-            "type": 1,
+            "idx": 0,
+            "speed":12,
+            "operatorType": 1,
             "attackRange": 2,
             "direction": 3,
             "keyType": 97,
-            "opers": [
+            "animCommands": [
                 {
-                    "type": 4,
+                    "animCommandType": 1,
                     "beginTime": -5,
-                    "endTime": 1,
+                    "endTime": -5,
                     "endPos": [
                         -500,
                         -200,
@@ -597,7 +692,7 @@
                     ],
                     "motionType": 1
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 1.477,
                     "endTime": 1.577,
                     "endPos": [
@@ -607,7 +702,7 @@
                     ],
                     "motionType": 18
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 1.577,
                     "endTime": 1.677,
                     "endPos": [
@@ -617,107 +712,107 @@
                     ],
                     "motionType": 19
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 1.935,
                     "endTime": 2.035,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.077,
                     "endTime": 2.177,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.189,
                     "endTime": 2.289,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.340,
                     "endTime": 2.440,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.446,
                     "endTime": 2.440,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         0
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 3.784,
                     "endTime": 3.884,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 3.935,
                     "endTime": 4.035,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 4.031,
                     "endTime": 4.131,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 4.137,
                     "endTime": 4.237,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 4.226,
                     "endTime": 4.326,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         0
                     ],
                     "motionType": 18
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 4.707,
                     "endTime": 4.957,
                     "endPos": [
@@ -727,7 +822,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 4.957,
                     "endTime": 5.207,
                     "endPos": [
@@ -737,57 +832,57 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.650,
                     "endTime": 5.750,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.750,
                     "endTime": 5.850,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.850,
                     "endTime": 5.950,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.950,
                     "endTime": 6.050,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 6.050,
                     "endTime": 7.050,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         0,
                         0
                     ],
                     "motionType": 18
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 7.487,
                     "endTime": 7.832,
                     "endPos": [
@@ -797,7 +892,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 7.487,
                     "endTime": 7.832,
                     "endPos": [
@@ -807,7 +902,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 7.832,
                     "endTime": 8.170,
                     "endPos": [
@@ -817,7 +912,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 8.170,
                     "endTime": 8.515,
                     "endPos": [
@@ -830,16 +925,17 @@
             ]
         },
         {
-            "idx": 2,
-            "type": 1,
+            "idx": 1,
+            "operatorType": 1,
+            "speed":12,
             "attackRange": 2,
             "direction": 1,
             "keyType": 108,
-            "opers": [
+            "animCommands": [
                 {
-                    "type": 4,
+                    "animCommandType": 1,
                     "beginTime": -5,
-                    "endTime": 1,
+                    "endTime": -5,
                     "endPos": [
                         500,
                         -200,
@@ -847,7 +943,7 @@
                     ],
                     "motionType": 1
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 1.477,
                     "endTime": 1.577,
                     "endPos": [
@@ -857,7 +953,7 @@
                     ],
                     "motionType": 19
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 1.577,
                     "endTime": 1.677,
                     "endPos": [
@@ -867,57 +963,57 @@
                     ],
                     "motionType": 19
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 1.935,
                     "endTime": 2.035,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.077,
                     "endTime": 2.177,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.189,
                     "endTime": 2.289,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.340,
                     "endTime": 2.440,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 2.446,
                     "endTime": 2.440,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         0
                     ],
                     "motionType": 18
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 2.841,
                     "endTime": 3.091,
                     "endPos": [
@@ -927,7 +1023,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 3.091,
                     "endTime": 3.336,
                     "endPos": [
@@ -937,107 +1033,107 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 3.784,
                     "endTime": 3.884,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 3.935,
                     "endTime": 4.035,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 4.031,
                     "endTime": 4.131,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 4.137,
                     "endTime": 4.237,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 4.226,
                     "endTime": 4.326,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         0
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.650,
                     "endTime": 5.750,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.750,
                     "endTime": 5.850,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.850,
                     "endTime": 5.950,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         -10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 5.950,
                     "endTime": 6.050,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         10
                     ],
                     "motionType": 18
                 },{
-                    "type": 2,
+                    "animCommandType": 2,
                     "beginTime": 6.050,
                     "endTime": 7.050,
-                    "endPos": [
+                    "endRotate": [
                         0,
                         180,
                         0
                     ],
                     "motionType": 18
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 6.556,
                     "endTime": 6.856,
                     "endPos": [
@@ -1047,7 +1143,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 6.856,
                     "endTime": 7.056,
                     "endPos": [
@@ -1057,7 +1153,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 7.487,
                     "endTime": 7.832,
                     "endPos": [
@@ -1067,7 +1163,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 7.487,
                     "endTime": 7.832,
                     "endPos": [
@@ -1077,7 +1173,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 7.832,
                     "endTime": 8.170,
                     "endPos": [
@@ -1087,7 +1183,7 @@
                     ],
                     "motionType": 9
                 },{
-                    "type": 1,
+                    "animCommandType": 1,
                     "beginTime": 8.170,
                     "endTime": 8.515,
                     "endPos": [

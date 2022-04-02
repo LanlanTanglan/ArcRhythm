@@ -63,13 +63,15 @@ public class BaseTapNote : MonoBehaviour
         //初始化信息
         this.note = n;
         this.targetBaseOperator = Singleton<BMSManager>.Instance.baseOperators[n.targetOperId];
-
         //将其绑定在父物体上
         this.transform.SetParent(Singleton<BMSManager>.Instance.operatorObjs[n.targetOperId].transform);
         //设置在正确的攻击范围上
         this.transform.localPosition = ArcMUtil.GetNoteOffset(targetBaseOperator.o.attackRange, note.attackId);
         //设置note生成位置
         this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, ArcMUtil.GenerateNotePos(note, targetBaseOperator.o)) / 100;
+        //设置角度
+        this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+    
     }
 
     /// <summary>
