@@ -926,7 +926,7 @@
         },
         {
             "idx": 1,
-            "operatorType": 1,
+            "operatorType": 2,
             "speed":12,
             "attackRange": 2,
             "direction": 1,

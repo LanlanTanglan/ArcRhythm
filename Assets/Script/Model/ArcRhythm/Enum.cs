@@ -31,7 +31,8 @@ namespace ArcRhythm
     //干员
     public enum OPERATOR
     {
-        Myrtle = 1//桃金娘
+        Myrtle = 1,//桃金娘
+        Bpipe = 2
     }
     [System.Serializable]
     //Note种类
