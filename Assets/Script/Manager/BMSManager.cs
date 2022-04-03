@@ -96,7 +96,8 @@ public class BMSManager : Singleton<BMSManager>
         foreach (Operator o in bms.operSet)
         {
             string objn = Enum.GetName(typeof(OPERATOR), (int)o.operatorType);
-            GameObject opObj = Instantiate((GameObject)Resources.Load(ArcPath.prefebDirOfOperator + objn));
+            // GameObject opObj = Instantiate((GameObject)Resources.Load(ArcPath.prefebDirOfOperator + objn));
+            GameObject opObj = Instantiate(Singleton<ABManager>.Instance.getAssetBundle("operator").LoadAsset(objn, typeof(GameObject)) as GameObject);
             opObj.name = ArcStr.operatorName + "(" + objn + ")";
             //绑定Operator脚本
             BaseOperator bo = opObj.AddComponent<BaseOperator>();
