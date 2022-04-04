@@ -23,6 +23,7 @@ public class ABManager : Singleton<ABManager>
         assetBundles.Add(path, ab);
     }
     //Is Editor of Ipad Code-App
+    //这是在电脑上修改的语句
     public AssetBundle getAssetBundle(string n)
     {
         return (AssetBundle)assetBundles[n];
