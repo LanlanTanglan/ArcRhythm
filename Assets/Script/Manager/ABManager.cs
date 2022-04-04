@@ -22,7 +22,7 @@ public class ABManager : Singleton<ABManager>
         AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + path);
         assetBundles.Add(path, ab);
     }
-
+    //Is Editor of Ipad Code-App
     public AssetBundle getAssetBundle(string n)
     {
         return (AssetBundle)assetBundles[n];
