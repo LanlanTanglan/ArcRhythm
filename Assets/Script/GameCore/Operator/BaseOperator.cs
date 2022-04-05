@@ -130,4 +130,68 @@ public class BaseOperator : MonoBehaviour
 
         bjp.Init(o.attackRange, note.attackId);
     }
+
+    /// <summary>
+    /// 处理判定结果，TODO并播放动画
+    /// </summary>
+    public void CreateJudgeAnim2(Note note, float ct)
+    {
+        float c = ct - note.endTime;
+        JUDGE_RESULT jr = JUDGE_RESULT.Miss;
+        //Bad
+        if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
+        {
+            Debug.Log("Bad" + c + this.transform.localPosition);
+            jr = JUDGE_RESULT.Bad;
+        }
+
+        //Good
+        if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (c > ArcNum.perJudgeTime && c <= 2 * ArcNum.perJudgeTime))
+        {
+            Debug.Log("Good" + c + this.transform.localPosition);
+            Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+            jr = JUDGE_RESULT.Good;
+        }
+
+        //Perfect
+        if ((c >= -ArcNum.perJudgeTime && c <= 0) || (c >= 0 && c <= ArcNum.perJudgeTime))
+        {
+            Debug.Log("Perfect" + c + this.transform.localPosition);
+            Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+            jr = JUDGE_RESULT.Perfect;
+        }
+        //Miss
+        if (c > ArcNum.neJudgeTime)
+        {
+            Debug.Log("Miss" + c + this.transform.localPosition);
+            jr = JUDGE_RESULT.Miss;
+        }
+
+        //根据枚举初始化一个物体
+        string jrn = Enum.GetName(typeof(JUDGE_RESULT), jr);
+        Debug.Log("判断名称: " + jrn.ToString());
+        GameObject pObj = Instantiate((GameObject)Resources.Load("Prefab/Judge/" + jrn));
+        pObj.transform.SetParent(this.transform);
+
+        //让这个物体绑定对应的脚本
+        BaseJudgePerfor bjp = null;
+        if (jr == JUDGE_RESULT.Perfect)
+        {
+            bjp = pObj.AddComponent<Perfect>();
+        }
+        else if (jr == JUDGE_RESULT.Good)
+        {
+            bjp = pObj.AddComponent<Good>();
+        }
+        else if (jr == JUDGE_RESULT.Bad)
+        {
+            bjp = pObj.AddComponent<Bad>();
+        }
+        else
+        {
+            bjp = pObj.AddComponent<Miss>();
+        }
+        //TODO Note的攻击范围偏移只需要获取一次，设置一个参数传入
+        bjp.Init(o.attackRange, note.attackId);
+    }
 }

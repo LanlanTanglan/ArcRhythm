@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,9 @@ public class BaseNote : MonoBehaviour
 {
     public Note note;
     public bool isStopGame = false;
-    public bool isJudged = false;
+    public bool isFirstJudged = false;
     public BaseOperator targetBaseOperator;
+    public NoteState noteState = NoteState.FirstJudging;
     // Start is called before the first frame update
     public void Awake()
     {
@@ -68,16 +70,45 @@ public class BaseNote : MonoBehaviour
     /// <summary>
     /// 第一次判定
     /// </summary>
-    public virtual void FirstJudge()
+    public virtual void UpdateFirstJudge()
     {
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
 
+        //开始判定的时间范围
+        if (ct - note.endTime >= ArcNum.prJudgeTime && ct - note.endTime <= ArcNum.neJudgeTime)
+        {
+            //时刻监听输入器中是否有需要的输入状态
+            //如果监听到了就在下一帧转到 判定完美度判断
+            if (Singleton<KeyboardInputManager>.Instance.LoadInputState(targetBaseOperator.o.keyType, InputType.TAP))
+            {
+                isFirstJudged = true;
+                noteState = NoteState.SecondJudging;
+                targetBaseOperator.CreateJudgeAnim2(note, ct);
+                return;
+            }
+        }
+        //MISS
+        //超出了判定时间了, 代表着miss
+        else if (ct - note.endTime > ArcNum.neJudgeTime)
+        {
+            Debug.Log("Miss" + (ct - note.endTime) + this.transform.localPosition);
+            noteState = NoteState.Miss;
+            targetBaseOperator.CreateJudgeAnim2(note, ct);
+        }
     }
 
     /// <summary>
     /// 第二次即以后判定
     /// </summary>
-    public virtual void SecondJudge()
+    public virtual void UpdateSecondJudge()
     {
 
+    }
+
+    public enum NoteState
+    {
+        FirstJudging = 1,
+        SecondJudging = 2,
+        Miss = 3,
     }
 }

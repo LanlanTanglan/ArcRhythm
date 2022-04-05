@@ -20,6 +20,7 @@ public class BaseLongTapNote : BaseNote
     public bool isFirstJudge = false;//长按判定的第一次是否判定成功
     public GameObject rect;
     public LongTapNote longTapNote;
+    public bool isSecondPos = false;
 
     public override void OnAwake()
     {
@@ -34,7 +35,23 @@ public class BaseLongTapNote : BaseNote
     {
         if (!isStopGame)
         {
-            FirstUpdatePos();
+            //第一次未判定时的刷新
+            if (!isSecondPos)
+            {
+                FirstUpdatePos();
+            }
+            if (noteState == NoteState.FirstJudging)
+            {
+                UpdateFirstJudge();
+            }
+            if (noteState == NoteState.SecondJudging)
+            {
+                UpdateSecondJudge();
+            }
+            if (noteState == NoteState.Miss)
+            {
+
+            }
         }
     }
 
@@ -51,14 +68,44 @@ public class BaseLongTapNote : BaseNote
         rect = Instantiate((GameObject)Resources.Load("Prefab/Judge/Rect"));
         rect.transform.SetParent(this.transform);
         //设置位置，以及长度(就是rect的高度)
-        rect.transform.localPosition = Vector3.zero;
+        rect.transform.localPosition = new Vector3(0, 0, 1);
         rect.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
         //TODO 长度根据特定的关系式进行设置(这里规定变化速度为500像素每秒)
-        rect.GetComponent<SpriteRenderer>().size.Set(1.28f, longTapNote.duraTime * 5);
+        rect.GetComponent<SpriteRenderer>().size = new Vector2(1.28f, longTapNote.duraTime * 2);
     }
 
     public override void FirstUpdatePos()
     {
+        //如果超过了endTime就停止刷新其位置
+        //开始缩小Hold长度
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+        if (ct >= longTapNote.endTime)
+        {
+            isSecondPos = true;
+            //为Rect添加脚本
+            LongTapRect l = rect.AddComponent<LongTapRect>();
+            l.Init(longTapNote.duraTime, 2f);
+        }
         base.FirstUpdatePos();
+    }
+
+    public override void UpdateFirstJudge()
+    {
+        base.UpdateFirstJudge();
+    }
+
+    public override void UpdateSecondJudge()
+    {
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+        //TODO 每隔0.2秒获取LongTap按钮
+        if (ct < longTapNote.endTime + longTapNote.duraTime && Singleton<KeyboardInputManager>.Instance.LoadInputState(targetBaseOperator.o.keyType, InputType.LONG_TAP))
+        {
+            Debug.Log("正在长按");
+        }
+        else
+        {
+            noteState = NoteState.Miss;
+            Debug.Log("失败了/结束了");
+        }
     }
 }
