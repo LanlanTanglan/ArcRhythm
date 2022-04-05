@@ -33,12 +33,16 @@ namespace Util
     }
     public class JsonUtil
     {
+        //TODO 使只能够读取AB包的内容
         public static JObject readJSON(string path)
         {
             //string类型的数据常量
             string readData;
             //获取到路径
             string fileUrl = Application.streamingAssetsPath + "\\" + path;
+
+            // Singleton<ABManager>.Instance.getAssetBundle("bms").LoadAsset<>("kazimier");
+            
             //读取文件
             using (StreamReader sr = File.OpenText(fileUrl))
             {
