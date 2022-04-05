@@ -26,16 +26,15 @@
                 ]
             }
         ],
-        "pushNotes": [
+        "longTapNotes": [
             {
-                "noteType": 3,
+                "noteType": 2,
                 "enemy": 1,
                 "targetOperId": 0,
                 "attackId": 1,
-                "endTime": 1,
                 "direction": 4,
-                "endTimeList": [],
-                "targetOpers": []
+                "endTime": 0.5,
+                "duraTime":2
             }
         ]
     },

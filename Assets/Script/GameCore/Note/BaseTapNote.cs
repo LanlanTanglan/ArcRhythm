@@ -5,82 +5,41 @@ using System;
 using ArcRhythm;
 using Util;
 
-public class BaseTapNote : MonoBehaviour
+public class BaseTapNote : BaseNote
 {
-    public Note note;
-    public bool isStopGame = false;
-    public bool isJudged = false;
-    public BaseOperator targetBaseOperator;
+    // public Note note;
+    // public bool isStopGame = false;
+    // public bool isJudged = false;
+    // public BaseOperator targetBaseOperator;
     //public float currentSpeed;
-
-    void Awake()
-    {
-        //注册事件
-        Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
-    }
     void Start()
     {
 
     }
-    public bool mutex = true;
     void Update()
     {
         if (!isStopGame)
         {
-            if(mutex)
-            {
-                if(Singleton<GameClockManager>.Instance.currentGamePalyTime >= note.endTime)
-                {
-                    Debug.Log("正中央当前位置:" + this.transform.localPosition);
-                    mutex = false;
-                }
-            }
             //TODO 判定提示动画(就是类似于一个小圈圈)
             UpdateJudgeResult();
             //判定
             UpdateJudge();
 
             //更新位置
-            UpdatePos();
+            FirstUpdatePos();
         }
     }
 
-    #region 事件发布块
 
-    #endregion
-
-    #region 事件注册块
-    //暂停游戏
-    private void StopGame(bool key)
+    public override void Init(Note n)
     {
-        this.isStopGame = key;
+        base.Init(n);
     }
 
-    #endregion
 
-    public void Init(Note n)
+    public override void FirstUpdatePos()
     {
-        //初始化信息
-        this.note = n;
-        this.targetBaseOperator = Singleton<BMSManager>.Instance.baseOperators[n.targetOperId];
-        //将其绑定在父物体上
-        this.transform.SetParent(Singleton<BMSManager>.Instance.operatorObjs[n.targetOperId].transform);
-        //设置在正确的攻击范围上
-        this.transform.localPosition = ArcMUtil.GetNoteOffset(targetBaseOperator.o.attackRange, note.attackId);
-        //设置note生成位置
-        this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, ArcMUtil.GenerateNotePos(note, targetBaseOperator.o)) / 100;
-        //设置角度
-        this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-    
-    }
-
-    /// <summary>
-    /// 更新Note的位置
-    /// </summary>
-    private void UpdatePos()
-    {
-        //注意负号
-        this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, -targetBaseOperator.o.speed * Time.deltaTime);
+        base.FirstUpdatePos();
     }
 
     /// <summary>

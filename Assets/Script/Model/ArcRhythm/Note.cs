@@ -18,7 +18,7 @@ namespace ArcRhythm
         public NoteSet()
         {
             this.tapNotes = new List<Note>();
-            this.pullNotes = new List<Note>();
+            this.pushNotes = new List<Note>();
             this.pullNotes = new List<Note>();
             this.longTapNotes = new List<Note>();
         }
@@ -33,17 +33,17 @@ namespace ArcRhythm
             JArray psn = (JArray)jt["pushNotes"];
             if (psn != null)
                 for (int i = 0, len = psn.Count; i < len; i++)
-                    tapNotes.Add(new PushNote().SetParam(psn[i]));
+                    pushNotes.Add(new PushNote().SetParam(psn[i]));
 
             JArray pln = (JArray)jt["pullNotes"];
             if (pln != null)
                 for (int i = 0, len = pln.Count; i < len; i++)
-                    tapNotes.Add(new PullNote().SetParam(pln[i]));
+                    pullNotes.Add(new PullNote().SetParam(pln[i]));
 
             JArray ltn = (JArray)jt["longTapNotes"];
             if (ltn != null)
                 for (int i = 0, len = ltn.Count; i < len; i++)
-                    tapNotes.Add(new LongTapNote().SetParam(ltn[i]));
+                    longTapNotes.Add(new LongTapNote().SetParam(ltn[i]));
 
             return this;
         }

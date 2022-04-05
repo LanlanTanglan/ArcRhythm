@@ -14,8 +14,21 @@ class AudioManager : Singleton<AudioManager>
     ClipData clipdata = new ClipData();
     protected override void OnAwake()
     {
+        Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
         _audioSource = this.gameObject.AddComponent<AudioSource>();
     }
+
+    private void StopGame(bool key)
+    {
+        if(key)
+        {
+            _audioSource.Pause();
+        }else
+        {
+            _audioSource.Play();
+        }
+    }
+    
 
     /// <summary>
     /// 播放音频 Resources/Audios/name

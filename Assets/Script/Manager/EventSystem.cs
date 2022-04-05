@@ -13,6 +13,7 @@ public class GameProcessManager : Singleton<GameProcessManager>
     //游戏暂停接口事件
     public event StopGameHandel StopGameEvent;
 
+    
     /// <summary>
     /// 是否暂停游戏
     /// </summary>
@@ -20,6 +21,28 @@ public class GameProcessManager : Singleton<GameProcessManager>
     public void StopGame(bool key)
     {
         this.StopGameEvent(key);
+    }
+
+    public bool click = false;
+    public bool mutex = false;
+    void Update()
+    {
+        if(click)
+        {
+            if(!mutex)
+            {
+                StopGame(true);
+                mutex = true;
+            }
+        }
+        else
+        {
+            if(mutex)
+            {
+                StopGame(false);
+                mutex = false;
+            }
+        }
     }
 
     //铺面事件

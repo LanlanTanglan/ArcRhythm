@@ -11,31 +11,17 @@
     },
     "noteSet": {
         "tapNotes": [
+           
+        ],
+        "longTapNotes": [
             {
-                "noteType": 1,
+                "noteType": 2,
                 "enemy": 1,
                 "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 0.5,
-                "isFake": 0,
-                "fakePos": [
-                    0,
-                    0,
-                    0
-                ]
-            }
-        ],
-        "pushNotes": [
-            {
-                "noteType": 3,
-                "enemy": 1,
-                "targetOperId": 0,
-                "attackId": 1,
-                "endTime": 1,
-                "direction": 4,
-                "endTimeList": [],
-                "targetOpers": []
+                "duraTime":2
             }
         ]
     },

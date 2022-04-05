@@ -23,8 +23,12 @@ public class BaseJudgePerfor : MonoBehaviour
     {
         //回到原点
         this.transform.localPosition = Vector3.zero;
-        this.transform.localRotation = Quaternion.Euler(Vector3.zero);
         //根据攻击范围以及idx确定这些效果的位置
         this.transform.localPosition = ArcMUtil.GetNoteOffset(art, idx);
+        
+        //解除与父物体的绑定关系
+        this.transform.SetParent(null);
+        //无角度
+        this.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 }
