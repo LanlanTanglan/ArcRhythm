@@ -57,6 +57,6 @@ public class BaseTapNote : BaseNote
     /// </summary>
     public override void UpdateFirstJudge()
     {
-        
+        base.UpdateFirstJudge();
     }
 }

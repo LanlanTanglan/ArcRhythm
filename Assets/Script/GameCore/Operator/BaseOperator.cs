@@ -132,7 +132,7 @@ public class BaseOperator : MonoBehaviour
     }
 
     /// <summary>
-    /// 处理判定结果，TODO并播放动画
+    /// 处理判定结果，TODO 修改为两个函数
     /// </summary>
     public void CreateJudgeAnim2(Note note, float ct)
     {

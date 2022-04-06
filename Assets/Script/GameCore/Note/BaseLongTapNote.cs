@@ -21,6 +21,8 @@ public class BaseLongTapNote : BaseNote
     public GameObject rect;
     public LongTapNote longTapNote;
     public bool isSecondPos = false;
+    public float passTime;
+    public float loopTime = 0.2f;
 
     public override void OnAwake()
     {
@@ -35,6 +37,7 @@ public class BaseLongTapNote : BaseNote
     {
         if (!isStopGame)
         {
+            passTime += Time.deltaTime;
             //第一次未判定时的刷新
             if (!isSecondPos)
             {
@@ -96,16 +99,21 @@ public class BaseLongTapNote : BaseNote
 
     public override void UpdateSecondJudge()
     {
-        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
-        //TODO 每隔0.2秒获取LongTap按钮
-        if (ct < longTapNote.endTime + longTapNote.duraTime && Singleton<KeyboardInputManager>.Instance.LoadInputState(targetBaseOperator.o.keyType, InputType.LONG_TAP))
+        //TODO 逻辑需要完善
+        if (passTime >= loopTime)
         {
-            Debug.Log("正在长按");
-        }
-        else
-        {
-            noteState = NoteState.Miss;
-            Debug.Log("失败了/结束了");
+            float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+            if (ct <= longTapNote.endTime + longTapNote.duraTime && Singleton<KeyboardInputManager>.Instance.LoadInputState(targetBaseOperator.o.keyType, InputType.LONG_TAP))
+            {
+                Debug.Log("正在长按");
+                targetBaseOperator.CreateJudgeAnim(longTapNote,JUDGE_RESULT.Good);
+            }
+            else
+            {
+                noteState = NoteState.Miss;
+                Debug.Log("失败了/结束了");
+            }
+            passTime = 0;
         }
     }
 }
