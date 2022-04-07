@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
@@ -42,7 +38,7 @@ namespace Util
             string fileUrl = Application.streamingAssetsPath + "\\" + path;
 
             // Singleton<ABManager>.Instance.getAssetBundle("bms").LoadAsset<>("kazimier");
-            
+
             //读取文件
             using (StreamReader sr = File.OpenText(fileUrl))
             {
@@ -52,22 +48,6 @@ namespace Util
                 sr.Close();
             }
             return JObject.Parse(readData);
-        }
-    }
-
-    public class KeyCodeUtil
-    {
-        public static KeyCode GetKeyCodeByStr(string s)
-        {
-            if (s == "A")
-            {
-                return KeyCode.A;
-            }
-            //默认空格
-            else
-            {
-                return KeyCode.Space;
-            }
         }
     }
 
@@ -144,6 +124,65 @@ namespace Util
                 return new Vector3(0, len, 0);
             }
             return Vector3.zero;
+        }
+
+        /// <summary>
+        /// 获取判定完美度
+        /// </summary>
+        /// <param name="et">结束时间</param>
+        /// <param name="ct">当前时间</param>
+        /// <param name="playSound">是否播放声音</param>
+        /// <returns></returns>
+        public static JUDGE_RESULT GetJudgeResult(float et, float ct, bool playSound)
+        {
+            float c = ct - et;
+            if (playSound)
+            {
+                if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
+                {
+                    return JUDGE_RESULT.Bad;
+                }
+                //Good
+                else if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (c > ArcNum.perJudgeTime && c <= 2 * ArcNum.perJudgeTime))
+                {
+                    Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+                    return JUDGE_RESULT.Good;
+                }
+                //Perfect
+                else if ((c >= -ArcNum.perJudgeTime && c <= 0) || (c >= 0 && c <= ArcNum.perJudgeTime))
+                {
+                    Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+                    return JUDGE_RESULT.Perfect;
+                }
+                //Miss
+                else //(c > ArcNum.neJudgeTime)
+                {
+                    return JUDGE_RESULT.Miss;
+                }
+            }
+            else
+            {
+                if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
+                {
+                    return JUDGE_RESULT.Bad;
+                }
+                //Good
+                else if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (c > ArcNum.perJudgeTime && c <= 2 * ArcNum.perJudgeTime))
+                {
+                    return JUDGE_RESULT.Good;
+                }
+                //Perfect
+                else if ((c >= -ArcNum.perJudgeTime && c <= 0) || (c >= 0 && c <= ArcNum.perJudgeTime))
+                {
+                    return JUDGE_RESULT.Perfect;
+                }
+                //Miss
+                else //(c > ArcNum.neJudgeTime)
+                {
+                    return JUDGE_RESULT.Miss;
+                }
+            }
+
         }
     }
 }

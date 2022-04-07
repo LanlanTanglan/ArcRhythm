@@ -1,10 +1,6 @@
-using System.Collections.Generic;
-using System;
 using UnityEngine;
 using System.Collections;
 using ArcRhythm;
-using Util;
-using Newtonsoft.Json.Linq;
 
 public delegate void AudioCallBack();
 

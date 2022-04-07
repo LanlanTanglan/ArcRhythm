@@ -23,6 +23,7 @@ public class BaseLongTapNote : BaseNote
     public bool isSecondPos = false;
     public float passTime;
     public float loopTime = 0.2f;
+    public bool mutex1 = false;
 
     public override void OnAwake()
     {
@@ -51,9 +52,22 @@ public class BaseLongTapNote : BaseNote
             {
                 UpdateSecondJudge();
             }
+            //将Rect的透明度降低
             if (noteState == NoteState.Miss)
             {
-
+                Debug.Log("已经Miss");
+                if (!mutex1)
+                {
+                    SpriteRenderer s = rect.GetComponent<SpriteRenderer>();
+                    Color c = new Color(s.color.r, s.color.g, s.color.b, 125 / 255f);
+                    s.color = c;
+                    mutex1 = true;
+                }
+                float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+                if (ct >= longTapNote.endTime + longTapNote.duraTime)
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
@@ -99,14 +113,22 @@ public class BaseLongTapNote : BaseNote
 
     public override void UpdateSecondJudge()
     {
+        //如果时间大于等于了结束时间加长按时间，则说明这个LongTap是完美判定的
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+        if (ct >= longTapNote.endTime + longTapNote.duraTime)
+        {
+            targetBaseOperator.CreateJudgeAnim(longTapNote, firstTapResult);
+            Destroy(this.gameObject);
+        }
+        //未结束,,需持续判定
         //TODO 逻辑需要完善
         if (passTime >= loopTime)
         {
-            float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+
             if (ct <= longTapNote.endTime + longTapNote.duraTime && Singleton<KeyboardInputManager>.Instance.LoadInputState(targetBaseOperator.o.keyType, InputType.LONG_TAP))
             {
                 Debug.Log("正在长按");
-                targetBaseOperator.CreateJudgeAnim(longTapNote,JUDGE_RESULT.Good);
+                targetBaseOperator.CreateJudgeAnim(longTapNote, firstTapResult);
             }
             else
             {

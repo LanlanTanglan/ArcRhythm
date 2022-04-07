@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ArcRhythm;
 
 public class LongTapRect : MonoBehaviour
 {

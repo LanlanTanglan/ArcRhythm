@@ -12,6 +12,8 @@ public class BaseNote : MonoBehaviour
     public bool isFirstJudged = false;
     public BaseOperator targetBaseOperator;
     public NoteState noteState = NoteState.FirstJudging;
+    public JUDGE_RESULT firstTapResult;//用于描述LongTap第一次判定的完美度，随后长按一直是此完美度
+
     // Start is called before the first frame update
     public void Awake()
     {
@@ -83,7 +85,8 @@ public class BaseNote : MonoBehaviour
             {
                 isFirstJudged = true;
                 noteState = NoteState.SecondJudging;
-                targetBaseOperator.CreateJudgeAnim2(note, ct);
+                firstTapResult = ArcMUtil.GetJudgeResult(note.endTime, ct, true);
+                targetBaseOperator.DoJudgeAnim(note, firstTapResult);
                 return;
             }
         }
@@ -91,9 +94,9 @@ public class BaseNote : MonoBehaviour
         //超出了判定时间了, 代表着miss
         else if (ct - note.endTime > ArcNum.neJudgeTime)
         {
-            Debug.Log("Miss" + (ct - note.endTime) + this.transform.localPosition);
             noteState = NoteState.Miss;
-            targetBaseOperator.CreateJudgeAnim2(note, ct);
+            firstTapResult = JUDGE_RESULT.Miss;
+            targetBaseOperator.DoJudgeAnim(note, JUDGE_RESULT.Miss);
         }
     }
 
