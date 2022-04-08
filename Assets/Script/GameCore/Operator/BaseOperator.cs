@@ -124,7 +124,7 @@ public class BaseOperator : MonoBehaviour
         {
             bjp = pObj.AddComponent<Bad>();
         }
-        else
+        else if(jr == JUDGE_RESULT.Miss)
         {
             bjp = pObj.AddComponent<Miss>();
         }
@@ -139,9 +139,9 @@ public class BaseOperator : MonoBehaviour
     {
         //根据枚举初始化一个物体
         string jrn = Enum.GetName(typeof(JUDGE_RESULT), jr);
-        Debug.Log("判断名称: " + jrn.ToString());
-        GameObject pObj = Instantiate((GameObject)Resources.Load("Prefab/Judge/" + jrn));
-        pObj.transform.SetParent(this.transform);
+        // Debug.Log("判断名称: " + jrn.ToString());
+        // GameObject pObj = Instantiate((GameObject)Resources.Load("Prefab/Judge/" + jrn));
+        // pObj.transform.SetParent(this.transform);
 
         CreateJudgeAnim(note, jr);
     }

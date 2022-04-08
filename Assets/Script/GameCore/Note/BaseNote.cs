@@ -94,6 +94,7 @@ public class BaseNote : MonoBehaviour
         //超出了判定时间了, 代表着miss
         else if (ct - note.endTime > ArcNum.neJudgeTime)
         {
+            isFirstJudged = true;
             noteState = NoteState.Miss;
             firstTapResult = JUDGE_RESULT.Miss;
             targetBaseOperator.DoJudgeAnim(note, JUDGE_RESULT.Miss);
