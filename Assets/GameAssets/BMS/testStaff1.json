@@ -11,20 +11,7 @@
     },
     "noteSet": {
         "tapNotes": [
-            {
-                "noteType": 1,
-                "enemy": 1,
-                "targetOperId": 0,
-                "attackId": 1,
-                "direction": 4,
-                "endTime": 0.5,
-                "isFake": 0,
-                "fakePos": [
-                    0,
-                    0,
-                    0
-                ]
-            }
+           
         ],
         "longTapNotes": [
             {

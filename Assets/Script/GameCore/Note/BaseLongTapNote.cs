@@ -68,7 +68,6 @@ public class BaseLongTapNote : BaseNote
                 {
                     Destroy(this.gameObject);
                 }
-                //TODO
             }
         }
     }
