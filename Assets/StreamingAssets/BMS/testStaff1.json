@@ -7,7 +7,7 @@
         "media": "xxx.mp4",
         "level": 1,
         "length": 111000,
-        "noteNum": 20
+        "totalNoteNum": 20
     },
     "noteSet": {
         "tapNotes": [

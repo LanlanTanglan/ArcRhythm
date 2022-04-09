@@ -41,8 +41,8 @@ namespace ArcRhythm
         public string musicAuthor;
         public string media;
         public STAFF_LEVEL level;
-        public int length;
-        public int total;
+        public int length;//音乐长度
+        public int totalNoteNum;
         public BMSInfo()
         {
 
@@ -57,6 +57,7 @@ namespace ArcRhythm
             this.media = (string)jt["media"];
             this.level = (STAFF_LEVEL)(int)jt["level"];
             this.length = (int)jt["length"];
+            this.totalNoteNum = (int)jt["totalNoteNum"];
             return this;
         }
     }

@@ -38,6 +38,8 @@ public class BMSManager : Singleton<BMSManager>
     public List<BaseOperator> baseOperators;
     public int[] noteIdx = new int[4] { 0, 0, 0, 0 };//Note的idx
 
+
+
     void Update()
     {
         //是否加载铺面
@@ -70,9 +72,14 @@ public class BMSManager : Singleton<BMSManager>
     /// <param name="BMSurl"></param>
     public void LoadBMSClass(String BMSurl)
     {
+        //读取铺面
         JObject jo = JsonUtil.readJSON(BMSurl);
         bms = new BMS().SetParam(jo);
         isLoadBMS = true;
+
+        //初始化这一局的游戏信息
+        Singleton<GameInfoManager>.Instance.cGamePlayResult.ClearInfo().setTotalNoteNum(bms.BMSInfo.totalNoteNum);
+
         LoadBMS();
     }
 

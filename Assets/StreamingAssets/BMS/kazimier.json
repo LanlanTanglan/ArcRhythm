@@ -3,11 +3,11 @@
         "musicName": "speed_of_night",
         "BMSName": "speed_of_night",
         "author": "lltl",
-        "musicAuthor": "Arc",
+        "musicAuthor": "ArcNights",
         "media": "xxx.mp4",
         "level": 1,
         "length": 111000,
-        "noteNum": 20
+        "totalNoteNum": 47
     },
     "noteSet": {
         "tapNotes": [

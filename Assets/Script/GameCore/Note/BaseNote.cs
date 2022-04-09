@@ -87,6 +87,21 @@ public class BaseNote : MonoBehaviour
                 noteState = NoteState.SecondJudging;
                 firstTapResult = ArcMUtil.GetJudgeResult(note.endTime, ct, true);
                 targetBaseOperator.DoJudgeAnim(note, firstTapResult);
+
+                //TODO 冗余
+                if (firstTapResult == JUDGE_RESULT.Perfect)
+                {
+                    Singleton<GameInfoManager>.Instance.cGamePlayResult.addPerfectNum().addMaxNum(true);
+                }
+                if (firstTapResult == JUDGE_RESULT.Good)
+                {
+                    Singleton<GameInfoManager>.Instance.cGamePlayResult.addGoodNum().addMaxNum(true);
+                }
+                if (firstTapResult == JUDGE_RESULT.Bad)
+                {
+                    Singleton<GameInfoManager>.Instance.cGamePlayResult.addBadNum().addMaxNum(false);
+                }
+
                 return;
             }
         }
@@ -98,6 +113,9 @@ public class BaseNote : MonoBehaviour
             noteState = NoteState.Miss;
             firstTapResult = JUDGE_RESULT.Miss;
             targetBaseOperator.DoJudgeAnim(note, JUDGE_RESULT.Miss);
+
+            //设置Miss分数
+            Singleton<GameInfoManager>.Instance.cGamePlayResult.addMissNum().addMaxNum(false);
         }
     }
 
