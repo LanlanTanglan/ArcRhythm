@@ -34,7 +34,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
 
     public void Init()
     {
-        
+
     }
 
     //监听常用按键
@@ -134,7 +134,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         }
     }
 
-    
+
 
     /// <summary>
     /// 占有某个按键状态
@@ -146,7 +146,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
     {
         foreach (BaseInput b in currentInputState)
         {
-            if (b.IsRightInputType(it) && b.IsRightKeyType(k))
+            if (!b.isLocked && b.IsRightInputType(it) && b.IsRightKeyType(k))
             {
                 b.Lock();
                 return true;

@@ -595,10 +595,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -618,7 +618,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -697,11 +697,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1230419505210395514, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 368.66
+      value: 872.44
       objectReference: {fileID: 0}
     - target: {fileID: 1230419505210395514, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 207.47
+      value: 490.98
       objectReference: {fileID: 0}
     - target: {fileID: 1230419505210395514, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -733,11 +733,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1230419505210395514, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 184.33
+      value: 436.22
       objectReference: {fileID: 0}
     - target: {fileID: 1230419505210395514, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -103.73001
+      value: -245.49
       objectReference: {fileID: 0}
     - target: {fileID: 1230419505210395514, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -755,21 +755,29 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7116173333305463827, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116173333305463827, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 8992862512351047284, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 284.96
+      value: 665.16
       objectReference: {fileID: 0}
     - target: {fileID: 8992862512351047284, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 197.51
+      value: 461.03
       objectReference: {fileID: 0}
     - target: {fileID: 8992862512351047284, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 153.9
+      value: 344
       objectReference: {fileID: 0}
     - target: {fileID: 8992862512351047284, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -103.74
+      value: -235.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93be142585246a24cb8b7fdbc2d05aac, type: 3}
