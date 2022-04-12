@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
@@ -55,7 +56,7 @@ namespace ArcRhythm
         }
         public AnimCommand()
         {
-
+            
         }
     }
     [System.Serializable]
@@ -78,17 +79,22 @@ namespace ArcRhythm
     //移动
     public class OpCM : OperatorAC
     {
-        public Vector3 endPos;
+        // public Vector3 endPos1;
+        public List<float> endPos = new List<float>();
         public override Tween GetTween(Transform t)
         {
 
-            return t.DOLocalMove(this.endPos, base.endTime - base.beginTime).SetEase(base.motionType);
+            // return t.DOLocalMove(this.endPos1, base.endTime - base.beginTime).SetEase(base.motionType);
+            return t.DOLocalMove(new Vector3(endPos[0], endPos[1], endPos[2]), base.endTime - base.beginTime).SetEase(base.motionType);
         }
 
         public override AnimCommand SetParam(JToken jt)
         {
-            this.endPos = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]) / ArcNum.pixelPreUnit;
+            // this.endPos1 = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]) / ArcNum.pixelPreUnit;
 
+            this.endPos.Add((float)jt["endPos"][0]/ ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][1]/ ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][2]/ ArcNum.pixelPreUnit);
             return base.SetParam(jt);
         }
 
@@ -102,10 +108,12 @@ namespace ArcRhythm
     [System.Serializable]
     public class OpCR : OperatorAC
     {
-        public Vector3 endRotate;
+        // public Vector3 endRotate1;
+        public List<float> endRotate;
         public override Tween GetTween(Transform t)
         {
-            return t.DOLocalRotate(this.endRotate, base.endTime - endTime).SetEase(base.motionType);
+            // return t.DOLocalRotate(this.endRotate1, base.endTime - endTime).SetEase(base.motionType);
+            return t.DOLocalRotate(new Vector3(endRotate[0], endRotate[1], endRotate[2]), base.endTime - endTime).SetEase(base.motionType);
         }
 
         public OpCR()
@@ -115,7 +123,12 @@ namespace ArcRhythm
 
         public override AnimCommand SetParam(JToken jt)
         {
-            this.endRotate = new Vector3((float)jt["endRotate"][0], (float)jt["endRotate"][1], (float)jt["endRotate"][2]);
+            this.endRotate = new List<float>();
+            // this.endRotate1 = new Vector3((float)jt["endRotate"][0], (float)jt["endRotate"][1], (float)jt["endRotate"][2]);
+
+            this.endRotate.Add((float)jt["endRotate"][0]);
+            this.endRotate.Add((float)jt["endRotate"][1]);
+            this.endRotate.Add((float)jt["endRotate"][2]);
             return base.SetParam(jt);
         }
     }

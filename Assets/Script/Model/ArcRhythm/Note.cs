@@ -71,7 +71,7 @@ namespace ArcRhythm
             this.targetOperId = (int)jt["targetOperId"];
             this.attackId = (int)jt["attackId"];
             this.direction = (DIRECTION)(int)jt["direction"];
-            
+
 
             this.endTime = (float)jt["endTime"];
 
@@ -83,7 +83,8 @@ namespace ArcRhythm
     public class TapNote : Note
     {
         public bool isFake = false;
-        public Vector3 fakePos;
+        // public Vector3 fakePos1;
+        public List<float> fakePos = new List<float>();
         public TapNote()
         {
 
@@ -94,7 +95,10 @@ namespace ArcRhythm
             this.isFake = (bool)jt["isFake"];
             if (isFake)
             {
-                this.fakePos = new Vector3((float)jt["fakePos"][0], (float)jt["fakePos"][1], (float)jt["fakePos"][2]);
+                // this.fakePos1 = new Vector3((float)jt["fakePos"][0], (float)jt["fakePos"][1], (float)jt["fakePos"][2])/ ArcNum.pixelPreUnit;
+                this.fakePos.Add((float)jt["fakePos"][0]/ ArcNum.pixelPreUnit);
+                this.fakePos.Add((float)jt["fakePos"][1]/ ArcNum.pixelPreUnit);
+                this.fakePos.Add((float)jt["fakePos"][2]/ ArcNum.pixelPreUnit);
             }
 
 

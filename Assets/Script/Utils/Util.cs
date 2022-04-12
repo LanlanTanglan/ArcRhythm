@@ -1,7 +1,11 @@
+using System;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using ArcRhythm;
+using Newtonsoft.Json;
+using Newtonsoft;
+using Newtonsoft.Json.Converters;
 
 
 namespace Util
@@ -35,7 +39,7 @@ namespace Util
             //string类型的数据常量
             string readData;
             //获取到路径
-            string fileUrl = Application.streamingAssetsPath + "\\" + path;
+            string fileUrl = path;
 
             // Singleton<ABManager>.Instance.getAssetBundle("bms").LoadAsset<>("kazimier");
 
@@ -51,7 +55,7 @@ namespace Util
         }
     }
 
-    public class ArcMUtil
+    public class ArcRhythmUtil
     {
         //获取敌人对不同攻击范围的偏移量
         public static Vector3 GetNoteOffset(ATTACK_RANGE_TYPE art, int attackId)
@@ -183,6 +187,67 @@ namespace Util
                 }
             }
 
+        }
+    }
+
+    public class DataUtil
+    {
+        /// <summary>
+        /// 写数据，只允许写入可以序列化的类为json
+        /// </summary>
+        /// <param name="p">目录路径  如   a/b/ (注意有个/)</param>
+        /// <param name="fn">文件名</param>
+        public static void WriteData(string p, string fn)
+        {
+            using (StreamWriter sw = new StreamWriter(p + fn))
+            {
+                try
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Converters.Add(new JavaScriptDateTimeConverter());
+                    serializer.NullValueHandling = NullValueHandling.Ignore;
+                    serializer.TypeNameHandling = TypeNameHandling.All;
+
+                    JsonWriter writer = new JsonTextWriter(sw);
+                    serializer.Serialize(writer, Singleton<BMSManager>.Instance.bms);
+                    writer.Close();
+                    sw.Close();
+                }
+                catch (Exception e)
+                {
+                    e.Message.ToString();
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// 读取数据
+        /// </summary>
+        /// <param name="p">路径</param>
+        /// <param name="fn">文件名</param>
+        /// <typeparam name="T">可序列化类</typeparam>
+        /// <returns></returns>
+        public static T ReaderDate<T>(string p, string fn)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(p + fn))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    serializer.Converters.Add(new JavaScriptDateTimeConverter());
+                    serializer.NullValueHandling = NullValueHandling.Ignore;
+                    serializer.TypeNameHandling = TypeNameHandling.All;
+
+                    JsonReader reader = new JsonTextReader(sr);
+                    return serializer.Deserialize<T>(reader);
+                }
+            }
+            catch (Exception e)
+            {
+                e.Message.ToString();
+                return default(T);
+            }
         }
     }
 }

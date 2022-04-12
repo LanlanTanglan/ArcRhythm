@@ -45,9 +45,9 @@ public class BaseNote : MonoBehaviour
         //将其绑定在父物体上
         this.transform.SetParent(Singleton<BMSManager>.Instance.operatorObjs[n.targetOperId].transform);
         //设置在正确的攻击范围上
-        this.transform.localPosition = ArcMUtil.GetNoteOffset(targetBaseOperator.o.attackRange, note.attackId);
+        this.transform.localPosition = ArcRhythmUtil.GetNoteOffset(targetBaseOperator.o.attackRange, note.attackId);
         //设置note生成位置
-        this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, ArcMUtil.GenerateNotePos(note, targetBaseOperator.o)) / 100;
+        this.transform.localPosition += ArcRhythmUtil.GetPosByDirection(note.direction, ArcRhythmUtil.GenerateNotePos(note, targetBaseOperator.o)) / 100;
         //设置角度
         this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
@@ -58,7 +58,7 @@ public class BaseNote : MonoBehaviour
     public virtual void FirstUpdatePos()
     {
         //注意负号
-        this.transform.localPosition += ArcMUtil.GetPosByDirection(note.direction, -targetBaseOperator.o.speed * Time.deltaTime);
+        this.transform.localPosition += ArcRhythmUtil.GetPosByDirection(note.direction, -targetBaseOperator.o.speed * Time.deltaTime);
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ public class BaseNote : MonoBehaviour
             {
                 isFirstJudged = true;
                 noteState = NoteState.SecondJudging;
-                firstTapResult = ArcMUtil.GetJudgeResult(note.endTime, ct, true);
+                firstTapResult = ArcRhythmUtil.GetJudgeResult(note.endTime, ct, true);
                 targetBaseOperator.DoJudgeAnim(note, firstTapResult);
 
                 //TODO 冗余

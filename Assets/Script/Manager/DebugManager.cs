@@ -12,6 +12,7 @@ public class DebugManager : Singleton<DebugManager>
     public CanvasGroup cg;
 
     public Text debugText;
+    public string test = "";
 
 
     void Start()
@@ -51,6 +52,7 @@ public class DebugManager : Singleton<DebugManager>
             debugText.text += "当前游戏执行时间: " + Singleton<GameClockManager>.Instance.currentGamePalyTime + "\n";
             debugText.text += "当前得分: " + Singleton<GameInfoManager>.Instance.cGamePlayResult.score + "\n";
             debugText.text += "最大连击: " + Singleton<GameInfoManager>.Instance.cGamePlayResult.maxCombo + "\n";
+            debugText.text += this.test;
         }
     }
     

@@ -73,8 +73,24 @@ public class BMSManager : Singleton<BMSManager>
     public void LoadBMSClass(String BMSurl)
     {
         //读取铺面
+
+
+        bms = DataUtil.ReaderDate<BMS>(BMSurl, null);
+
+        isLoadBMS = true;
+
+        //初始化这一局的游戏信息
+        Singleton<GameInfoManager>.Instance.cGamePlayResult.ClearInfo().setTotalNoteNum(bms.BMSInfo.totalNoteNum);
+
+        LoadBMS();
+    }
+
+    //老方法
+    public void LoadBMSClass_2(String BMSurl)
+    {
         JObject jo = JsonUtil.readJSON(BMSurl);
         bms = new BMS().SetParam(jo);
+
         isLoadBMS = true;
 
         //初始化这一局的游戏信息
