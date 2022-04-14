@@ -1,4 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using Newtonsoft.Json;
+using Util;
+using UnityEngine;
+
 namespace ArcRhythm
 {
     [System.Serializable]
@@ -80,6 +86,99 @@ namespace ArcRhythm
             this.currentMaxCombo = 0;
 
             return this;
+        }
+    }
+
+    [System.Serializable]
+    /// <summary>
+    /// 游戏信息类,保存的是整个游戏的信息
+    /// </summary>
+    public class GameSaveData
+    {
+        public ChapterData chapterData;
+        public GameSaveData()
+        {
+
+        }
+    }
+
+    [System.Serializable]
+    /// <summary>
+    /// 用户信息--大类
+    /// </summary>
+    public class UserData
+    {
+
+    }
+
+    [System.Serializable]
+    /// <summary>
+    /// 章节信息--大类
+    /// </summary>
+    public class ChapterData
+    {
+        public List<string> chapterNames;
+        [JsonIgnore]
+        public Dictionary<string, Chapter> chapters = new Dictionary<string, Chapter>();
+        public ChapterData()
+        {
+
+        }
+
+        //加载所有的铺面
+        public void LoadAllChapter()
+        {
+            foreach (string c in chapterNames)
+            {
+                if (!chapters.ContainsKey(c))
+                {
+                    chapters.Add(c, DataUtil.ReaderDate<Chapter>(Application.streamingAssetsPath + "/GameSaveData/Chapters/", c + ".json"));
+                }
+            }
+        }
+    }
+
+    
+    [System.Serializable]
+    /// <summary>
+    /// 章节
+    /// </summary>
+    public class Chapter
+    {
+        public string chapterName;//章节名
+        public List<string> musicNames;//曲目名
+        public string chapterImg;//章节封面
+
+        [JsonIgnore]
+        public Dictionary<string, Music> musics;//曲目
+        public Chapter()
+        {
+
+        }
+    }
+
+    [System.Serializable]
+    /// <summary>
+    /// 音乐
+    /// </summary>
+    public class Music
+    {
+
+        public string musicName;//音乐名
+        [JsonIgnore]
+        public GamePlayResult gamePlayResult;
+        public Music()
+        {
+
+        }
+
+        /// <summary>
+        /// 加载这个音乐名加载铺面BMS
+        /// </summary>
+        /// <returns>是否加载成功</returns>
+        public BMS LoadBMS()
+        {
+            return null;
         }
     }
 }

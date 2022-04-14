@@ -309,10 +309,26 @@ MonoBehaviour:
       totalNoteNum: 0
     operSet: []
     noteSet:
-      tapNotes: []
+      tapNotes:
+      - noteType: 0
+        enemy: 0
+        targetOperId: 0
+        attackId: 0
+        direction: 0
+        endTime: 0
       pushNotes: []
       pullNotes: []
       longTapNotes: []
+  c:
+    chapterName: 
+    clearNum: 0
+    musicNames: []
+  gameSaveData:
+    chapterData:
+      chapterNames:
+      - aaaa
+      - aaaa
+      - 
 --- !u!114 &483303910
 MonoBehaviour:
   m_ObjectHideFlags: 0
