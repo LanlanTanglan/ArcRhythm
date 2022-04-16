@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using ArcRhythm;
+using ArkRhythm;
 using Util;
 
 public class BasePullNote : MonoBehaviour

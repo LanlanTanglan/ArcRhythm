@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using ArcRhythm;
+using ArkRhythm;
 using Util;
 
 public class UIManager : Singleton<UIManager>

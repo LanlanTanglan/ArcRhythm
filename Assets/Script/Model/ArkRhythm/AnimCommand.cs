@@ -7,7 +7,7 @@ using DG.Tweening;
 /// 我们规定，单元的像素长度是100，并且写的时候是以 x * 100的形式表达
 /// </summary>
 
-namespace ArcRhythm
+namespace ArkRhythm
 {
     [System.Serializable]
     public class AnimCommandFactory

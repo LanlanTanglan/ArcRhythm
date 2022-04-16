@@ -5,7 +5,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
 
-namespace ArcRhythm
+namespace ArkRhythm
 {
     [System.Serializable]
     public class NoteSet

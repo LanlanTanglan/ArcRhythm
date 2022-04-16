@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using ArcRhythm;
+using ArkRhythm;
 
 public delegate void AudioCallBack();
 

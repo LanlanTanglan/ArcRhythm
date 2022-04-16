@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace ArcRhythm
+namespace ArkRhythm
 {
     /// <summary>
     /// 路径集合

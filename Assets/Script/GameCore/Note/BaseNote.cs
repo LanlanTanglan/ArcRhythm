@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ArcRhythm;
+using ArkRhythm;
 using Util;
 
 public class BaseNote : MonoBehaviour

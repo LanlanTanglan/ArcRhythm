@@ -1,5 +1,5 @@
 using UnityEngine;
-using ArcRhythm;
+using ArkRhythm;
 using Util;
 
 public class GameInfoManager : Singleton<GameInfoManager>

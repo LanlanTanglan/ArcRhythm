@@ -1,7 +1,7 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
-using ArcRhythm;
+using ArkRhythm;
 using System;
 using Util;
 

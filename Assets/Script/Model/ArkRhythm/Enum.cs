@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
-namespace ArcRhythm
+namespace ArkRhythm
 {
     [System.Serializable]
     public static class parma

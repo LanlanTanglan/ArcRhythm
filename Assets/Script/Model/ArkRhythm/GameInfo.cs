@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Util;
 using UnityEngine;
 
-namespace ArcRhythm
+namespace ArkRhythm
 {
     [System.Serializable]
     public class GamePlayResult

@@ -6,7 +6,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using DG.Tweening;
 
-namespace ArcRhythm
+namespace ArkRhythm
 {
     [System.Serializable]
     //输入信息结构体基类
