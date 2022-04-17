@@ -482,7 +482,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0}
+  m_BackGroundColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -781,6 +781,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 906041072}
     m_Modifications:
+    - target: {fileID: 3749109934512995949, guid: 8f528dfebf3030942b028d2b4245aa51, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749109934512995951, guid: 8f528dfebf3030942b028d2b4245aa51, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749109934512995951, guid: 8f528dfebf3030942b028d2b4245aa51, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749109935533385560, guid: 8f528dfebf3030942b028d2b4245aa51, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749109935533385560, guid: 8f528dfebf3030942b028d2b4245aa51, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3749109935533385562, guid: 8f528dfebf3030942b028d2b4245aa51, type: 3}
       propertyPath: m_Name
       value: ChapterPanel

@@ -24,7 +24,7 @@ public class ABManager : Singleton<ABManager>
     }
     //Is Editor of Ipad Code-App
     //这是在电脑上修改的语句
-    public AssetBundle getAssetBundle(string n)
+    public AssetBundle GetAssetBundle(string n)
     {
         return (AssetBundle)assetBundles[n];
     }

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 1598472455
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 972a9e511f4726ec0b5028ad5d4388da
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GameAssets/Image/Game/Sprite/BackDrop/changye.jpg
+- Assets/GameAssets/Image/Game/Sprite/BackDrop/dossoles_gs.png
+- Assets/GameAssets/Image/Game/Sprite/BackDrop/dossoles.jpg
+- Assets/GameAssets/Image/Game/Sprite/BackDrop/changye_gs.png
+Dependencies: []
