@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using ArkRhythm;
 using TMPro;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// 章节显示脚本
 /// </summary>
-public class ChapterInfoWarp : MonoBehaviour
+public class ChapterInfoWarp : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Dictionary<string, Transform> chds;//子物体
     void Awake()
@@ -113,5 +114,32 @@ public class ChapterInfoWarp : MonoBehaviour
         {
             chds["ark"].GetComponent<TMP_Text>().text = "<color=yellow>Ark</color>\n" + arc;
         }
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        OnMouseHover();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        OnMouseLeave();
+    }
+    /// <summary>
+    /// 当鼠标悬浮的时候
+    /// </summary>
+    public void OnMouseHover()
+    {
+        //TODO 在上面盖一张灰色的图片
+        Debug.Log("鼠标在这个章节之上!");
+        set_chp_title("悬浮多索雷斯假日");
+    }
+    /// <summary>
+    /// 当鼠标离开的时候
+    /// </summary>
+    public void OnMouseLeave()
+    {
+        //TODO 移走那张灰色的图片
+        Debug.Log("鼠标离开了这个章节!");
+        set_chp_title("离开多索雷斯假日");
     }
 }
