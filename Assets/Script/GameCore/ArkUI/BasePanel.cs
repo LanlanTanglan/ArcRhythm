@@ -9,13 +9,11 @@ public class BasePanel : MonoBehaviour
 {
     //是否被加载
     public bool isLoaded = false;
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
