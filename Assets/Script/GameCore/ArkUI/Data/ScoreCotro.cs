@@ -8,11 +8,13 @@ using TMPro;
 /// <summary>
 /// 用于控制分数
 /// </summary>
+[System.Serializable]
 public class ScoreCotro : MonoBehaviour
 {
     public int targetScore;//目标分数
     public int currentScore;//当前分数
-    public int c;//计数器
+    public int counter;//计数器
+    public int frame;
     public TMP_Text scoretmp;
     public int gap;//间隔
     public int bis;
@@ -24,12 +26,13 @@ public class ScoreCotro : MonoBehaviour
         scoretmp = this.GetComponent<TMP_Text>();
         targetScore = 1000000;//目标分数
         currentScore = 1000000;//当前分数
-        c = 0;
+        counter = 0;
 
         gap = 17;
         bis = 377;
         max_gap = 1000;
         targetLen = 7;
+        frame = 5;
     }
     void Start()
     {
@@ -42,14 +45,14 @@ public class ScoreCotro : MonoBehaviour
         //每隔5帧进行调用
         if (currentScore != targetScore)
         {
-            c++;
-            if (c >= 5)
+            counter++;
+            if (counter >= frame)
             {
                 //TODO
                 currentScore = ScoreChanger();
                 //设置数字
                 scoretmp.text = ScoreTextMaker(currentScore);
-                c = 0;
+                counter = 0;
             }
         }
     }
