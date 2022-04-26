@@ -11,18 +11,16 @@ using DG.Tweening;
 //移动条控制器
 public class HoverLevelCotro : MonoBehaviour
 {
-    public ScoreCotro Countsc;
-    public STAFF_LEVEL currentLevel;
-    public TMP_Text level;
-    public STAFF_LEVEL targetLevel;
+    public ScoreCotro Countsc;//当前铺面等级数字控制
+    public STAFF_LEVEL currentLevel;//当前铺面等级
+    public TMP_Text level;//等级
     public SpriteRenderer bg;//背景
-    public bool mutex = false;
     public int[] levelPos;//移动位置
-    public List<Vector3> bgColor;
+    public List<Vector3> bgColor;//颜色Bg颜色
 
     void Awake()
     {
-        levelPos = new int[4] { 50, 150, 250, 350 };
+        levelPos = new int[5] { 50, 150, 250, 350 ,450};
         bgColor = new List<Vector3>() { new Vector3(0, 173, 52), new Vector3(0, 117, 255), new Vector3(255, 0, 14), new Vector3(250, 211, 0) };
         //添加分数控制器脚本
         Countsc = this.transform.Find("Count").gameObject.AddComponent<ScoreCotro>();
@@ -45,17 +43,12 @@ public class HoverLevelCotro : MonoBehaviour
 
     void Update()
     {
-        //test
-        // if (!mutex && currentLevel != targetLevel)
-        // {
-        //     mutex = true;
-        //     ChangeLevel(targetLevel, 1);
-        //     currentLevel = targetLevel;
-        // }
+        
     }
 
     public void ChangeLevel(STAFF_LEVEL t, int num)
     {
+        currentLevel = t;
         //设置分数
         Countsc.targetScore = num;
         //设置等级
@@ -64,5 +57,12 @@ public class HoverLevelCotro : MonoBehaviour
         transform.DOLocalMoveX(levelPos[(int)t - 1] - 610 / 2, 0.3f);
         //修改颜色
         bg.DOColor(new Color(bgColor[(int)t - 1][0] / 255, bgColor[(int)t - 1][1] / 255, bgColor[(int)t - 1][2] / 255, 1), 0.5f);
+    }
+    /// <summary>
+    /// 将悬浮条移动到正确的地方
+    /// </summary>
+    public void SetTruePos()
+    {
+        
     }
 }

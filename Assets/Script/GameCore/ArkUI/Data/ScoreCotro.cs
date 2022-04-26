@@ -24,8 +24,8 @@ public class ScoreCotro : MonoBehaviour
     void Awake()
     {
         scoretmp = this.GetComponent<TMP_Text>();
-        targetScore = 1000000;//目标分数
-        currentScore = 1000000;//当前分数
+        targetScore = 0;//目标分数
+        currentScore = 0;//当前分数
         counter = 0;
 
         gap = 17;
