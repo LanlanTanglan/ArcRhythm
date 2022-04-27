@@ -20,13 +20,14 @@ public class HoverLevelCotro : MonoBehaviour
 
     void Awake()
     {
-        levelPos = new int[5] { 50, 150, 250, 350 ,450};
-        bgColor = new List<Vector3>() { new Vector3(0, 173, 52), new Vector3(0, 117, 255), new Vector3(255, 0, 14), new Vector3(250, 211, 0) };
         //添加分数控制器脚本
         Countsc = this.transform.Find("Count").gameObject.AddComponent<ScoreCotro>();
         level = this.transform.Find("Lv").GetComponent<TMP_Text>();
         bg = this.transform.Find("Bg").GetComponent<SpriteRenderer>();
+        
         //设置分数控制器的相关信息
+        bgColor = new List<Vector3>() { new Vector3(0, 173, 52), new Vector3(0, 117, 255), new Vector3(255, 0, 14), new Vector3(250, 211, 0) };
+        levelPos = new int[5] { 50, 150, 250, 350 ,450};
         Countsc.gap = 1000;
         Countsc.isAddZero = false;
         Countsc.bis = 1;

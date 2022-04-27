@@ -24,10 +24,11 @@ public class ScoreCotro : MonoBehaviour
     void Awake()
     {
         scoretmp = this.GetComponent<TMP_Text>();
-        targetScore = 0;//目标分数
-        currentScore = 0;//当前分数
-        counter = 0;
 
+        //初始化数据
+        targetScore = 0;
+        currentScore = 0;
+        counter = 0;
         gap = 17;
         bis = 377;
         max_gap = 1000;
@@ -48,7 +49,6 @@ public class ScoreCotro : MonoBehaviour
             counter++;
             if (counter >= frame)
             {
-                //TODO
                 currentScore = ScoreChanger();
                 //设置数字
                 scoretmp.text = ScoreTextMaker(currentScore);
