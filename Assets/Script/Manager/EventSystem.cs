@@ -13,7 +13,7 @@ public class GameProcessManager : Singleton<GameProcessManager>
     public delegate void StopGameHandel(bool key);
     //游戏暂停接口事件
     public event StopGameHandel StopGameEvent;
-
+    
     
     /// <summary>
     /// 是否暂停游戏

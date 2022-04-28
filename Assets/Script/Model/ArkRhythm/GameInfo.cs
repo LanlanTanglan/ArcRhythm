@@ -10,6 +10,7 @@ namespace ArkRhythm
     [System.Serializable]
     public class GamePlayResult
     {
+        [JsonIgnore]
         public string bmsName;//铺面名称
         public int totalNoteNum;//这个铺面的总共的物量 TODO 考虑长按条的物量(算为1)
         public float accuracyRate;//准确度
@@ -21,6 +22,7 @@ namespace ArkRhythm
         public int maxCombo;//最大连击数
         public int resultLevel;//结果等级,D,C,B,A,S,V,(至臻--主题，危机合约等徽章改成金黄色)
 
+        [JsonIgnore]
         public int currentMaxCombo;
 
         public GamePlayResult addGoodNum()
@@ -136,9 +138,16 @@ namespace ArkRhythm
                 }
             }
         }
+        public void LoadChapter(string c)
+        {
+            if (!chapters.ContainsKey(c))
+            {
+                chapters.Add(c, DataUtil.ReaderDate<Chapter>(Application.streamingAssetsPath + "/GameSaveData/Chapters/", c + ".json"));
+            }
+        }
     }
 
-    
+
     [System.Serializable]
     /// <summary>
     /// 章节
@@ -155,6 +164,24 @@ namespace ArkRhythm
         {
 
         }
+
+        /// <summary>
+        /// 加载音乐
+        /// </summary>
+        public void LoadAllMusic()
+        {
+            foreach(string s in musicNames)
+            {
+                if (!musics.ContainsKey(s))
+                {
+                    musics.Add(s, DataUtil.ReaderDate<Music>(Application.streamingAssetsPath + "/GameSaveData/Music/", s + ".json"));
+                }
+            }
+        }
+        public void LoadMusic()
+        {
+            
+        }
     }
 
     [System.Serializable]
@@ -165,12 +192,17 @@ namespace ArkRhythm
     {
 
         public string musicName;//音乐名
+        public string author;
+        public List<int> level;//等级
+
         [JsonIgnore]
-        public GamePlayResult gamePlayResult;
+        public Dictionary<string, GamePlayResult> gamePlayResult;//曲目
         public Music()
         {
 
         }
+
+
 
         /// <summary>
         /// 加载这个音乐名加载铺面BMS

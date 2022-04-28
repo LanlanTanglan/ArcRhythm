@@ -62,7 +62,7 @@ public class HoverLevelCotro : MonoBehaviour
     /// <summary>
     /// 将悬浮条移动到正确的地方
     /// </summary>
-    public void SetTruePos()
+    public void SetTruePos(STAFF_LEVEL l)
     {
         
     }

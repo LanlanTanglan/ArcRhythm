@@ -34,6 +34,7 @@ public class ScoreCotro : MonoBehaviour
         max_gap = 1000;
         targetLen = 7;
         frame = 5;
+        isAddZero = false;
     }
     void Start()
     {
