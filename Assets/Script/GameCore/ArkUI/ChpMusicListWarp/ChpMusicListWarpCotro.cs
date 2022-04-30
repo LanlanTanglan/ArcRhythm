@@ -6,17 +6,17 @@ using ArkRhythm;
 /// <summary>
 /// 章节内部明细表现
 /// </summary>
-public class ChpMusicListWarp : MonoBehaviour
+public class ChpMusicListWarpCotro : MonoBehaviour
 {
     public string currentMusic;//当前的歌曲
     public Chapter currentChapter;//当前的章节
-    public delegate void ChangeMusic(string mn);
-    public event ChangeMusic ChangeMusicInfo;
 
+    
+    public bool mutex;
 
     void Awake()
     {
-
+        mutex = false;        
     }
     void Start()
     {
@@ -25,7 +25,11 @@ public class ChpMusicListWarp : MonoBehaviour
 
     void Update()
     {
-
+        if(mutex)
+        {
+            Singleton<EventManager>.Instance.TriggerEvent("changeLevel", new EventManager.EventParam().SetInt(1));
+            mutex = false;
+        }
     }
     public void Init(string chapterName)
     {

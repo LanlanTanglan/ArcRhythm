@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,18 +10,22 @@ using ArkRhythm;
 /// </summary>
 public class MusicInfoWarpCotro : MonoBehaviour
 {
-    public string musicName;
-    public string author;
+    public int currentLevel;
     public List<int> level;//铺面等级
     public Music musicInfo;
     public Transform musicNameT;
     public Transform authorT;
     public Transform levelCountT;
+    private Action<EventManager.EventParam> changeLevel;
     void Awake()
     {
         musicNameT = transform.Find("Info/MusicName");
         authorT = transform.Find("Info/Author");
         levelCountT = transform.Find("Level/count");
+
+        //注册事件
+        changeLevel = new Action<EventManager.EventParam>(ChangeLevel);
+        Singleton<EventManager>.Instance.StartListening("changeLevel", changeLevel);
     }
     void Start()
     {
@@ -33,8 +38,11 @@ public class MusicInfoWarpCotro : MonoBehaviour
 
     public void Init()
     {
-        
+
     }
 
-    //TODO 通过事件修改count
+    public void ChangeLevel(EventManager.EventParam eventParam)
+    {
+        
+    }
 }
