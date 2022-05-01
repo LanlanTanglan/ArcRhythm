@@ -7,7 +7,8 @@ public class GameInfoManager : Singleton<GameInfoManager>
 {
     //当前的游玩铺面的信息汇总对象
     public GamePlayResult cGamePlayResult = new GamePlayResult();
-    public ChapterData chapterData;
+    //TODO 改成GameInfo大类
+    public ChapterData chapterData = new ChapterData();
 
     /// <summary>
     /// 获取章节
@@ -19,6 +20,7 @@ public class GameInfoManager : Singleton<GameInfoManager>
         {
             chapterData.LoadChapter(s);
         }
+        
         return chapterData.chapters[s];
     }
 }

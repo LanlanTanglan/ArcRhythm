@@ -159,10 +159,10 @@ namespace ArkRhythm
         public string chapterImg;//章节封面
 
         [JsonIgnore]
-        public Dictionary<string, Music> musics;//曲目
+        public Dictionary<string, Music> musics = new Dictionary<string, Music>();//曲目
         public Chapter()
         {
-
+            
         }
 
         /// <summary>
