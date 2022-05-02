@@ -54,4 +54,5 @@ public class MusicInfoWarpCotro : MonoBehaviour
         //将当前的等级数字修改为正确的等级
         levelCountTMP.text = musicInfo.level[(int)currentLevel - 1] + "";
     }
+    
 }
