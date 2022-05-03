@@ -1554,6 +1554,7 @@ GameObject:
   - component: {fileID: 5004235911300191652}
   - component: {fileID: 5004235911300191653}
   - component: {fileID: 5004235911300191654}
+  - component: {fileID: 3799129125753998924}
   m_Layer: 0
   m_Name: MusicList
   m_TagString: Untagged
@@ -1649,6 +1650,29 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3799129125753998924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004235911300191648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49496876a5f81bc4588e816c1769b2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentRT: {fileID: 0}
+  warpRect: {fileID: 0}
+  contentH: 0
+  padH: 0
+  itemH: 0
+  itemNum: 1
+  warpH: 0
+  s: {fileID: 0}
+  moveDistants: 0
+  cIdx: 0
+  lastIdx: 0
 --- !u!1 &5004235911333755847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,6 +2155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5004235911590015708}
+  - component: {fileID: 6525371972459249433}
   m_Layer: 0
   m_Name: ChpMusicListWarp
   m_TagString: Untagged
@@ -2160,6 +2185,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 19.2, y: 10.8}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6525371972459249433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004235911590015709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa57d2a14e0a814caa980077c41c70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMusic: 
+  currentChapter:
+    chapterName: 
+    musicNames: []
+    chapterImg: 
+  currentLevel: 0
+  musicListSC: {fileID: 0}
+  warpT: {fileID: 0}
+  mutex: 0
 --- !u!1 &5004235911610586943
 GameObject:
   m_ObjectHideFlags: 0

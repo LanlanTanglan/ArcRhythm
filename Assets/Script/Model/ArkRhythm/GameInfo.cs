@@ -158,11 +158,14 @@ namespace ArkRhythm
         public List<string> musicNames;//曲目名
         public string chapterImg;//章节封面
 
+
         [JsonIgnore]
         public Dictionary<string, Music> musics = new Dictionary<string, Music>();//曲目
+        [JsonIgnore]
+        public MusicSet musicSet;
         public Chapter()
         {
-            
+
         }
 
         /// <summary>
@@ -170,17 +173,36 @@ namespace ArkRhythm
         /// </summary>
         public void LoadAllMusic()
         {
-            foreach(string s in musicNames)
+            // foreach (string s in musicNames)
+            // {
+            //     if (!musics.ContainsKey(s))
+            //     {
+            //         musics.Add(s, DataUtil.ReaderDate<Music>(Application.streamingAssetsPath + "/GameSaveData/Music/", s + ".json"));
+            //     }
+            // }
+            MusicSet musicSet = DataUtil.ReaderDate<MusicSet>(Application.streamingAssetsPath + "/GameSaveData/Music/", chapterName + ".json");
+
+            foreach (Music m in musicSet.musics)
             {
-                if (!musics.ContainsKey(s))
+                if (!musics.ContainsKey(m.musicName))
                 {
-                    musics.Add(s, DataUtil.ReaderDate<Music>(Application.streamingAssetsPath + "/GameSaveData/Music/", s + ".json"));
+                    musics.Add(m.musicName, m);
                 }
             }
         }
         public void LoadMusic()
         {
-            
+
+        }
+    }
+
+    [System.Serializable]
+    public class MusicSet
+    {
+        public List<Music> musics = new List<Music>();
+        public MusicSet()
+        {
+
         }
     }
 

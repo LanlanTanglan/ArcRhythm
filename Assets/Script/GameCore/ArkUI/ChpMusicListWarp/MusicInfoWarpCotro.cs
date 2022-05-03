@@ -16,6 +16,7 @@ public class MusicInfoWarpCotro : MonoBehaviour
     public TMP_Text authorTMP;
     public TMP_Text levelCountTMP;
     private Action<EventManager.EventParam> changeLevel;//修改等级
+    
     void Awake()
     {
         musicNameTMP = transform.Find("Info/MusicName").GetComponent<TMP_Text>();
@@ -28,6 +29,7 @@ public class MusicInfoWarpCotro : MonoBehaviour
         changeLevel = new Action<EventManager.EventParam>(ChangeLevel);
         Singleton<EventManager>.Instance.StartListening("changeLevel", changeLevel);
     }
+
     void Start()
     {
         ChangeLevel(new EventManager.EventParam().SetInt((int)STAFF_LEVEL.EZ));
