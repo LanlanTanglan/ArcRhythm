@@ -180,7 +180,7 @@ namespace ArkRhythm
             //         musics.Add(s, DataUtil.ReaderDate<Music>(Application.streamingAssetsPath + "/GameSaveData/Music/", s + ".json"));
             //     }
             // }
-            MusicSet musicSet = DataUtil.ReaderDate<MusicSet>(Application.streamingAssetsPath + "/GameSaveData/Music/", chapterName + ".json");
+            MusicSet musicSet = DataUtil.ReaderDate<MusicSet>(Application.streamingAssetsPath + "/GameSaveData/Music/", chapterName + "_musics.json");
 
             foreach (Music m in musicSet.musics)
             {
@@ -199,7 +199,7 @@ namespace ArkRhythm
     [System.Serializable]
     public class MusicSet
     {
-        public List<Music> musics = new List<Music>();
+        public List<Music> musics;
         public MusicSet()
         {
 

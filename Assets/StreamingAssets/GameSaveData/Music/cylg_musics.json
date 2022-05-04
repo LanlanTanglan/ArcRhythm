@@ -1,0 +1,14 @@
+{
+    "musics": [
+        {
+            "musicName": "kazimier",
+            "author": "ArkNight",
+            "level": [
+                1,
+                12,
+                15
+            ],
+            "background": "changye"
+        }
+    ]
+}
