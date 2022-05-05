@@ -9,11 +9,16 @@ using TMPro;
 /// </summary>
 public class ChpMusicListWarpCotro : MonoBehaviour
 {
-    public string currentMusic;//当前的歌曲
+    public Music currentMusic;//当前的歌曲
     public Chapter currentChapter;//当前的章节
     public STAFF_LEVEL currentLevel;//当前等级
-    public MusicListScrollCotro musicListSC;
     public Transform warpT;//音乐列表的Warp
+
+
+    public MusicListScrollCotro musicListSC;
+    public SpriteRenderer backgroundSR;
+    public SpriteRenderer musicInfoCoverSR;
+    public LevelBarCotro levelBarCotro;
 
 
     public bool mutex;
@@ -24,11 +29,13 @@ public class ChpMusicListWarpCotro : MonoBehaviour
 
         musicListSC = this.transform.GetComponentInChildren<MusicListScrollCotro>();
         warpT = musicListSC.transform.Find("Viewport/Content/Warp");
-
+        backgroundSR = transform.Find("Background").GetComponent<SpriteRenderer>();
+        musicInfoCoverSR = transform.Find("MusicInfoWarp/MusicCoverMask/MusicCover").GetComponent<SpriteRenderer>();
+        levelBarCotro = transform.GetComponentInChildren<LevelBarCotro>();
     }
     void Start()
     {
-        ChangeLevel(STAFF_LEVEL.EZ);
+        ChangeLevelList(STAFF_LEVEL.EZ);
         Init("act1_cylg");
     }
 
@@ -49,6 +56,10 @@ public class ChpMusicListWarpCotro : MonoBehaviour
 
         //将章节的相关信息渲染到屏幕上
         RenderWarp();
+
+        //设置当前的音乐为列表第一个音乐
+        currentMusic = currentChapter.musicSet.musics[0];
+        Refresh();
     }
 
     /// <summary>
@@ -56,7 +67,15 @@ public class ChpMusicListWarpCotro : MonoBehaviour
     /// </summary>
     public void Refresh()
     {
+        //修改背景的图片
+        ChangeBackground();
 
+        //修改右侧信息
+        //--修改右侧Cover图片
+        ChangeMusicInfoCover();
+
+        //--修改右侧下方levelBar信息
+        ChangeLevelBar();
     }
 
     /// <summary>
@@ -102,9 +121,47 @@ public class ChpMusicListWarpCotro : MonoBehaviour
     /// 修改当前列表等级
     /// </summary>
     /// <param name="sl"></param>
-    public void ChangeLevel(STAFF_LEVEL sl)
+    public void ChangeLevelList(STAFF_LEVEL sl)
     {
         currentLevel = sl;
         Singleton<EventManager>.Instance.TriggerEvent("changeLevel", new EventManager.EventParam().SetInt((int)sl));
+    }
+
+    /// <summary>
+    /// 修改Levelbar
+    /// </summary>
+    public void ChangeLevelBar()
+    {
+        //设置有多少个等级可选
+        levelBarCotro.SetLevelCount(currentMusic.level);
+
+        //设置背景条的长度
+        levelBarCotro.ChangeLevelWarpNum(currentMusic.level.Count);
+
+        //设置当前难度
+        levelBarCotro.hoverLevelCotro.ChangeLevel(currentLevel, currentMusic.level[(int)currentLevel - 1]);
+    }
+
+    /// <summary>
+    /// 修改背景
+    /// </summary>
+    public void ChangeBackground()
+    {
+        AssetBundle backdrop = Singleton<ABManager>.Instance.GetAssetBundle("backdrop");
+        Sprite s = backdrop.LoadAsset<Sprite>(currentMusic.background + "_gs");
+        backgroundSR.sprite = s;
+
+        //TODO 调整大小
+
+    }
+
+    /// <summary>
+    /// 修改InfoCover
+    /// </summary>
+    public void ChangeMusicInfoCover()
+    {
+        AssetBundle backdrop = Singleton<ABManager>.Instance.GetAssetBundle("backdrop");
+        Sprite s = backdrop.LoadAsset<Sprite>(currentMusic.background);
+        musicInfoCoverSR.sprite = s;
     }
 }

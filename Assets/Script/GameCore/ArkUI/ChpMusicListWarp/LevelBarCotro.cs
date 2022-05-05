@@ -18,11 +18,14 @@ public class LevelBarCotro : MonoBehaviour
 
     public bool mutex;
     public int m;
+
+    public HoverLevelCotro hoverLevelCotro;
     void Awake()
     {
         //获取
         whiteBgT = transform.GetChild(0);
         whiteBgSR = this.transform.Find("WhiteBg").GetComponent<SpriteRenderer>();
+        hoverLevelCotro = this.GetComponentInChildren<HoverLevelCotro>();
         levelWarpsCG = this.transform.GetComponentsInChildren<CanvasGroup>();
         levelWarpsSC = this.transform.GetComponentsInChildren<ScoreCotro>();
 
@@ -41,7 +44,7 @@ public class LevelBarCotro : MonoBehaviour
         currentLevelNum = 5;//当前等级数量
         mutex = true;
         m = 1;
-        SetLevelCount(5,10,14,16);
+        SetLevelCount(new List<int> { 5, 10, 14, 16 });
 
     }
     void Start()
@@ -92,15 +95,15 @@ public class LevelBarCotro : MonoBehaviour
     ///修改背景条大小
     /// </summary>
     /// <param name="n"></param>
-    public void ChangeBgSize(int n)
+    private void ChangeBgSize(int n)
     {
         whiteBgT.transform.DOLocalMoveX(whiteBgT.transform.localPosition.x + 50 * n, 0.3f);
         whiteBgT.DOScaleX(whiteBgT.transform.localScale.x + n * 5, 0.3f);
     }
 
-    public void SetLevelCount(params int[] level)
+    public void SetLevelCount(List<int> level)
     {
-        for (int i = 0; i < level.Length; i++)
+        for (int i = 0; i < level.Count; i++)
         {
             levelWarpsSC[i].SetScore(level[i]);
         }

@@ -9,6 +9,15 @@
                 15
             ],
             "background": "changye"
+        },{
+            "musicName": "dossoles",
+            "author": "ArkNight",
+            "level": [
+                1,
+                12,
+                15
+            ],
+            "background": "dossoles"
         }
     ]
 }

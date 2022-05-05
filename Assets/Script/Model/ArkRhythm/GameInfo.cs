@@ -180,7 +180,7 @@ namespace ArkRhythm
             //         musics.Add(s, DataUtil.ReaderDate<Music>(Application.streamingAssetsPath + "/GameSaveData/Music/", s + ".json"));
             //     }
             // }
-            MusicSet musicSet = DataUtil.ReaderDate<MusicSet>(Application.streamingAssetsPath + "/GameSaveData/Music/", chapterName + "_musics.json");
+            musicSet = DataUtil.ReaderDate<MusicSet>(Application.streamingAssetsPath + "/GameSaveData/Music/", chapterName + "_musics.json");
 
             foreach (Music m in musicSet.musics)
             {
@@ -216,6 +216,7 @@ namespace ArkRhythm
         public string musicName;//音乐名
         public string author;
         public List<int> level;//等级
+        public string background;
 
         [JsonIgnore]
         public Dictionary<string, GamePlayResult> gamePlayResult;//曲目
