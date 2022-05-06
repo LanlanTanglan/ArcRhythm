@@ -73,6 +73,7 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
 
         //修改信息
         cmlwC.currentMusic = musicInfo;
+        // 刷新
         cmlwC.Refresh();
     }   
 
