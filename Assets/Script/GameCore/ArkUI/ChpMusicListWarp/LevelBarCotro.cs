@@ -42,9 +42,9 @@ public class LevelBarCotro : MonoBehaviour
 
         //Test
         currentLevelNum = 5;//当前等级数量
-        mutex = true;
-        m = 1;
-        SetLevelCount(new List<int> { 5, 10, 14, 16 });
+        // mutex = true;
+        // m = 1;
+        // SetLevelCount(new List<int> { 5, 10, 14, 16 });
 
     }
     void Start()
@@ -107,6 +107,7 @@ public class LevelBarCotro : MonoBehaviour
         {
             levelWarpsSC[i].SetScore(level[i]);
         }
+        ChangeLevelWarpNum(level.Count);
     }
 
 }

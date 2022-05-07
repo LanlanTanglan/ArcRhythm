@@ -32,6 +32,7 @@ public class ChpMusicListWarpCotro : MonoBehaviour
         backgroundSR = transform.Find("Background").GetComponent<SpriteRenderer>();
         musicInfoCoverSR = transform.Find("MusicInfoWarp/MusicCoverMask/MusicCover").GetComponent<SpriteRenderer>();
         levelBarCotro = transform.GetComponentInChildren<LevelBarCotro>();
+
     }
     void Start()
     {
@@ -140,6 +141,7 @@ public class ChpMusicListWarpCotro : MonoBehaviour
 
         //设置当前难度
         levelBarCotro.hoverLevelCotro.ChangeLevel(currentLevel, currentMusic.level[(int)currentLevel - 1]);
+
     }
 
     /// <summary>

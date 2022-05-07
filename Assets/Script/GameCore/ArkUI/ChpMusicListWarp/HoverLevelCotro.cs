@@ -24,15 +24,15 @@ public class HoverLevelCotro : MonoBehaviour
         Countsc = this.transform.Find("Count").gameObject.AddComponent<ScoreCotro>();
         level = this.transform.Find("Lv").GetComponent<TMP_Text>();
         bg = this.transform.Find("Bg").GetComponent<SpriteRenderer>();
-        
+
         //设置分数控制器的相关信息
         bgColor = new List<Vector3>() { new Vector3(0, 173, 52), new Vector3(0, 117, 255), new Vector3(255, 0, 14), new Vector3(250, 211, 0) };
-        levelPos = new int[5] { 50, 150, 250, 350 ,450};
+        levelPos = new int[5] { 50, 150, 250, 350, 450 };
         Countsc.gap = 1000;
         Countsc.isAddZero = false;
         Countsc.bis = 1;
         Countsc.targetScore = 1;
-        Countsc.currentScore = 1;
+        Countsc.currentScore = 0;
         Countsc.frame = 10;
         Countsc.max_gap = 0;
 
@@ -44,7 +44,7 @@ public class HoverLevelCotro : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void ChangeLevel(STAFF_LEVEL t, int num)
@@ -64,6 +64,6 @@ public class HoverLevelCotro : MonoBehaviour
     /// </summary>
     public void SetTruePos(STAFF_LEVEL l)
     {
-        
+
     }
 }

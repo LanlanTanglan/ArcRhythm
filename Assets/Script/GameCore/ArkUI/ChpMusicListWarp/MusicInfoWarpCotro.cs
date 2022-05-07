@@ -22,7 +22,6 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
 
     void Awake()
     {
-        cmlwC = transform.GetComponentInParent<ChpMusicListWarpCotro>();
         musicNameTMP = transform.Find("Info/MusicName").GetComponent<TMP_Text>();
         authorTMP = transform.Find("Info/Author").GetComponent<TMP_Text>();
         levelCountTMP = transform.Find("Level/count").GetComponent<TMP_Text>();
@@ -36,6 +35,8 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
+        cmlwC = transform.GetComponentInParent<ChpMusicListWarpCotro>();
+
         ChangeLevel(new EventManager.EventParam().SetInt((int)STAFF_LEVEL.EZ));
         //设置内容
         musicNameTMP.text = musicInfo.musicName;
