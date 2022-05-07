@@ -58,8 +58,14 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
         //当前等级
         currentLevel = eventParam.i;
 
+        //这个铺面的最高等级已经达到了尽头
+        if (currentLevel > musicInfo.level.Count)
+            return;
+
         //将当前的等级数字修改为正确的等级
         levelCountTMP.text = musicInfo.level[(int)currentLevel - 1] + "";
+
+
     }
 
     /// <summary>
@@ -69,13 +75,19 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         //当前选中的歌曲与点击相同，则无需修改相关信息
+        //TODO 两次点击，则代表，开始游戏
         if (musicInfo.musicName == cmlwC.currentMusic.musicName)
+        {
+            Singleton<BMSManager>.Instance.LoadBMSClass_2(Application.streamingAssetsPath + "/GameSaveData/BMS/" + "kazimier2" + ".json");
+            Singleton<GameClockManager>.Instance.CurrentGameBegin();
+            Singleton<AudioManager>.Instance.AudioDelayPlay("Music/kazimier", 5f);
+            cmlwC.PlayAnim();
             return;
-
+        }
         //修改信息
         cmlwC.currentMusic = musicInfo;
         // 刷新
         cmlwC.Refresh();
-    }   
+    }
 
 }

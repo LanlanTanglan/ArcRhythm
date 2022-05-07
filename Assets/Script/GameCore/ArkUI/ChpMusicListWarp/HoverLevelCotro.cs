@@ -33,7 +33,7 @@ public class HoverLevelCotro : MonoBehaviour
         Countsc.bis = 1;
         Countsc.targetScore = 1;
         Countsc.currentScore = 0;
-        Countsc.frame = 10;
+        Countsc.frame = 1;
         Countsc.max_gap = 0;
 
     }
@@ -64,6 +64,6 @@ public class HoverLevelCotro : MonoBehaviour
     /// </summary>
     public void SetTruePos(STAFF_LEVEL l)
     {
-
+        transform.DOLocalMoveX(levelPos[(int)l - 1] - 610 / 2, 0.3f);
     }
 }

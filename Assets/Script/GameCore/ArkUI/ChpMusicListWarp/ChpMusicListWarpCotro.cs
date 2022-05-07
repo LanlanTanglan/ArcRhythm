@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using ArkRhythm;
 using TMPro;
+using DG.Tweening;
+
 
 /// <summary>
 /// 章节内部明细表现
@@ -13,6 +15,9 @@ public class ChpMusicListWarpCotro : MonoBehaviour
     public Chapter currentChapter;//当前的章节
     public STAFF_LEVEL currentLevel;//当前等级
     public Transform warpT;//音乐列表的Warp
+
+    public Transform leftWarpG;
+    public Transform rightWarpG;
 
 
     public MusicListScrollCotro musicListSC;
@@ -32,6 +37,9 @@ public class ChpMusicListWarpCotro : MonoBehaviour
         backgroundSR = transform.Find("Background").GetComponent<SpriteRenderer>();
         musicInfoCoverSR = transform.Find("MusicInfoWarp/MusicCoverMask/MusicCover").GetComponent<SpriteRenderer>();
         levelBarCotro = transform.GetComponentInChildren<LevelBarCotro>();
+
+        leftWarpG = transform.GetChild(1);
+        rightWarpG = transform.GetChild(2);
 
     }
     void Start()
@@ -140,6 +148,11 @@ public class ChpMusicListWarpCotro : MonoBehaviour
         levelBarCotro.ChangeLevelWarpNum(currentMusic.level.Count);
 
         //设置当前难度
+        if ((int)currentLevel > currentMusic.level.Count)
+        {
+            levelBarCotro.hoverLevelCotro.ChangeLevel((STAFF_LEVEL)currentMusic.level.Count, currentMusic.level[currentMusic.level.Count - 1]);
+            return;
+        }
         levelBarCotro.hoverLevelCotro.ChangeLevel(currentLevel, currentMusic.level[(int)currentLevel - 1]);
 
     }
@@ -165,5 +178,11 @@ public class ChpMusicListWarpCotro : MonoBehaviour
         AssetBundle backdrop = Singleton<ABManager>.Instance.GetAssetBundle("backdrop");
         Sprite s = backdrop.LoadAsset<Sprite>(currentMusic.background);
         musicInfoCoverSR.sprite = s;
+    }
+
+    public void PlayAnim()
+    {
+        leftWarpG.DOLocalMoveX(-15, 1f).AsyncWaitForStart();
+        rightWarpG.DOLocalMoveX(15f, 1f).AsyncWaitForStart();
     }
 }
