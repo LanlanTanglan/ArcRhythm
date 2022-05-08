@@ -7,7 +7,7 @@ using DG.Tweening;
 
 
 /// <summary>
-/// 章节内部明细表现
+/// 章节内部明细表现，用于显示章节的歌曲列表等相关功能
 /// </summary>
 public class ChpMusicListWarpCotro : MonoBehaviour
 {
