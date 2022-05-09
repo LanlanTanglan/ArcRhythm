@@ -38,7 +38,9 @@ public class ChpMusicListWarpCotro : MonoBehaviour
         musicInfoCoverSR = transform.Find("MusicInfoWarp/MusicCoverMask/MusicCover").GetComponent<SpriteRenderer>();
         levelBarCotro = transform.GetComponentInChildren<LevelBarCotro>();
 
+        //获取左边的子物体
         leftWarpG = transform.GetChild(1);
+        //右边的子物体
         rightWarpG = transform.GetChild(2);
 
     }
