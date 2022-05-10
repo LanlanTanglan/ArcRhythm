@@ -12,6 +12,9 @@ namespace ArkRhythm
     {
         private Dictionary<string, Action> eventDictionary;
         private Dictionary<string, Action<EventParam>> eventDictionaryP;
+        public Dictionary<string, bool> eventDictAsync;
+
+        public bool isNeedAsyncLoop = false;
         /// <summary>
         /// 无参数
         /// </summary>
@@ -19,6 +22,30 @@ namespace ArkRhythm
         {
             eventDictionary = new Dictionary<string, Action>();
             eventDictionaryP = new Dictionary<string, Action<EventParam>>();
+            eventDictAsync = new Dictionary<string, bool>();
+        }
+
+        void Update()
+        {
+            //轮询异步字典
+            if (isNeedAsyncLoop)
+            {
+                List<string> t = new List<string>();
+                foreach (string l in eventDictAsync.Keys)
+                {
+                    if (eventDictAsync[l])
+                    {
+                        TriggerEvent(l);
+                        t.Add(l);
+                    }
+                }
+                foreach (string l in t)
+                {
+                    eventDictAsync[l] = false;
+                }
+                
+                isNeedAsyncLoop = false;
+            }
         }
 
         public void StartListening(string eventName, Action listener)
@@ -39,6 +66,8 @@ namespace ArkRhythm
                 this.eventDictionary.Add(eventName, thisEvent);
             }
         }
+
+
         public void StopListening(string eventName, Action listener)
         {
             Action thisEvent;
@@ -59,6 +88,36 @@ namespace ArkRhythm
                 thisEvent.Invoke();
                 // OR USE instance.eventDictionary[eventName]();
             }
+        }
+
+        public void StartListeningAnsyc(string eventName, Action listener)
+        {
+            Action thisEvent;
+            if (this.eventDictionary.TryGetValue(eventName, out thisEvent))
+            {
+                //Add more event to the existing one
+                thisEvent += listener;
+
+                //Update the Dictionary
+                this.eventDictionary[eventName] = thisEvent;
+            }
+            else
+            {
+                //Add event to the Dictionary for the first time
+                thisEvent += listener;
+                this.eventDictionary.Add(eventName, thisEvent);
+                //添加异步是否执行完时间
+                this.eventDictAsync.Add(eventName, false);
+            }
+        }
+
+        public void TriggerEventAnsyc(string eventName)
+        {
+            if (eventDictAsync.ContainsKey(eventName))
+            {
+                eventDictAsync[eventName] = true;
+            }
+            isNeedAsyncLoop = true;
         }
 
         /// <summary>

@@ -20,6 +20,11 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
     public TMP_Text levelCountTMP;
     private Action<EventManager.EventParam> changeLevel;//修改等级
 
+    //TODO TEst
+    public Action test;
+
+    public bool mutex_test = false;
+
     void Awake()
     {
         musicNameTMP = transform.Find("Info/MusicName").GetComponent<TMP_Text>();
@@ -31,6 +36,9 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
         //注册事件
         changeLevel = new Action<EventManager.EventParam>(ChangeLevel);
         Singleton<EventManager>.Instance.StartListening("changeLevel", changeLevel);
+
+        test = new Action(Test);
+        Singleton<EventManager>.Instance.StartListeningAnsyc("test", test);
     }
 
     void Start()
@@ -45,7 +53,11 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
     }
     void Update()
     {
-
+        // if (mutex_test)
+        // {
+        //     Debug.Log("成功加载内容");
+        //     mutex_test = false;
+        // }
     }
 
     public void Init(Music m)
@@ -78,9 +90,8 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
         //TODO 两次点击，则代表，开始游戏
         if (musicInfo.musicName == cmlwC.currentMusic.musicName)
         {
-            Singleton<BMSManager>.Instance.LoadBMSClass_2(Application.streamingAssetsPath + "/GameSaveData/BMS/" + "kazimier2" + ".json");
-            Singleton<GameClockManager>.Instance.CurrentGameBegin();
-            Singleton<AudioManager>.Instance.AudioDelayPlay("Music/kazimier", 5f);
+            Singleton<BMSManager>.Instance.LoadBMSClass_3(Application.streamingAssetsPath + "/GameSaveData/BMS/" + "kazimier2" + ".json");
+
             cmlwC.PlayAnim();
             return;
         }
@@ -90,4 +101,11 @@ public class MusicInfoWarpCotro : MonoBehaviour, IPointerClickHandler
         cmlwC.Refresh();
     }
 
+    public void Test()
+    {
+        Debug.Log("游戏开始");
+        Singleton<BMSManager>.Instance.TestLoad();
+        Singleton<GameClockManager>.Instance.CurrentGameBegin();
+        Singleton<AudioManager>.Instance.AudioDelayPlay("Music/kazimier", 5f);
+    }
 }

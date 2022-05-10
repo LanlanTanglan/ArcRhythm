@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,11 +28,12 @@ public class ChpMusicListWarpCotro : MonoBehaviour
     public LevelBarCotro levelBarCotro;
 
 
-    public bool mutex;
+    
+
+    
 
     void Awake()
     {
-        mutex = false;
 
         musicListSC = this.transform.GetComponentInChildren<MusicListScrollCotro>();
         warpT = musicListSC.transform.Find("Viewport/Content/Warp");
@@ -38,10 +41,12 @@ public class ChpMusicListWarpCotro : MonoBehaviour
         musicInfoCoverSR = transform.Find("MusicInfoWarp/MusicCoverMask/MusicCover").GetComponent<SpriteRenderer>();
         levelBarCotro = transform.GetComponentInChildren<LevelBarCotro>();
 
-        //获取左边的子物体
+        //获取左边的子物体test
         leftWarpG = transform.GetChild(1);
         //右边的子物体
         rightWarpG = transform.GetChild(2);
+
+        
 
     }
     void Start()
@@ -52,10 +57,8 @@ public class ChpMusicListWarpCotro : MonoBehaviour
 
     void Update()
     {
-        if (mutex)
-        {
-            mutex = false;
-        }
+
+        
     }
     public void Init(string chapterName)
     {
@@ -184,7 +187,9 @@ public class ChpMusicListWarpCotro : MonoBehaviour
 
     public void PlayAnim()
     {
-        leftWarpG.DOLocalMoveX(-15, 1f).AsyncWaitForStart();
-        rightWarpG.DOLocalMoveX(15f, 1f).AsyncWaitForStart();
+        leftWarpG.DOLocalMoveX(-15, 1f);
+        rightWarpG.DOLocalMoveX(15f, 1f);
     }
+
+    
 }

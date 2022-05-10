@@ -38,6 +38,7 @@ public class BMSManager : Singleton<BMSManager>
     public List<BaseOperator> baseOperators;
     public int[] noteIdx = new int[4] { 0, 0, 0, 0 };//Note的idx
 
+    public AsyncFileReader asyncFileReader;
 
 
     void Update()
@@ -91,6 +92,23 @@ public class BMSManager : Singleton<BMSManager>
         JObject jo = JsonUtil.readJSON(BMSurl);
         bms = new BMS().SetParam(jo);
 
+        isLoadBMS = true;
+
+        //初始化这一局的游戏信息
+        Singleton<GameInfoManager>.Instance.cGamePlayResult.ClearInfo().setTotalNoteNum(bms.BMSInfo.totalNoteNum);
+
+        LoadBMS();
+    }
+
+    //异步方法
+    public void LoadBMSClass_3(String BMSurl)
+    {
+        asyncFileReader = new AsyncFileReader(BMSurl);
+    }
+
+    public void TestLoad()
+    {
+        bms = asyncFileReader.bms;
         isLoadBMS = true;
 
         //初始化这一局的游戏信息
