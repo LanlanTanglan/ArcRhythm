@@ -4,6 +4,7 @@ using UnityEngine;
 using ArkRhythm;
 using Util;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 /// <summary>
 /// 铺面管理器
@@ -114,7 +115,14 @@ public class BMSManager : Singleton<BMSManager>
         //初始化这一局的游戏信息
         Singleton<GameInfoManager>.Instance.cGamePlayResult.ClearInfo().setTotalNoteNum(bms.BMSInfo.totalNoteNum);
 
+        Stopwatch sw = new Stopwatch();
+        
+        sw.Start();
         LoadBMS();
+        sw.Stop();
+
+        UnityEngine.Debug.Log("加载铺面的时间为" + sw.ElapsedMilliseconds+"ms");
+
     }
 
     /// <summary>
