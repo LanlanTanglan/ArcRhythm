@@ -115,13 +115,11 @@ public class BMSManager : Singleton<BMSManager>
         //初始化这一局的游戏信息
         Singleton<GameInfoManager>.Instance.cGamePlayResult.ClearInfo().setTotalNoteNum(bms.BMSInfo.totalNoteNum);
 
-        Stopwatch sw = new Stopwatch();
-        
-        sw.Start();
-        LoadBMS();
-        sw.Stop();
 
-        UnityEngine.Debug.Log("加载铺面的时间为" + sw.ElapsedMilliseconds+"ms");
+
+
+        LoadBMS();
+
 
     }
 
@@ -141,12 +139,21 @@ public class BMSManager : Singleton<BMSManager>
     /// </summary>
     public void LoadOperators()
     {
+
+
         //遍历载入干员预制体，并命名
         foreach (Operator o in bms.operSet)
         {
             string objn = Enum.GetName(typeof(OPERATOR), (int)o.operatorType);
             // GameObject opObj = Instantiate((GameObject)Resources.Load(ArcPath.prefebDirOfOperator + objn));
-            GameObject opObj = Instantiate(Singleton<ABManager>.Instance.GetAssetBundle("operator").LoadAsset(objn, typeof(GameObject)) as GameObject);
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            //TODO 提前预加载这个干员，问题是：主要耗费时间在干员的加载上
+            GameObject opObj = Instantiate(Singleton<ABManager>.Instance.LoadGameObject("operator", objn));
+            sw.Stop();
+
+            UnityEngine.Debug.Log("初始化GameObj所耗时间" + sw.ElapsedMilliseconds + "ms");
+
             opObj.name = ArcStr.operatorName + "(" + objn + ")";
             //绑定Operator脚本
             BaseOperator bo = opObj.AddComponent<BaseOperator>();

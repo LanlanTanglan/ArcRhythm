@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 using ArkRhythm;
 
 /// <summary>
@@ -9,6 +10,7 @@ using ArkRhythm;
 public class ABManager : Singleton<ABManager>
 {
     public Hashtable assetBundles = new Hashtable();//已加载的AB包
+    public Dictionary<string, GameObject> loadedGameobjs = new Dictionary<string, GameObject>();//已加载的Obj
 
     /// <summary>
     /// 加载AB包
@@ -16,7 +18,7 @@ public class ABManager : Singleton<ABManager>
     /// <param name="path"></param>
     public void LoadAssetBundleWithPath(string path)
     {
-        if(assetBundles.ContainsKey(path))
+        if (assetBundles.ContainsKey(path))
             return;
         //TODO 判断path与abNames集合是否重复加载
         AssetBundle ab = AssetBundle.LoadFromFile(Application.streamingAssetsPath + "/" + path);
@@ -27,5 +29,19 @@ public class ABManager : Singleton<ABManager>
     public AssetBundle GetAssetBundle(string n)
     {
         return (AssetBundle)assetBundles[n];
+    }
+
+    public GameObject LoadGameObject(string abName, string objName)
+    {
+        // Stopwatch sw = new Stopwatch();
+        // sw.Start();
+        if (!loadedGameobjs.ContainsKey(abName + "_" + objName))
+        {
+            loadedGameobjs.Add(abName + "_" + objName, GetAssetBundle(abName).LoadAsset(objName, typeof(GameObject)) as GameObject);
+        }
+        // sw.Stop();
+
+        // UnityEngine.Debug.Log("加载AB内容所耗时间" + sw.ElapsedMilliseconds + "ms");
+        return loadedGameobjs[abName + "_" + objName];
     }
 }
