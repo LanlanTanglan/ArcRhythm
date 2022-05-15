@@ -144,6 +144,9 @@ public class BMSManager : Singleton<BMSManager>
         //遍历载入干员预制体，并命名，
         //TODO 准备重构代码
         //TODO 准备重构代码
+        //TODO 准备重构代码
+        //TODO 准备重构代码
+        //TODO 准备重构代码
         foreach (Operator o in bms.operSet)
         {
             string objn = Enum.GetName(typeof(OPERATOR), (int)o.operatorType);
