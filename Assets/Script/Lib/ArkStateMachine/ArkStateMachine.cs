@@ -1,4 +1,4 @@
 public class ArkStateMachine
 {
-    public ArkStateMachine asm;
+    public ArkStateMachine asm;//
 }
