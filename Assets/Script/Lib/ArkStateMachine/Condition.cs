@@ -1,7 +1,4 @@
-public class Condition<T>
+public abstract class Condition<T>
 {
-    public bool CheckCondition(T mainObj)
-    {
-        return false;
-    }
+    public abstract bool CheckCondition(T mainObj);
 }

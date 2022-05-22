@@ -8,7 +8,7 @@ using System;
 /// 状态类
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class State<T>
+public abstract class State<T>
 {
     /// <summary>
     /// 连接次态
