@@ -20,6 +20,8 @@ public abstract class State<T>
     /// 连接次态
     /// 连接次态
     /// 连接次态
+    /// 连接次态
+    /// 连接次态
     /// </summary>
     public Dictionary<Condition<T>, State<T>> nextStates = new Dictionary<Condition<T>, State<T>>();
 
