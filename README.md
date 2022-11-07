@@ -52,3 +52,7 @@ Win10【正在开发】，安卓【探索ing】，IOS【探索ing】
 ## v0.1.0【正在开发】
 
 正在确立游戏核心框架，与玩法
+
+#项目演示
+
+B站视频：【【明日方舟同人游戏】★律动方舟★，demo演示】 https://www.bilibili.com/video/BV1nF41177nW/
