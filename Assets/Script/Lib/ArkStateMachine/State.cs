@@ -1,50 +1,53 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-
-/// <summary>
-/// 状态类
-/// </summary>
-/// <typeparam name="T"></typeparam>
-public abstract class State<T>
+public abstract class State<T> : IState<T>
 {
-    /// <summary>
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// 连接次态
-    /// </summary>
-    public Dictionary<Condition<T>, State<T>> nextStates = new Dictionary<Condition<T>, State<T>>();
 
-    public State<T> AddCondition(Condition<T> c, State<T> s)
+    public IStateMachine<T> StateMachine { get; }
+    public Enum StateID { get; set;}
+    private Dictionary<Condition<T>, Enum> conditionMap = new Dictionary<Condition<T>, Enum>();
+    public T Subject { get; }
+
+    public State(IStateMachine<T> stateMachine, Enum stateID)
     {
-        if (!nextStates.ContainsKey(c))
-            nextStates.Add(c, s);
+        this.StateMachine = stateMachine;
+        this.StateID = stateID;
+    }
+
+    public IState<T> AddCondition(Condition<T> conditionID, Enum stateID)
+    {
+        if (conditionMap.ContainsKey(conditionID))
+        {
+            Debug.LogWarning($"条件{conditionID}被重复添加，一个条件只能对应一种次态！");
+            return this;
+        }
+
+
+        conditionMap.Add(conditionID, stateID);
         return this;
     }
 
-    /// <summary>
-    /// 依次检查下个状态是否可以转换
-    /// </summary>
-    /// <returns></returns>
-    public State<T> CheckNextState(T mainObj)
+    public virtual void Awake() { }
+    public virtual void Enter() { }
+
+    public virtual void Leave() { }
+
+    //遍历条件，看是否成立
+    public Enum TransitionCheck()
     {
-        foreach (var map in nextStates)
+        foreach (var map in conditionMap)
         {
-            if (map.Key.CheckCondition(mainObj))
+            if (map.Key.ConditionCheck(Subject))
             {
                 return map.Value;
             }
         }
         return null;
+    }
+
+    public virtual void Update() { 
+        
     }
 }
