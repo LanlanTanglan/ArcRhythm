@@ -1,10 +1,10 @@
 ManifestFileVersion: 0
-CRC: 1013284875
+CRC: 2948559128
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: operator
+      Name: backdrop
       Dependencies: {}
     Info_1:
-      Name: backdrop
+      Name: spine_char
       Dependencies: {}

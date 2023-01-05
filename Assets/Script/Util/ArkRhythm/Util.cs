@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.IO;
 using UnityEngine;
@@ -187,6 +188,17 @@ namespace Util
                 }
             }
 
+        }
+
+        //TODO 更多的攻击范围
+        public static List<Vector2> GetAttackRange(ATTACK_RANGE_TYPE art)
+        {
+            List<Vector2> vector2s = new List<Vector2>();
+            if (art == ATTACK_RANGE_TYPE.Vanguard_2)
+            {
+                vector2s.Add(new Vector2(2.5f, 0));
+            }
+            return vector2s;
         }
     }
 
