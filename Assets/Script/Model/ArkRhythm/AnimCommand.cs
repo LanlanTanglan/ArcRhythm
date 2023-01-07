@@ -17,14 +17,14 @@ namespace ArkRhythm
             ANIM_COMMAND ac = (ANIM_COMMAND)(int)jt["animCommandType"];
             switch (ac)
             {
-                case ANIM_COMMAND.OP_CM:
-                    return new OpCM().SetParam(jt);
-                case ANIM_COMMAND.OP_CA:
-                    return new OpCA().SetParam(jt);
-                case ANIM_COMMAND.OP_CR:
-                    return new OpCR().SetParam(jt);
-                case ANIM_COMMAND.OP_SV:
-                    return new OpSV().SetParam(jt);
+                case ANIM_COMMAND.OP_DoMove:
+                    return new OpDoMove().SetParam(jt);
+                case ANIM_COMMAND.OP_DoAlpha:
+                    return new OpDoAlpha().SetParam(jt);
+                case ANIM_COMMAND.OP_DoRotate:
+                    return new OpDoRotate().SetParam(jt);
+                case ANIM_COMMAND.OP_SetSpeed:
+                    return new OpSetSpeed().SetParam(jt);
                 default:
                     return new AnimCommand();
             }
@@ -54,9 +54,15 @@ namespace ArkRhythm
 
             return this;
         }
+
+        public virtual Vector3 GetPos()
+        {
+            return Vector3.zero;
+        }
+
         public AnimCommand()
         {
-            
+
         }
     }
     [System.Serializable]
@@ -77,7 +83,7 @@ namespace ArkRhythm
     }
     [System.Serializable]
     //移动
-    public class OpCM : OperatorAC
+    public class OpDoMove : OperatorAC
     {
         // public Vector3 endPos1;
         public List<float> endPos = new List<float>();
@@ -92,13 +98,13 @@ namespace ArkRhythm
         {
             // this.endPos1 = new Vector3((float)jt["endPos"][0], (float)jt["endPos"][1], (float)jt["endPos"][2]) / ArcNum.pixelPreUnit;
 
-            this.endPos.Add((float)jt["endPos"][0]/ ArcNum.pixelPreUnit);
-            this.endPos.Add((float)jt["endPos"][1]/ ArcNum.pixelPreUnit);
-            this.endPos.Add((float)jt["endPos"][2]/ ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][0] / ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][1] / ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][2] / ArcNum.pixelPreUnit);
             return base.SetParam(jt);
         }
 
-        public OpCM()
+        public OpDoMove()
         {
 
         }
@@ -106,7 +112,7 @@ namespace ArkRhythm
     }
     //改变旋转角度
     [System.Serializable]
-    public class OpCR : OperatorAC
+    public class OpDoRotate : OperatorAC
     {
         // public Vector3 endRotate1;
         public List<float> endRotate;
@@ -116,7 +122,7 @@ namespace ArkRhythm
             return t.DOLocalRotate(new Vector3(endRotate[0], endRotate[1], endRotate[2]), base.endTime - endTime).SetEase(base.motionType);
         }
 
-        public OpCR()
+        public OpDoRotate()
         {
 
         }
@@ -134,7 +140,7 @@ namespace ArkRhythm
     }
     [System.Serializable]
     //改变透明度
-    public class OpCA : OperatorAC
+    public class OpDoAlpha : OperatorAC
     {
         public float endalpha;
 
@@ -143,7 +149,7 @@ namespace ArkRhythm
             return sr.DOFade(this.endalpha, base.endTime - base.beginTime).SetEase(base.motionType);
         }
 
-        public OpCA()
+        public OpDoAlpha()
         {
 
         }
@@ -156,7 +162,7 @@ namespace ArkRhythm
 
     //设置速度
     [System.Serializable]
-    public class OpSV : OperatorAC
+    public class OpSetSpeed : OperatorAC
     {
         public float newSpeed;
 
@@ -166,15 +172,37 @@ namespace ArkRhythm
             return base.SetParam(jt);
         }
 
-        public OpSV()
+        public OpSetSpeed()
         {
 
         }
 
-        public OpSV(float beginTime, float s)
+        public OpSetSpeed(float beginTime, float s)
         {
             this.newSpeed = s;
             this.beginTime = beginTime;
+        }
+    }
+
+    public class OpSetPos : OperatorAC
+    {
+        public List<float> newPos = new List<float>();
+
+        public OpSetPos()
+        {
+
+        }
+
+        public override AnimCommand SetParam(JToken jt)
+        {
+            this.newPos.Add((float)jt["newPos"][0] / ArcNum.pixelPreUnit);
+            this.newPos.Add((float)jt["newPos"][1] / ArcNum.pixelPreUnit);
+            this.newPos.Add((float)jt["newPos"][2] / ArcNum.pixelPreUnit);
+            return base.SetParam(jt);
+        }
+        public override Vector3 GetPos()
+        {
+            return new Vector3(newPos[0], newPos[1], newPos[2]);
         }
     }
 

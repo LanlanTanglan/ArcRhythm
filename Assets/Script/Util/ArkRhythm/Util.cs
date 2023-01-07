@@ -56,7 +56,7 @@ namespace Util
         }
     }
 
-    public class ArcRhythmUtil
+    public class ArkRhythmUtil
     {
         //获取敌人对不同攻击范围的偏移量
         public static Vector3 GetNoteOffset(ATTACK_RANGE_TYPE art, int attackId)
@@ -199,6 +199,35 @@ namespace Util
                 vector2s.Add(new Vector2(2.5f, 0));
             }
             return vector2s;
+        }
+
+        public static List<Vector2> ChangeArrackRangeDirection(DIRECTION d, List<Vector2> v2)
+        {
+            List<Vector2> t = new List<Vector2>();
+            switch (d)
+            {
+                case DIRECTION.RIGHT:
+                    // Debug.Log("修改RIGHT");
+                    return v2;
+                case DIRECTION.LEFT:
+                    foreach (Vector2 v in v2)
+                        t.Add(new Vector2(-v.x, v.y));
+                    // Debug.Log("修改LEFT");
+                    return t;
+                case DIRECTION.UP:
+                    foreach (Vector2 v in v2)
+                        t.Add(new Vector2(v.y, v.x));
+                    // Debug.Log("修改UP");
+                    return t;
+                case DIRECTION.DOWN:
+                    foreach (Vector2 v in v2)
+                        t.Add(new Vector2(-v.y, v.x));
+                    // Debug.Log("修改DOWN");
+                    return t;
+                default:
+                    Debug.Log("无修改");
+                    return v2;
+            }
         }
     }
 

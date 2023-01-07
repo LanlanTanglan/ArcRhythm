@@ -58,10 +58,11 @@ namespace ArkRhythm
     //判定线操作
     public enum ANIM_COMMAND
     {
-        OP_CM = 1,
-        OP_CR = 2,
-        OP_CA = 3,
-        OP_SV = 4,
+        OP_DoMove = 1,//移动
+        OP_DoRotate = 2,//旋转
+        OP_DoAlpha = 3,//设置透明度
+        OP_SetSpeed = 4,//设置速度
+        OP_SetPos = 5,//设置位置
     }
     [System.Serializable]
     //攻击范围(加上自身的位置)

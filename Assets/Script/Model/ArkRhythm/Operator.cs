@@ -18,7 +18,7 @@ namespace ArkRhythm
         public DIRECTION direction;
         public KeyCode keyType;
         public List<AnimCommand> animCommands;
-        public List<OpSV> opsvList;
+        public List<OpSetSpeed> opsvList;
         public float speed;
         public Operator()
         {
@@ -27,7 +27,7 @@ namespace ArkRhythm
 
         public Operator SetParam(JToken jt)
         {
-            opsvList = new List<OpSV>();
+            opsvList = new List<OpSetSpeed>();
             this.operatorType = (OPERATOR)(int)jt["operatorType"];
             this.attackRange = (ATTACK_RANGE_TYPE)(int)jt["attackRange"];
             this.direction = (DIRECTION)(int)jt["direction"];
@@ -37,15 +37,15 @@ namespace ArkRhythm
 
             JArray ac = (JArray)jt["animCommands"];
 
-            opsvList.Add(new OpSV(ArcNum.defaultBeginTime, this.speed));
+            opsvList.Add(new OpSetSpeed(ArcNum.defaultBeginTime, this.speed));
             
             for (int i = 0, len = ac.Count; i < len; i++)
             {
                 AnimCommand a = AnimCommandFactory.CreatAC(ac[i]);
                 animCommands.Add(a);
-                if (a is OpSV)
+                if (a is OpSetSpeed)
                 {
-                    opsvList.Add((OpSV)a);
+                    opsvList.Add((OpSetSpeed)a);
                 }
             }
             return this;

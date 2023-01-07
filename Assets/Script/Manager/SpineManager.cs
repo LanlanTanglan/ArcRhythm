@@ -8,7 +8,7 @@ using Spine.Unity;
 
 public class SpineManager : Singleton<SpineManager>
 {
-    public AssetBundle _skAB;
+    public AssetBundle _skAB = null;
     public Hashtable _materials = new Hashtable();
     public Hashtable _skeletonDatas = new Hashtable();
     // /// <summary>
@@ -71,6 +71,7 @@ public class SpineManager : Singleton<SpineManager>
 
     public Material GetMaterial(string s)
     {
+        if (_skAB == null) Init();
         if (!_materials.ContainsKey(s))
         {
             Material m = _skAB.LoadAsset<Material>(s + "_Material");
@@ -81,6 +82,7 @@ public class SpineManager : Singleton<SpineManager>
     }
     public SkeletonDataAsset GetSkeletonDataAsset(string s)
     {
+        if (_skAB == null) Init();
         if (!_skeletonDatas.ContainsKey(s))
         {
             SkeletonDataAsset m = _skAB.LoadAsset<SkeletonDataAsset>(s + "_SkeletonData");
