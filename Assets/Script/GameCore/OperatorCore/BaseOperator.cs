@@ -10,6 +10,7 @@ using Spine.Unity;
 public class BaseOperator : MonoBehaviour
 {
     public Operator _operator;
+    public BaseOperatorController _baseOperatorController;
     public SkeletonMecanim _skeletonMecanim;
     public MeshRenderer _meshRenderer;
     public Animator _animator;
@@ -28,15 +29,40 @@ public class BaseOperator : MonoBehaviour
         _meshRenderer = _childOperator.GetComponent<MeshRenderer>();
         _animator = _childOperator.GetComponent<Animator>();
 
+        //添加脚本
+        _baseOperatorController = _childOperator.AddComponent<BaseOperatorController>();
+        _baseOperatorController.Init(_operator);
+
         //设置干员方向：默认朝下朝右
         SetDirection(DIRECTION.DOWN);
-        SetDirection(DIRECTION.RIGHT);
+        SetDirection(DIRECTION.LEFT);
+
+
+
+        //初始化位置（TODO 预先加载起初先放在很远的一个地方）
+        this.transform.localPosition = new Vector3(1920, 0, 0);
+
+        //TEST
+        OpSetPos a = new OpSetPos();
+        List<float> l = new List<float>();
+        l.Add(500 / ArcNum.pixelPreUnit);
+        l.Add(0 / ArcNum.pixelPreUnit);
+        l.Add(0);
+        a.beginTime = 0f;
+        a.newPos = l;
+        a.animCommandType = ANIM_COMMAND.OP_SetPos;
+        _operator.animCommands.Add(a);
+
+        OpSetDirect d = new OpSetDirect();
+        d.d1 = DIRECTION.UP;
+        d.d2 = DIRECTION.RIGHT;
+        d.d3 = DIRECTION.UP;
+        d.animCommandType = ANIM_COMMAND.OP_SerDirect;
+        d.beginTime = 5f;
+        _operator.animCommands.Add(d);
 
         //添加事件响应
         Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
-
-        //初始化位置（TODO 预先加载起初先放在很远的一个地方）
-        this.transform.localPosition = Vector3.zero;
     }
 
     public virtual void Update()
@@ -78,6 +104,7 @@ public class BaseOperator : MonoBehaviour
 
     //若是左右朝向的话，仅需要翻转（默认正方向为朝右）
     //若是上朝向的话，则需要使用背面素材
+    //TODO 逻辑待修改
     public void SetDirection(DIRECTION d)
     {
         //朝前，使用背面素材
@@ -86,6 +113,7 @@ public class BaseOperator : MonoBehaviour
             _meshRenderer.material = SpineManager.Instance.GetMaterial("myrtle_b");
             _skeletonMecanim.skeletonDataAsset = SpineManager.Instance.GetSkeletonDataAsset("myrtle_b");
             _skeletonMecanim.Initialize(true);
+            ChangeAttackRangeDirecton(DIRECTION.UP);
         }
         //使用正面素材
         else if (d == DIRECTION.DOWN)
@@ -93,14 +121,17 @@ public class BaseOperator : MonoBehaviour
             _meshRenderer.material = SpineManager.Instance.GetMaterial("myrtle");
             _skeletonMecanim.skeletonDataAsset = SpineManager.Instance.GetSkeletonDataAsset("myrtle");
             _skeletonMecanim.Initialize(true);
+            ChangeAttackRangeDirecton(DIRECTION.DOWN);
         }
         else if (d == DIRECTION.LEFT)
         {
-            _childOperator.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            _childOperator.transform.DOLocalRotate(new Vector3(0, 180, 0), 0.5f).SetEase(Ease.OutCubic).Play();
+            ChangeAttackRangeDirecton(DIRECTION.LEFT);
         }
         else if (d == DIRECTION.RIGHT)
         {
-            _childOperator.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            _childOperator.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic).Play();
+            ChangeAttackRangeDirecton(DIRECTION.RIGHT);
         }
 
     }
@@ -135,7 +166,7 @@ public class BaseOperator : MonoBehaviour
         }
     }
 
-    //更新判定线动画
+    //TODO 更新判定线动画
     private void UpdateOperterAnim()
     {
         float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
@@ -144,6 +175,7 @@ public class BaseOperator : MonoBehaviour
         {
             switch (_operator.animCommands[_oaIdx].animCommandType)
             {
+                //暂时不实现
                 case ANIM_COMMAND.OP_DoAlpha:
                     break;
                 case ANIM_COMMAND.OP_DoMove:
@@ -154,8 +186,17 @@ public class BaseOperator : MonoBehaviour
                     break;
                 //设置位置：播放进场动画
                 case ANIM_COMMAND.OP_SetPos:
+                    Debug.Log("执行SetPos");
+                    this.transform.localPosition = _operator.animCommands[_oaIdx].GetPos();
+                    _animator.Play("Start");
                     break;
                 case ANIM_COMMAND.OP_SetSpeed:
+                    break;
+                case ANIM_COMMAND.OP_SerDirect:
+                    OpSetDirect od = _operator.animCommands[_oaIdx] as OpSetDirect;
+                    SetDirection(od.d1);
+                    SetDirection(od.d2);
+                    SetDirection(od.d3);
                     break;
 
             }

@@ -63,6 +63,7 @@ namespace ArkRhythm
         OP_DoAlpha = 3,//设置透明度
         OP_SetSpeed = 4,//设置速度
         OP_SetPos = 5,//设置位置
+        OP_SerDirect = 6,//设置方向
     }
     [System.Serializable]
     //攻击范围(加上自身的位置)

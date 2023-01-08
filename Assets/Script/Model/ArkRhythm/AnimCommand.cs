@@ -206,6 +206,23 @@ namespace ArkRhythm
         }
     }
 
+    public class OpSetDirect : OperatorAC
+    {
+        public DIRECTION d1;//第一方向
+        public DIRECTION d2;//第二方向
+        public DIRECTION d3;//攻击范围方向
+        public OpSetDirect()
+        {
+
+        }
+        public override AnimCommand SetParam(JToken jt)
+        {
+            this.d1 = (DIRECTION)(int)jt["d1"];
+            this.d2 = (DIRECTION)(int)jt["d2"];
+            return base.SetParam(jt);
+        }
+    }
+
     [System.Serializable]
     public class EnemyAC : AnimCommand
     {
