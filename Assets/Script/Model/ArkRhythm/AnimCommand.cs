@@ -25,6 +25,10 @@ namespace ArkRhythm
                     return new OpDoRotate().SetParam(jt);
                 case ANIM_COMMAND.OP_SetSpeed:
                     return new OpSetSpeed().SetParam(jt);
+                case ANIM_COMMAND.OP_SetPos:
+                    return new OpSetPos().SetParam(jt);
+                case ANIM_COMMAND.OP_SerDirect:
+                    return new OpSetDirect().SetParam(jt);
                 default:
                     return new AnimCommand();
             }
@@ -186,7 +190,7 @@ namespace ArkRhythm
 
     public class OpSetPos : OperatorAC
     {
-        public List<float> newPos = new List<float>();
+        public List<float> endPos = new List<float>();
 
         public OpSetPos()
         {
@@ -195,14 +199,14 @@ namespace ArkRhythm
 
         public override AnimCommand SetParam(JToken jt)
         {
-            this.newPos.Add((float)jt["newPos"][0] / ArcNum.pixelPreUnit);
-            this.newPos.Add((float)jt["newPos"][1] / ArcNum.pixelPreUnit);
-            this.newPos.Add((float)jt["newPos"][2] / ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][0] / ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][1] / ArcNum.pixelPreUnit);
+            this.endPos.Add((float)jt["endPos"][2] / ArcNum.pixelPreUnit);
             return base.SetParam(jt);
         }
         public override Vector3 GetPos()
         {
-            return new Vector3(newPos[0], newPos[1], newPos[2]);
+            return new Vector3(endPos[0], endPos[1], endPos[2]);
         }
     }
 
@@ -219,6 +223,7 @@ namespace ArkRhythm
         {
             this.d1 = (DIRECTION)(int)jt["d1"];
             this.d2 = (DIRECTION)(int)jt["d2"];
+            this.d3 = (DIRECTION)(int)jt["d3"];
             return base.SetParam(jt);
         }
     }

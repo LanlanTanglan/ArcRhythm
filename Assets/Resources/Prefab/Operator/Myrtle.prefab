@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6431069506142791307}
   - component: {fileID: 6431069506142791304}
   - component: {fileID: 6431069506142791305}
-  - component: {fileID: 6431069506142791310}
   m_Layer: 0
   m_Name: Myrtle
   m_TagString: Untagged
@@ -142,27 +141,3 @@ MonoBehaviour:
     useCustomMixMode: 1
     layerMixModes: 01000000
     layerBlendModes: 01000000
---- !u!114 &6431069506142791310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431069506142791311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c21e8f9796904b499f2bac219a7a4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _operator:
-    operatorType: 0
-    attackRange: 0
-    direction: 0
-    keyType: 0
-    animCommands: []
-    opsvList: []
-    speed: 0
-  _skeletonMecanim: {fileID: 0}
-  _meshRenderer: {fileID: 0}
-  _oaIdx: 0
-  isStopGame: 0

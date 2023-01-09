@@ -1,9 +1,12 @@
+using System.Reflection;
 using System;
 using UnityEngine;
 using ArkRhythm;
 public partial class BaseTapNote : BaseNote
 {
     TapNote _tapNote;
+    public GameObject _childNotePrefeb;
+
     public override void Awake()
     {
 
@@ -19,6 +22,17 @@ public partial class BaseTapNote : BaseNote
     {
         this._tapNote = t;
         base._init(t);
+    }
+
+    //设置Note的相关属性
+    public void _setNote()
+    {
+        //设置Note贴图
+        GameObject o = (GameObject)Resources.Load("Prefab/Enemy/" + Enum.GetName(typeof(ENEMY), _tapNote.enemy));
+        _childNotePrefeb = Instantiate(o);
+
+        //设置Note位置
+        
     }
 }
 
@@ -57,7 +71,7 @@ partial class BaseTapNote
         {
             base.Update();
             //更新位置
-            
+
         }
     }
     //Note没有任何操作，简称MISS

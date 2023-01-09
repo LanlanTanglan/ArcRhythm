@@ -33,43 +33,44 @@ public class BaseOperator : MonoBehaviour
         _baseOperatorController = _childOperator.AddComponent<BaseOperatorController>();
         _baseOperatorController.Init(_operator);
 
-        //设置干员方向：默认朝下朝右
-        SetDirection(DIRECTION.DOWN);
-        SetDirection(DIRECTION.LEFT);
-
 
 
         //初始化位置（TODO 预先加载起初先放在很远的一个地方）
         this.transform.localPosition = new Vector3(1920, 0, 0);
 
         //TEST
-        OpSetPos a = new OpSetPos();
-        List<float> l = new List<float>();
-        l.Add(500 / ArcNum.pixelPreUnit);
-        l.Add(0 / ArcNum.pixelPreUnit);
-        l.Add(0);
-        a.beginTime = 0f;
-        a.newPos = l;
-        a.animCommandType = ANIM_COMMAND.OP_SetPos;
-        _operator.animCommands.Add(a);
+        // OpSetPos a = new OpSetPos();
+        // List<float> l = new List<float>();
+        // l.Add(500 / ArcNum.pixelPreUnit);
+        // l.Add(0 / ArcNum.pixelPreUnit);
+        // l.Add(0);
+        // a.beginTime = 0f;
+        // a.newPos = l;
+        // a.animCommandType = ANIM_COMMAND.OP_SetPos;
+        // _operator.animCommands.Add(a);
 
-        OpSetDirect d = new OpSetDirect();
-        d.d1 = DIRECTION.UP;
-        d.d2 = DIRECTION.RIGHT;
-        d.d3 = DIRECTION.UP;
-        d.animCommandType = ANIM_COMMAND.OP_SerDirect;
-        d.beginTime = 5f;
-        _operator.animCommands.Add(d);
+        // OpSetDirect d = new OpSetDirect();
+        // d.d1 = DIRECTION.UP;
+        // d.d2 = DIRECTION.RIGHT;
+        // d.d3 = DIRECTION.UP;
+        // d.animCommandType = ANIM_COMMAND.OP_SerDirect;
+        // d.beginTime = 5f;
+        // _operator.animCommands.Add(d);
 
         //添加事件响应
         Singleton<GameProcessManager>.Instance.StopGameEvent += StopGame;
+    }
+
+    public virtual void Start()
+    {
+        
     }
 
     public virtual void Update()
     {
         if (!isStopGame)
         {
-            UpdateOperterAnim();
+            _updateOperterAnim();
         }
     }
 
@@ -84,7 +85,7 @@ public class BaseOperator : MonoBehaviour
     #endregion
 
     //初始化变量以及相关动画
-    public void _init(Operator o)
+    public void Init(Operator o)
     {
         this._operator = o;
     }
@@ -92,6 +93,8 @@ public class BaseOperator : MonoBehaviour
     //增加干员的Spine
     public void _setOperator()
     {
+        Debug.Log("我在这");
+        Debug.Log(_operator);
         //实例化
         GameObject o = (GameObject)Resources.Load("Prefab/Operator/" + Enum.GetName(typeof(OPERATOR), _operator.operatorType));
         _childOperator = Instantiate(o);
@@ -102,24 +105,27 @@ public class BaseOperator : MonoBehaviour
         _setAttackRange();
     }
 
-    //若是左右朝向的话，仅需要翻转（默认正方向为朝右）
-    //若是上朝向的话，则需要使用背面素材
-    //TODO 逻辑待修改
+    /// <summary>
+    /// 若是左右朝向的话，仅需要翻转（默认正方向为朝右）
+    /// 若是上朝向的话，则需要使用背面素材
+    /// TODO 逻辑待修改
+    /// </summary>
+    /// <param name="d"></param>
     public void SetDirection(DIRECTION d)
     {
         //朝前，使用背面素材
         if (d == DIRECTION.UP)
         {
-            _meshRenderer.material = SpineManager.Instance.GetMaterial("myrtle_b");
-            _skeletonMecanim.skeletonDataAsset = SpineManager.Instance.GetSkeletonDataAsset("myrtle_b");
+            _meshRenderer.material = ABManager.Instance.GetMaterial("myrtle_b");
+            _skeletonMecanim.skeletonDataAsset = ABManager.Instance.GetSkeletonDataAsset("myrtle_b");
             _skeletonMecanim.Initialize(true);
             ChangeAttackRangeDirecton(DIRECTION.UP);
         }
         //使用正面素材
         else if (d == DIRECTION.DOWN)
         {
-            _meshRenderer.material = SpineManager.Instance.GetMaterial("myrtle");
-            _skeletonMecanim.skeletonDataAsset = SpineManager.Instance.GetSkeletonDataAsset("myrtle");
+            _meshRenderer.material = ABManager.Instance.GetMaterial("myrtle");
+            _skeletonMecanim.skeletonDataAsset = ABManager.Instance.GetSkeletonDataAsset("myrtle");
             _skeletonMecanim.Initialize(true);
             ChangeAttackRangeDirecton(DIRECTION.DOWN);
         }
@@ -152,7 +158,11 @@ public class BaseOperator : MonoBehaviour
         ChangeAttackRangeDirecton(DIRECTION.LEFT);
     }
 
-    //以动画的方式修改方向
+    /// <summary>
+    /// 以动画的方式修改方向
+    /// 
+    /// </summary>
+    /// <param name="d"></param>
     public void ChangeAttackRangeDirecton(DIRECTION d)
     {
         List<Vector2> v2 = Util.ArkRhythmUtil.GetAttackRange(this._operator.attackRange);
@@ -167,7 +177,7 @@ public class BaseOperator : MonoBehaviour
     }
 
     //TODO 更新判定线动画
-    private void UpdateOperterAnim()
+    private void _updateOperterAnim()
     {
         float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
 

@@ -449,10 +449,11 @@ MonoBehaviour:
     operatorType: 1
     attackRange: 2
     direction: 1
-    keyType: 0
+    keyType: 97
     animCommands: []
     opsvList: []
     speed: 0
+  _baseOperatorController: {fileID: 0}
   _skeletonMecanim: {fileID: 0}
   _meshRenderer: {fileID: 0}
   _animator: {fileID: 0}

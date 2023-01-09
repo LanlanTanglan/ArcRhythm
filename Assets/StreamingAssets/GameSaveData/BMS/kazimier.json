@@ -402,7 +402,7 @@
             },
             {
                 "$type": "ArcRhythm.Operator, Assembly-CSharp",
-                "operatorType": 2,
+                "operatorType": 1,
                 "attackRange": 2,
                 "direction": 1,
                 "keyType": 108,
