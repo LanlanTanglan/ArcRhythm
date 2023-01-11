@@ -20,6 +20,8 @@ public class FiniteStateMachine<T> : IStateMachine<T>
 
     public FiniteStateMachine(T subject)
     {
+        Debug.Log("成功添加主体T");
+        Debug.Log(subject);
         this.Subject = subject;
     }
 

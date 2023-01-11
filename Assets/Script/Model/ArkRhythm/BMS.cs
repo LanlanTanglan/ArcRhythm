@@ -13,7 +13,7 @@ namespace ArkRhythm
     public class BMS
     {
         public BMSInfo BMSInfo;
-        public List<Operator> operSet;
+        public List<Operator> operSet;//从0开始
         public NoteSet noteSet;
 
         public BMS()

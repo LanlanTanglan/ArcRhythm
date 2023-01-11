@@ -2,20 +2,32 @@ using System.Reflection;
 using System;
 using UnityEngine;
 using ArkRhythm;
+using TLUtil;
 public partial class BaseTapNote : BaseNote
 {
-    TapNote _tapNote;
+    public TapNote _tapNote;
     public GameObject _childNotePrefeb;
+    public BaseOperator _targetOperator;
+    public FiniteStateMachine<BaseTapNote> _stateMachine;
 
     public override void Awake()
     {
-
+        //设置状态机
+        _stateMachine = new FiniteStateMachine<BaseTapNote>(this);
+        _stateMachine.AddTransition(BaseTapNote_State.Alive, BaseTapNote_State.Dead, BaseTapNote_Condition.Alive2Dead)
+                     .AddTransition(BaseTapNote_State.Alive, BaseTapNote_State.Judge, BaseTapNote_Condition.Alive2Judge);
+        _stateMachine.DefaultStateID = BaseTapNote_State.Alive;
+        _stateMachine.Awake();
     }
 
+    public void Start()
+    {
+        _setNote();
+    }
 
     public override void Update()
     {
-
+        _stateMachine.Update();
     }
 
     public void _init(TapNote t)
@@ -30,9 +42,16 @@ public partial class BaseTapNote : BaseNote
         //设置Note贴图
         GameObject o = (GameObject)Resources.Load("Prefab/Enemy/" + Enum.GetName(typeof(ENEMY), _tapNote.enemy));
         _childNotePrefeb = Instantiate(o);
+        _childNotePrefeb.transform.parent = this.transform;
+        _childNotePrefeb.transform.localPosition = Vector3.zero;
 
-        //设置Note位置
-        
+        //设置Note初始位置
+        this._targetOperator = BMSManager.Instance._baseOperators[_tapNote.targetOperId];
+        this.transform.parent = _targetOperator._attackRanges[_tapNote.attackId].transform;
+        this.transform.localPosition = Vector3.zero;
+
+        //设置Note距离Attack的范围
+        this.transform.localPosition += ArkRhythmUtil.GetPosByDirection(_tapNote.direction, ArkRhythmUtil.GenerateNotePos(_tapNote, _targetOperator._operator)) / 100;
     }
 }
 
@@ -70,8 +89,9 @@ partial class BaseTapNote
         public override void Update()
         {
             base.Update();
+            // Debug.Log(StateMachine.Subject);
             //更新位置
-
+            StateMachine.Subject.transform.localPosition += ArkRhythmUtil.GetPosByDirection(StateMachine.Subject._tapNote.direction, -StateMachine.Subject._targetOperator._operator.speed * Time.deltaTime);
         }
     }
     //Note没有任何操作，简称MISS

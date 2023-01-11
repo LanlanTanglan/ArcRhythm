@@ -9,7 +9,7 @@ using Newtonsoft;
 using Newtonsoft.Json.Converters;
 
 
-namespace Util
+namespace TLUtil
 {
     public class AnimatorUtil
     {
@@ -87,7 +87,7 @@ namespace Util
 
             int idx = 0;
             //找到ct的位置
-            while (idx < oper.opsvList.Count && ct > oper.opsvList[idx].beginTime)
+            while (idx < oper.opsvList.Count && ct >= oper.opsvList[idx].beginTime)
                 idx++;
             idx--;
 

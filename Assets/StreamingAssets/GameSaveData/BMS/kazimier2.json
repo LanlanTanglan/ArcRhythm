@@ -945,7 +945,8 @@
                     ],
                     "motionType": 9
                 }
-            ]
+            ],
+            "opsvList": []
         },
         {
             "idx": 1,
@@ -1250,7 +1251,8 @@
                     ],
                     "motionType": 9
                 }
-            ]
+            ],
+            "opsvList": []
         }
     ]
 }

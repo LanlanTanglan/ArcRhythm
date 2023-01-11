@@ -51,13 +51,13 @@ namespace ArkRhythm
     [System.Serializable]
     public class Note
     {
-        public NOTE_TYPE noteType;
-        public ENEMY enemy;
-        public int targetOperId;
-        public int attackId;
-        public DIRECTION direction;
+        public NOTE_TYPE noteType;//类型
+        public ENEMY enemy;//贴图样式
+        public int targetOperId;//干员Id
+        public int attackId;//攻击范围Id
+        public DIRECTION direction;//方向
 
-        public float endTime;
+        public float endTime;//结束时间
 
         public Note()
         {

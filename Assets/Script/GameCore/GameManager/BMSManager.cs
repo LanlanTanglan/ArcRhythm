@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using ArkRhythm;
-using Util;
+using TLUtil;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 
@@ -12,6 +12,11 @@ public class BMSManager : Singleton<BMSManager>
     //铺面
     public BMS _bms;
 
+    //干员脚本
+    public List<BaseOperator> _baseOperators;
+
+    //Note的idx
+    public int[] _noteIdx = new int[4] { 0, 0, 0, 0 };//Tap、LongTap
 
     /// <summary>
     /// 加载铺面
@@ -20,6 +25,8 @@ public class BMSManager : Singleton<BMSManager>
     {
         JObject jo = JsonUtil.readJSON(BMSUrl);
         _bms = new BMS().SetParam(jo);
+
+        _baseOperators = new List<BaseOperator>();
     }
 
     /// <summary>
@@ -33,6 +40,7 @@ public class BMSManager : Singleton<BMSManager>
             obj.SetActive(false);
             BaseOperator bo = obj.AddComponent<BaseOperator>();
             bo.Init(o);
+            _baseOperators.Add(bo);
             obj.SetActive(true);
         }
     }

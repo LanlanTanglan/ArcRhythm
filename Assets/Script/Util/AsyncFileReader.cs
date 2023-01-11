@@ -8,7 +8,7 @@ using Newtonsoft;
 using Newtonsoft.Json.Converters;
 using ArkRhythm;
 
-namespace Util
+namespace TLUtil
 {
     public class AsyncFileReader
     {

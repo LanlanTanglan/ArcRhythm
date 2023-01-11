@@ -16,7 +16,8 @@ public class BaseOperator : MonoBehaviour
     public Animator _animator;
     public GameObject _childOperator;//干员Prefab
     public List<GameObject> _attackRanges = new List<GameObject>();
-    public int _oaIdx = 0;//判定线动画指针
+    public int _acIdx = 0;//判定线动画指针
+    public int _setSpeedIdx = 0;//设置速度指针
 
     public virtual void Awake()
     {
@@ -63,7 +64,7 @@ public class BaseOperator : MonoBehaviour
 
     public virtual void Start()
     {
-        
+
     }
 
     public virtual void Update()
@@ -71,6 +72,7 @@ public class BaseOperator : MonoBehaviour
         if (!isStopGame)
         {
             _updateOperterAnim();
+            _updateSpeed();
         }
     }
 
@@ -145,7 +147,7 @@ public class BaseOperator : MonoBehaviour
     //设置攻击距离(判定区域的范围)
     public void _setAttackRange()
     {
-        List<Vector2> vector2s = Util.ArkRhythmUtil.GetAttackRange(this._operator.attackRange);
+        List<Vector2> vector2s = TLUtil.ArkRhythmUtil.GetAttackRange(this._operator.attackRange);
         UnityEngine.Object to = Resources.Load("Prefab/AttackRange/JudgePoint");
         foreach (Vector2 v in vector2s)
         {
@@ -165,8 +167,8 @@ public class BaseOperator : MonoBehaviour
     /// <param name="d"></param>
     public void ChangeAttackRangeDirecton(DIRECTION d)
     {
-        List<Vector2> v2 = Util.ArkRhythmUtil.GetAttackRange(this._operator.attackRange);
-        v2 = Util.ArkRhythmUtil.ChangeArrackRangeDirection(d, v2);
+        List<Vector2> v2 = TLUtil.ArkRhythmUtil.GetAttackRange(this._operator.attackRange);
+        v2 = TLUtil.ArkRhythmUtil.ChangeArrackRangeDirection(d, v2);
         //设置移动动画
         int i = 0;
         foreach (GameObject g in _attackRanges)
@@ -181,37 +183,48 @@ public class BaseOperator : MonoBehaviour
     {
         float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
 
-        while (_oaIdx < _operator.animCommands.Count && ct >= _operator.animCommands[_oaIdx].beginTime)
+        //更新动画
+        while (_acIdx < _operator.animCommands.Count && ct >= _operator.animCommands[_acIdx].beginTime)
         {
-            switch (_operator.animCommands[_oaIdx].animCommandType)
+            switch (_operator.animCommands[_acIdx].animCommandType)
             {
                 //暂时不实现
                 case ANIM_COMMAND.OP_DoAlpha:
                     break;
                 case ANIM_COMMAND.OP_DoMove:
-                    _operator.animCommands[_oaIdx].GetTween(this.transform).Play();
+                    _operator.animCommands[_acIdx].GetTween(this.transform).Play();
                     break;
                 case ANIM_COMMAND.OP_DoRotate:
-                    _operator.animCommands[_oaIdx].GetTween(this.transform).Play();
+                    _operator.animCommands[_acIdx].GetTween(this.transform).Play();
                     break;
                 //设置位置：播放进场动画
                 case ANIM_COMMAND.OP_SetPos:
                     Debug.Log("执行SetPos");
-                    this.transform.localPosition = _operator.animCommands[_oaIdx].GetPos();
+                    this.transform.localPosition = _operator.animCommands[_acIdx].GetPos();
                     _animator.Play("Start");
                     break;
                 case ANIM_COMMAND.OP_SetSpeed:
                     break;
                 case ANIM_COMMAND.OP_SerDirect:
-                    OpSetDirect od = _operator.animCommands[_oaIdx] as OpSetDirect;
+                    OpSetDirect od = _operator.animCommands[_acIdx] as OpSetDirect;
                     SetDirection(od.d1);
                     SetDirection(od.d2);
                     SetDirection(od.d3);
                     break;
-
             }
             //下一条命令
-            _oaIdx++;
+            _acIdx++;
+        }
+    }
+    /// <summary>
+    /// 更新判定线速度
+    /// </summary>
+    public void _updateSpeed()
+    {
+        float ct = Singleton<GameClockManager>.Instance.currentGamePalyTime;
+        while (_setSpeedIdx < _operator.opsvList.Count && ct >= _operator.opsvList[_setSpeedIdx].beginTime)
+        {
+            _operator.speed = _operator.opsvList[_setSpeedIdx].newSpeed;
         }
     }
 

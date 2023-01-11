@@ -1,6 +1,6 @@
 using UnityEngine;
 using ArkRhythm;
-using Util;
+using TLUtil;
 using System.Collections;
 using System.Collections.Generic;
 public class GameInfoManager : Singleton<GameInfoManager>
