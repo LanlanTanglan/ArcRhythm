@@ -225,6 +225,7 @@ public class BaseOperator : MonoBehaviour
         while (_setSpeedIdx < _operator.opsvList.Count && ct >= _operator.opsvList[_setSpeedIdx].beginTime)
         {
             _operator.speed = _operator.opsvList[_setSpeedIdx].newSpeed;
+            _setSpeedIdx++;
         }
     }
 
@@ -256,7 +257,7 @@ public class BaseOperator : MonoBehaviour
             bjp = pObj.AddComponent<Miss>();
         }
 
-        bjp.Init(_operator.attackRange, note.attackId);
+        bjp.Init(_operator.attackRange);
     }
 
     /// <summary>

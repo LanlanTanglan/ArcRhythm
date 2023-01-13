@@ -8,9 +8,14 @@ using DG.Tweening;
 public class BaseJudgePerfor : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
-
+        this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 0.84f, 0), 0.5f)
+                .SetEase(Ease.OutQuart)
+                .OnComplete(() =>
+                {
+                    Destroy(this.gameObject);
+                });
     }
 
     // Update is called once per frame
@@ -19,13 +24,10 @@ public class BaseJudgePerfor : MonoBehaviour
 
     }
 
-    public virtual void Init(ATTACK_RANGE_TYPE art, int idx)
+    public virtual void Init(ATTACK_RANGE_TYPE art)
     {
         //回到原点
-        this.transform.localPosition = Vector3.zero;
-        //根据攻击范围以及idx确定这些效果的位置
-        this.transform.localPosition = ArkRhythmUtil.GetNoteOffset(art, idx);
-        
+        this.transform.localPosition = new Vector3(0, 0, -3);
         //解除与父物体的绑定关系
         this.transform.SetParent(null);
         //无角度

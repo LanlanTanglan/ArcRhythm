@@ -36,6 +36,7 @@ public class BMSManager : Singleton<BMSManager>
     {
         foreach (Operator o in _bms.operSet)
         {
+            UnityEngine.Debug.Log("添加了！！！！！！！");
             GameObject obj = new GameObject("operator");
             obj.SetActive(false);
             BaseOperator bo = obj.AddComponent<BaseOperator>();
@@ -50,7 +51,7 @@ public class BMSManager : Singleton<BMSManager>
     /// </summary>
     public void LoadNote()
     {
-
+        
     }
 
     public bool isStopGame = false;

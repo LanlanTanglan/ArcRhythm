@@ -14,6 +14,7 @@ public abstract class State<T> : IState<T>
     {
         this.StateMachine = stateMachine;
         this.StateID = stateID;
+        this.Subject = stateMachine.Subject;
     }
 
     public IState<T> AddCondition(Condition<T> conditionID, Enum stateID)

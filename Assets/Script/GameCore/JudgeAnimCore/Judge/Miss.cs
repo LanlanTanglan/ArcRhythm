@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Miss : BaseJudgePerfor
 {
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, -0.84f, 0), 0.5f)
                 .SetEase(Ease.OutQuart)
@@ -23,8 +23,8 @@ public class Miss : BaseJudgePerfor
 
     }
 
-    public override void Init(ATTACK_RANGE_TYPE art, int idx)
+    public override void Init(ATTACK_RANGE_TYPE art)
     {
-        base.Init(art, idx);
+        base.Init(art);
     }
 }
