@@ -693,6 +693,13 @@
                     "motionType": 1
                 },
                 {
+                    "animCommandType": 6,
+                    "beginTime": 0,
+                    "endTime": 0,
+                    "directions":[4,3,3],
+                    "motionType": 1
+                },
+                {
                     "animCommandType": 1,
                     "beginTime": 1.477,
                     "endTime": 1.577,
@@ -971,9 +978,7 @@
                     "animCommandType": 6,
                     "beginTime": 0,
                     "endTime": 0,
-                    "d1": 4,
-                    "d2": 3,
-                    "d3": 3,
+                    "directions":[4,1,1],
                     "motionType": 1
                 },
                 {
@@ -1004,7 +1009,7 @@
                     "endTime": 2.035,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         -10
                     ],
                     "motionType": 18
@@ -1015,7 +1020,7 @@
                     "endTime": 2.177,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         10
                     ],
                     "motionType": 18
@@ -1026,7 +1031,7 @@
                     "endTime": 2.289,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         -10
                     ],
                     "motionType": 18
@@ -1037,7 +1042,7 @@
                     "endTime": 2.440,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         10
                     ],
                     "motionType": 18
@@ -1048,7 +1053,7 @@
                     "endTime": 2.440,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         0
                     ],
                     "motionType": 18
@@ -1081,7 +1086,7 @@
                     "endTime": 3.884,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         10
                     ],
                     "motionType": 18
@@ -1092,7 +1097,7 @@
                     "endTime": 4.035,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         -10
                     ],
                     "motionType": 18
@@ -1103,7 +1108,7 @@
                     "endTime": 4.131,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         10
                     ],
                     "motionType": 18
@@ -1114,7 +1119,7 @@
                     "endTime": 4.237,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         -10
                     ],
                     "motionType": 18
@@ -1125,7 +1130,7 @@
                     "endTime": 4.326,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         0
                     ],
                     "motionType": 18
@@ -1136,7 +1141,7 @@
                     "endTime": 5.750,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         -10
                     ],
                     "motionType": 18
@@ -1147,7 +1152,7 @@
                     "endTime": 5.850,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         10
                     ],
                     "motionType": 18
@@ -1158,7 +1163,7 @@
                     "endTime": 5.950,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         -10
                     ],
                     "motionType": 18
@@ -1169,7 +1174,7 @@
                     "endTime": 6.050,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         10
                     ],
                     "motionType": 18
@@ -1180,7 +1185,7 @@
                     "endTime": 7.050,
                     "endRotate": [
                         0,
-                        180,
+                        0,
                         0
                     ],
                     "motionType": 18

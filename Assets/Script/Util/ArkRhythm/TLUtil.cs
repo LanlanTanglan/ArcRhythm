@@ -196,6 +196,7 @@ namespace TLUtil
             List<Vector2> vector2s = new List<Vector2>();
             if (art == ATTACK_RANGE_TYPE.Vanguard_2)
             {
+                vector2s.Add(new Vector2(0, 0));
                 vector2s.Add(new Vector2(2.5f, 0));
             }
             return vector2s;

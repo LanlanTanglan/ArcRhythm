@@ -49,6 +49,7 @@ public partial class BaseTapNote : BaseNote
         this._targetOperator = BMSManager.Instance._baseOperators[_tapNote.targetOperId];
         this.transform.parent = _targetOperator._attackRanges[_tapNote.attackId].transform;
         this.transform.localPosition = Vector3.zero;
+        this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         //设置Note距离Attack的范围
         this.transform.localPosition += ArkRhythmUtil.GetPosByDirection(_tapNote.direction, ArkRhythmUtil.GenerateNotePos(_tapNote, _targetOperator._operator)) / 100;
@@ -125,7 +126,6 @@ partial class BaseTapNote
         public override void Enter()
         {
             //死亡，统计分数，Miss
-            Singleton<GameInfoManager>.Instance.cGamePlayResult.addMissNum().addMaxNum(false);
             Subject.DoJudgeAndDoAnime(Subject._targetOperator, JUDGE_RESULT.Miss);
             //销毁
             Destroy(Subject.gameObject);

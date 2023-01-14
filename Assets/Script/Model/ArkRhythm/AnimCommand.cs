@@ -40,8 +40,24 @@ namespace ArkRhythm
         public ANIM_COMMAND animCommandType;
         public float beginTime;
         public float endTime;
+
+        //------------------------------------
+        public Ease motionType;
+        public List<float> endPos = new List<float>();
+        public List<float> endRotate = new List<float>();
+        public List<DIRECTION> directions = new List<DIRECTION>();
+
         public virtual Tween GetTween(Transform t)
         {
+            if (animCommandType == ANIM_COMMAND.OP_DoMove)
+            {
+                return t.DOLocalMove(new Vector3(endPos[0] / ArcNum.pixelPreUnit, endPos[1] / ArcNum.pixelPreUnit, endPos[2] / ArcNum.pixelPreUnit), endTime - beginTime).SetEase(motionType);
+
+            }
+            if (animCommandType == ANIM_COMMAND.OP_DoRotate)
+            {
+                return t.DOLocalRotate(new Vector3(endRotate[0], endRotate[1], endRotate[2]), endTime - beginTime).SetEase(motionType);
+            }
             return null;
         }
 
@@ -72,7 +88,7 @@ namespace ArkRhythm
     [System.Serializable]
     public class OperatorAC : AnimCommand
     {
-        public Ease motionType;
+        // public Ease motionType;
 
         public override AnimCommand SetParam(JToken jt)
         {
@@ -90,12 +106,12 @@ namespace ArkRhythm
     public class OpDoMove : OperatorAC
     {
         // public Vector3 endPos1;
-        public List<float> endPos = new List<float>();
+        // public List<float> endPos = new List<float>();
         public override Tween GetTween(Transform t)
         {
 
             // return t.DOLocalMove(this.endPos1, base.endTime - base.beginTime).SetEase(base.motionType);
-            return t.DOLocalMove(new Vector3(endPos[0], endPos[1], endPos[2]), base.endTime - base.beginTime).SetEase(base.motionType);
+            return t.DOLocalMove(new Vector3(endPos[0], endPos[1], endPos[2]), endTime - beginTime).SetEase(motionType);
         }
 
         public override AnimCommand SetParam(JToken jt)
@@ -119,11 +135,11 @@ namespace ArkRhythm
     public class OpDoRotate : OperatorAC
     {
         // public Vector3 endRotate1;
-        public List<float> endRotate;
+        // public List<float> endRotate;
         public override Tween GetTween(Transform t)
         {
             // return t.DOLocalRotate(this.endRotate1, base.endTime - endTime).SetEase(base.motionType);
-            return t.DOLocalRotate(new Vector3(endRotate[0], endRotate[1], endRotate[2]), base.endTime - endTime).SetEase(base.motionType);
+            return t.DOLocalRotate(new Vector3(endRotate[0], endRotate[1], endRotate[2]), endTime - beginTime).SetEase(motionType);
         }
 
         public OpDoRotate()
@@ -133,7 +149,6 @@ namespace ArkRhythm
 
         public override AnimCommand SetParam(JToken jt)
         {
-            this.endRotate = new List<float>();
             // this.endRotate1 = new Vector3((float)jt["endRotate"][0], (float)jt["endRotate"][1], (float)jt["endRotate"][2]);
 
             this.endRotate.Add((float)jt["endRotate"][0]);
@@ -190,7 +205,7 @@ namespace ArkRhythm
 
     public class OpSetPos : OperatorAC
     {
-        public List<float> endPos = new List<float>();
+        // public List<float> endPos = new List<float>();
 
         public OpSetPos()
         {
@@ -212,18 +227,17 @@ namespace ArkRhythm
 
     public class OpSetDirect : OperatorAC
     {
-        public DIRECTION d1;//第一方向
-        public DIRECTION d2;//第二方向
-        public DIRECTION d3;//攻击范围方向
+        //上下方向、左右方向、攻击范围方向
+        // public List<DIRECTION> directions = new List<DIRECTION>();
         public OpSetDirect()
         {
 
         }
         public override AnimCommand SetParam(JToken jt)
         {
-            this.d1 = (DIRECTION)(int)jt["d1"];
-            this.d2 = (DIRECTION)(int)jt["d2"];
-            this.d3 = (DIRECTION)(int)jt["d3"];
+            this.directions.Add((DIRECTION)(int)jt["directions"][0]);
+            this.directions.Add((DIRECTION)(int)jt["directions"][1]);
+            this.directions.Add((DIRECTION)(int)jt["directions"][2]);
             return base.SetParam(jt);
         }
     }

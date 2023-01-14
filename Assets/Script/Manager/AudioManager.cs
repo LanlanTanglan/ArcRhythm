@@ -174,7 +174,7 @@ public class ClipData
 {
     public AudioClip audiodata(string name)
     {
-        Debug.Log(name);
+        // Debug.Log(name);
         return Resources.Load<AudioClip>("Audio/" + name);
     }
 

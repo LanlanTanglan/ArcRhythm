@@ -133,12 +133,12 @@ public class BaseOperator : MonoBehaviour
         }
         else if (d == DIRECTION.LEFT)
         {
-            _childOperator.transform.DOLocalRotate(new Vector3(0, 180, 0), 0.5f).SetEase(Ease.OutCubic).Play();
+            _childOperator.transform.DOLocalRotate(new Vector3(0, 180, 0), 0.25f).SetEase(Ease.OutCubic).Play();
             ChangeAttackRangeDirecton(DIRECTION.LEFT);
         }
         else if (d == DIRECTION.RIGHT)
         {
-            _childOperator.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic).Play();
+            _childOperator.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.25f).SetEase(Ease.OutCubic).Play();
             ChangeAttackRangeDirecton(DIRECTION.RIGHT);
         }
 
@@ -199,17 +199,17 @@ public class BaseOperator : MonoBehaviour
                     break;
                 //设置位置：播放进场动画
                 case ANIM_COMMAND.OP_SetPos:
-                    Debug.Log("执行SetPos");
+                    // Debug.Log("执行SetPos");
                     this.transform.localPosition = _operator.animCommands[_acIdx].GetPos();
                     _animator.Play("Start");
                     break;
                 case ANIM_COMMAND.OP_SetSpeed:
                     break;
                 case ANIM_COMMAND.OP_SerDirect:
-                    OpSetDirect od = _operator.animCommands[_acIdx] as OpSetDirect;
-                    SetDirection(od.d1);
-                    SetDirection(od.d2);
-                    SetDirection(od.d3);
+                    AnimCommand od = _operator.animCommands[_acIdx];
+                    SetDirection(od.directions[0]);
+                    SetDirection(od.directions[1]);
+                    SetDirection(od.directions[2]);
                     break;
             }
             //下一条命令

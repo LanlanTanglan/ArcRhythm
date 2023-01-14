@@ -60,6 +60,11 @@ public class BaseNote : MonoBehaviour
             Singleton<GameInfoManager>.Instance.cGamePlayResult.addBadNum().addMaxNum(false);
             bjp = pObj.AddComponent<Bad>();
         }
+        if (res == JUDGE_RESULT.Miss)
+        {
+            Singleton<GameInfoManager>.Instance.cGamePlayResult.addMissNum().addMaxNum(false);
+            bjp = pObj.AddComponent<Miss>();
+        }
         bjp.Init(bo._operator.attackRange);
     }
 }
