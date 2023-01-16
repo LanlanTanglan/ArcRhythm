@@ -10,9 +10,7 @@
         "totalNoteNum": 20
     },
     "noteSet": {
-        "tapNotes": [
-           
-        ],
+        "tapNotes": [],
         "longTapNotes": [
             {
                 "noteType": 2,
@@ -20,22 +18,44 @@
                 "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
-                "endTime": 0.5,
-                "duraTime":2
+                "endTime": 5,
+                "duraTime": 2
             }
         ]
     },
     "operSet": [
         {
             "idx": 0,
-            "speed":7,
+            "speed": 7,
             "operatorType": 1,
             "attackRange": 2,
             "direction": 3,
             "keyType": 97,
             "animCommands": [
-                
-            ]
+                {
+                    "animCommandType": 5,
+                    "beginTime": -3,
+                    "endTime": 0,
+                    "endPos": [
+                        -500,
+                        -200,
+                        0
+                    ],
+                    "motionType": 1
+                },
+                {
+                    "animCommandType": 6,
+                    "beginTime": -3,
+                    "endTime": 0,
+                    "directions": [
+                        4,
+                        3,
+                        3
+                    ],
+                    "motionType": 1
+                }
+            ],
+            "opsvList": []
         }
     ]
 }

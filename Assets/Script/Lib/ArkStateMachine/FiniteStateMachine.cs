@@ -27,7 +27,7 @@ public class FiniteStateMachine<T> : IStateMachine<T>
 
     public IStateMachine<T> AddState(Enum stateID)
     {
-        Debug.Log(stateID);
+        // Debug.Log(stateID);
         if (_states.Find(state => state.StateID.ToString() == stateID.ToString())!=null)
             Debug.LogWarning($"尝试重复添加状态{stateID}");
         else

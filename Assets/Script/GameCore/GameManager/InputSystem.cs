@@ -148,7 +148,8 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         {
             if (!b.isLocked && b.IsRightInputType(it) && b.IsRightKeyType(k))
             {
-                b.Lock();
+                if(it != InputType.LONG_TAP)
+                    b.Lock();
                 return true;
             }
         }

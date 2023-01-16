@@ -6,8 +6,8 @@ using TLUtil;
 public partial class BaseTapNote : BaseNote
 {
     public TapNote _tapNote;
-    public GameObject _childNotePrefeb;
-    public BaseOperator _targetOperator;
+    // public GameObject _childNotePrefeb;
+    // public BaseOperator _targetOperator;
     public FiniteStateMachine<BaseTapNote> _stateMachine;
 
     public override void Awake()
@@ -22,7 +22,7 @@ public partial class BaseTapNote : BaseNote
 
     public void Start()
     {
-        _setNote();
+        SetNote();
     }
 
     public override void Update()
@@ -30,29 +30,17 @@ public partial class BaseTapNote : BaseNote
         _stateMachine.Update();
     }
 
-    public void Init(TapNote t)
+    public override void Init(Note t)
     {
-        this._tapNote = t;
+        this._tapNote = t as TapNote;
         base._init(t);
     }
 
     //设置Note的相关属性
-    public void _setNote()
+    public override void SetNote()
     {
-        //设置Note贴图
-        GameObject o = (GameObject)Resources.Load("Prefab/Enemy/" + Enum.GetName(typeof(ENEMY), _tapNote.enemy));
-        _childNotePrefeb = Instantiate(o);
-        _childNotePrefeb.transform.parent = this.transform;
-        _childNotePrefeb.transform.localPosition = Vector3.zero;
-
-        //设置Note初始位置
-        this._targetOperator = BMSManager.Instance._baseOperators[_tapNote.targetOperId];
-        this.transform.parent = _targetOperator._attackRanges[_tapNote.attackId].transform;
-        this.transform.localPosition = Vector3.zero;
-        this.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-
-        //设置Note距离Attack的范围
-        this.transform.localPosition += ArkRhythmUtil.GetPosByDirection(_tapNote.direction, ArkRhythmUtil.GenerateNotePos(_tapNote, _targetOperator._operator)) / 100;
+        //设置基础属性
+        base.SetNote();
     }
 
     //更新位置
@@ -89,13 +77,7 @@ partial class BaseTapNote
         }
         public override void Update()
         {
-            base.Update();
-            // Debug.Log(StateMachine.Subject);
-            //更新位置
-            if (GameClockManager.Instance.isGameBegin)
-            {
-                Subject.transform.localPosition += ArkRhythmUtil.GetPosByDirection(Subject._tapNote.direction, -Subject._targetOperator._operator.speed * Time.deltaTime);
-            }
+            Subject.UpdateAlivePos();
         }
     }
 
@@ -149,10 +131,7 @@ partial class BaseTapNote
 
         public override bool ConditionCheck(BaseTapNote subject)
         {
-            float ct = GameClockManager.Instance.currentGamePalyTime;
-            return ct - subject._tapNote.endTime >= ArcNum.prJudgeTime &&
-                   ct - subject._tapNote.endTime <= ArcNum.neJudgeTime &&
-                   Singleton<KeyboardInputManager>.Instance.LoadInputState(subject._targetOperator._operator.keyType, InputType.TAP);
+            return subject.AliveJudge();
         }
     }
 
@@ -165,8 +144,7 @@ partial class BaseTapNote
 
         public override bool ConditionCheck(BaseTapNote subject)
         {
-            float ct = GameClockManager.Instance.currentGamePalyTime;
-            return ct - subject._tapNote.endTime > ArcNum.neJudgeTime;
+            return subject.AliveMiss();
         }
     }
 

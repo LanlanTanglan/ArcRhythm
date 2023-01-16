@@ -20,6 +20,7 @@ public class BaseOperatorController : MonoBehaviour
 
     public Animator _animator;
     public Operator _operator;
+    private float _keyDownTime = 0f;
     void Awake()
     {
         //获取脚本
@@ -39,7 +40,13 @@ public class BaseOperatorController : MonoBehaviour
         {
             if (Input.GetKeyDown(_operator.keyType))
             {
+                _keyDownTime += Time.deltaTime;
+                _animator.SetBool("isKeyDown", true);
                 DoAttack();
+            }
+            if(Input.GetKeyUp(_operator.keyType))
+            {
+                _animator.SetBool("isKeyDown", false);
             }
         }
     }
