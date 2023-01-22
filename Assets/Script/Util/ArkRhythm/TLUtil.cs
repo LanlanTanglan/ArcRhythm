@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft;
 using Newtonsoft.Json.Converters;
 
+using ArkTemplate;
 
 namespace TLUtil
 {

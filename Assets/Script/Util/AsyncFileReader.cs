@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Newtonsoft;
 using Newtonsoft.Json.Converters;
+using ArkTemplate;
 using ArkRhythm;
 
 namespace TLUtil

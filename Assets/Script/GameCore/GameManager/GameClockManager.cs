@@ -1,4 +1,5 @@
 using UnityEngine;
+using ArkTemplate;
 using ArkRhythm;
 
 /// <summary>

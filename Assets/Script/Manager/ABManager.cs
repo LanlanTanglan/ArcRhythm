@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
 using ArkRhythm;
+using ArkTemplate;
 using Spine.Unity;
 
 /// <summary>

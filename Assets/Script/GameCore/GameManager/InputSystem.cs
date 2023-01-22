@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ArkRhythm;
+using ArkTemplate;
 using TLUtil;
 
 
@@ -148,7 +149,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
         {
             if (!b.isLocked && b.IsRightInputType(it) && b.IsRightKeyType(k))
             {
-                if(it != InputType.LONG_TAP)
+                if (it != InputType.LONG_TAP)
                     b.Lock();
                 return true;
             }

@@ -2,6 +2,7 @@ using UnityEngine;
 using ArkRhythm;
 using TLUtil;
 using System.Collections;
+using ArkTemplate;
 using System.Collections.Generic;
 public class GameInfoManager : Singleton<GameInfoManager>
 {

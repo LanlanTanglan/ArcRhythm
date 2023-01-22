@@ -3,6 +3,8 @@ using System;
 using UnityEngine;
 using ArkRhythm;
 using TLUtil;
+using ArkTemplate;
+
 public class BaseNote : MonoBehaviour
 {
     Note _note;

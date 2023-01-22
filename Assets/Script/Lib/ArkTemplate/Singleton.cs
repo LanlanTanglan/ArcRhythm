@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArkRhythm
+namespace ArkTemplate
 {
     public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     {
