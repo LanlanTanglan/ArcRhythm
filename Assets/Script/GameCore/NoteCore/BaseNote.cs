@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using ArkRhythm;
 using TLUtil;
-using ArkTemplate;
+using TLTemplate;
 
 public class BaseNote : MonoBehaviour
 {

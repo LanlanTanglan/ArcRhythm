@@ -4,7 +4,7 @@ using UnityEngine;
 using ArkRhythm;
 using TLUtil;
 
-using ArkTemplate;
+using TLTemplate;
 
 //基础干员控制器控制器
 public class BaseOperatorController : MonoBehaviour

@@ -5,7 +5,7 @@ using ArkRhythm;
 using TLUtil;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
-using ArkTemplate;
+using TLTemplate;
 using UnityEditor;
 
 public class BMSManager : Singleton<BMSManager>

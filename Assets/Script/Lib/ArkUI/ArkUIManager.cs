@@ -1,5 +1,5 @@
-using ArkTemplate;
-namespace ArkUI
+using TLTemplate;
+namespace TLUI
 {
     public class ArkUIManager : Singleton<ArkUIManager>
     {

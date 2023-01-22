@@ -1,7 +1,7 @@
 using UnityEngine;
 using ArkRhythm;
 using TLUtil;
-using ArkTemplate;
+using TLTemplate;
 using UnityEngine.UI;
 
 public class DebugManager : Singleton<DebugManager>

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArkTemplate
+namespace TLTemplate
 {
     public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     {
