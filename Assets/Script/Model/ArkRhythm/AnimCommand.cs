@@ -77,7 +77,7 @@ namespace ArkRhythm
 
         public virtual Vector3 GetPos()
         {
-            return Vector3.zero;
+            return new Vector3(endPos[0], endPos[1], endPos[2]) / ArcNum.pixelPreUnit;
         }
 
         public AnimCommand()

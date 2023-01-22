@@ -5,6 +5,7 @@ using ArkRhythm;
 using TLUtil;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using UnityEditor;
 
 public class BMSManager : Singleton<BMSManager>
 {
@@ -17,6 +18,8 @@ public class BMSManager : Singleton<BMSManager>
 
     //Note的idx
     public int[] _noteIdx = new int[4] { 0, 0, 0, 0 };//Tap、LongTap
+
+    // public BMSData _bmsData;
 
     public void Update()
     {
@@ -34,6 +37,16 @@ public class BMSManager : Singleton<BMSManager>
         JObject jo = JsonUtil.readJSON(BMSUrl);
         _bms = new BMS().SetParam(jo);
 
+        _baseOperators = new List<BaseOperator>();
+    }
+
+    /// <summary>
+    /// 从BMSData加载铺面
+    /// </summary>
+    public void LoadBMSFromData(string name)
+    {
+
+        this._bms = AssetDatabase.LoadAssetAtPath<BMSData>($"Assets/Resources/ScriptData/BMSData/{name}.asset")._bms;
         _baseOperators = new List<BaseOperator>();
     }
 
@@ -66,13 +79,15 @@ public class BMSManager : Singleton<BMSManager>
     public void _loadTapNote()
     {
         float ct = GameClockManager.Instance.currentGamePalyTime;
+        
         //加载TapNote
         while (_bms.noteSet.tapNotes != null && _noteIdx[0] < _bms.noteSet.tapNotes.Count && _bms.noteSet.tapNotes[_noteIdx[0]].endTime - ct <= 5f)
         {
             GameObject tapnote = new GameObject("tapNote");
             tapnote.SetActive(false);
             BaseTapNote bn = tapnote.AddComponent<BaseTapNote>();
-            bn.Init(_bms.noteSet.tapNotes[_noteIdx[0]] as TapNote);
+            UnityEngine.Debug.LogWarning($"当前的时间：{_bms.noteSet.tapNotes[_noteIdx[0]].enemy}");
+            bn.Init(_bms.noteSet.tapNotes[_noteIdx[0]]);
             tapnote.SetActive(true);
             _noteIdx[0]++;
         }

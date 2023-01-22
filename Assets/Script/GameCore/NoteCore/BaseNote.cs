@@ -18,11 +18,6 @@ public class BaseNote : MonoBehaviour
 
     }
 
-    public void _init(Note n)
-    {
-        this._note = n;
-    }
-
     //是否被判定
     public bool IsJudge()
     {

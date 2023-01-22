@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5c453ff61ed4e458c4b3b13188cd83, type: 3}
+  m_Name: Dosoleisi
+  m_EditorClassIdentifier: 
+  _bms:
+    BMSInfo:
+      musicName: dosoleisi
+      BMSName: dosoleisi
+      author: yj
+      musicAuthor: yj
+      media: dosoleisi
+      level: 1
+      length: 0
+      totalNoteNum: 0
+    operSet:
+    - operatorType: 1
+      attackRange: 2
+      direction: 3
+      keyType: 97
+      animCommands:
+      - animCommandType: 5
+        beginTime: -4.5
+        endTime: 0
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 6
+        beginTime: -4.5
+        endTime: 0
+        motionType: 10
+        endPos:
+        - -580
+        - 250
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      opsvList:
+      - animCommandType: 4
+        beginTime: -5
+        endTime: 0
+        motionType: 0
+        endPos: []
+        endRotate: []
+        directions: 
+        newSpeed: 12
+      speed: 12
+    - operatorType: 1
+      attackRange: 2
+      direction: 3
+      keyType: 108
+      animCommands:
+      - animCommandType: 5
+        beginTime: -4.5
+        endTime: 0
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 6
+        beginTime: -4.5
+        endTime: 0
+        motionType: 10
+        endPos:
+        - -580
+        - 250
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      opsvList:
+      - animCommandType: 4
+        beginTime: -5
+        endTime: 0
+        motionType: 0
+        endPos: []
+        endRotate: []
+        directions: 
+        newSpeed: 12
+      speed: 6
+    noteSet:
+      tapNotes:
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 0
+      pushNotes: []
+      pullNotes: []
+      longTapNotes: []

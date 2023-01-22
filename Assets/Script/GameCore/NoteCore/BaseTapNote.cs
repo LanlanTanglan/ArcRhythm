@@ -5,7 +5,7 @@ using ArkRhythm;
 using TLUtil;
 public partial class BaseTapNote : BaseNote
 {
-    public TapNote _tapNote;
+    public Note _tapNote;
     // public GameObject _childNotePrefeb;
     // public BaseOperator _targetOperator;
     public FiniteStateMachine<BaseTapNote> _stateMachine;
@@ -32,8 +32,9 @@ public partial class BaseTapNote : BaseNote
 
     public override void Init(Note t)
     {
-        this._tapNote = t as TapNote;
-        base._init(t);
+        this._tapNote = t;
+        // Debug.LogWarning($"这里是{_tapNote.enemy}");
+        base.Init(t);
     }
 
     //设置Note的相关属性
