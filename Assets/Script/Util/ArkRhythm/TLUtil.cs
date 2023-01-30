@@ -100,7 +100,7 @@ namespace TLUtil
                 idx++;
             }
             distance += (note.endTime - oper.opsvList[idx].beginTime) * oper.opsvList[idx].newSpeed;
-            Debug.Log(ct + ":" + note.endTime + ":" + distance);
+            // Debug.Log(ct + ":" + note.endTime + ":" + distance);
 
             return distance * 100;
         }

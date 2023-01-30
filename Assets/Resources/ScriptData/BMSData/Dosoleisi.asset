@@ -48,6 +48,548 @@ MonoBehaviour:
         - 0
         endRotate: []
         directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 0.1
+        endTime: 2.03
+        motionType: 10
+        endPos:
+        - -180
+        - 135
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 1
+        beginTime: 2.03
+        endTime: 3.36
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 1
+        beginTime: 8.16
+        endTime: 8.64
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 9.12
+        endTime: 9.6
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 10.08
+        endTime: 10.56
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 11.04
+        endTime: 11.52
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 12
+        endTime: 12.48
+        motionType: 10
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 6
+        beginTime: 12
+        endTime: 12.48
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 12.96
+        endTime: 13.44
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 6
+        beginTime: 12.96
+        endTime: 13.44
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 6
+        beginTime: 12.96
+        endTime: 13.44
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 13.92
+        endTime: 14.4
+        motionType: 10
+        endPos:
+        - -580
+        - 980
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 5
+        beginTime: 15.36
+        endTime: 13.44
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 22.8
+        endTime: 23.28
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 23.28
+        endTime: 23.76
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 23.76
+        endTime: 24.24
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 24.24
+        endTime: 24.72
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 26.88
+        endTime: 26.98
+        motionType: 10
+        endPos:
+        - -580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 26.98
+        endTime: 27.08
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 27.36
+        endTime: 27.46
+        motionType: 10
+        endPos:
+        - -580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 27.46
+        endTime: 27.56
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 27.84
+        endTime: 27.94
+        motionType: 10
+        endPos:
+        - -580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 27.94
+        endTime: 28.04
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 28.32
+        endTime: 28.42
+        motionType: 10
+        endPos:
+        - -580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 28.42
+        endTime: 28.52
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 38.88
+        endTime: 39.38
+        motionType: 10
+        endPos:
+        - -580
+        - 720
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 5
+        beginTime: 40.56
+        endTime: 39.38
+        motionType: 10
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 41.04
+        endTime: 41.04
+        motionType: 10
+        endPos:
+        - -530
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 41.28
+        endTime: 41.28
+        motionType: 10
+        endPos:
+        - -480
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 41.52
+        endTime: 41.52
+        motionType: 10
+        endPos:
+        - -430
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 41.76
+        endTime: 41.76
+        motionType: 10
+        endPos:
+        - -380
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 42
+        endTime: 42
+        motionType: 10
+        endPos:
+        - -330
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 42
+        endTime: 43.68
+        motionType: 25
+        endPos:
+        - -580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 43.68
+        endTime: 46.08
+        motionType: 10
+        endPos:
+        - -580
+        - -80
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 46.08
+        endTime: 47.52
+        motionType: 10
+        endPos:
+        - -580
+        - 540
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 49.44
+        endTime: 50.4
+        motionType: 10
+        endPos:
+        - -480
+        - 400
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 49.44
+        endTime: 50.4
+        motionType: 10
+        endPos:
+        - -480
+        - 400
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 50.4
+        endTime: 51.34
+        motionType: 10
+        endPos:
+        - -580
+        - 260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 50.4
+        endTime: 51.34
+        motionType: 10
+        endPos:
+        - -580
+        - 260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 51.34
+        endTime: 52.3
+        motionType: 10
+        endPos:
+        - -480
+        - 120
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 51.34
+        endTime: 52.3
+        motionType: 10
+        endPos:
+        - -480
+        - 120
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 52.3
+        endTime: 53.26
+        motionType: 10
+        endPos:
+        - -580
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 52.3
+        endTime: 53.26
+        motionType: 10
+        endPos:
+        - -580
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 53.76
+        endTime: 55.2
+        motionType: 10
+        endPos:
+        - -580
+        - -740
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 57.12
+        endTime: 58.08
+        motionType: 10
+        endPos:
+        - -680
+        - -580
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 57.12
+        endTime: 58.08
+        motionType: 10
+        endPos:
+        - -680
+        - -420
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 58.08
+        endTime: 59.04
+        motionType: 10
+        endPos:
+        - -580
+        - -260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 58.08
+        endTime: 59.04
+        motionType: 10
+        endPos:
+        - -580
+        - -260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 59.04
+        endTime: 60
+        motionType: 10
+        endPos:
+        - -680
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000300000003000000
+      - animCommandType: 2
+        beginTime: 59.04
+        endTime: 60
+        motionType: 10
+        endPos:
+        - -680
+        - -100
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000300000003000000
       opsvList:
       - animCommandType: 4
         beginTime: -5
@@ -83,6 +625,618 @@ MonoBehaviour:
         - 0
         endRotate: []
         directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 3.14
+        endTime: 3.54
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 6
+        beginTime: 3.14
+        endTime: 4.14
+        motionType: 10
+        endPos:
+        - 580
+        - 250
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 3.84
+        endTime: 5.72
+        motionType: 10
+        endPos:
+        - 180
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 5.72
+        endTime: 7.2
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 8.16
+        endTime: 8.64
+        motionType: 10
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 1
+        beginTime: 9.12
+        endTime: 9.6
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 1
+        beginTime: 10.08
+        endTime: 10.56
+        motionType: 10
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 1
+        beginTime: 11.04
+        endTime: 11.52
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 1
+        beginTime: 12
+        endTime: 12.48
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 6
+        beginTime: 12
+        endTime: 12.48
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000300000003000000
+      - animCommandType: 1
+        beginTime: 12.96
+        endTime: 13.44
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 
+      - animCommandType: 6
+        beginTime: 12.96
+        endTime: 13.44
+        motionType: 10
+        endPos:
+        - -580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 14.4
+        endTime: 14.88
+        motionType: 10
+        endPos:
+        - 580
+        - -980
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 14.88
+        endTime: 14.88
+        motionType: 10
+        endPos:
+        - 1580
+        - -980
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 5
+        beginTime: 17.76
+        endTime: 14.88
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 24.72
+        endTime: 25.2
+        motionType: 10
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 25.2
+        endTime: 25.68
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 25.68
+        endTime: 26.16
+        motionType: 10
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 26.16
+        endTime: 26.64
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 27.12
+        endTime: 27.22
+        motionType: 10
+        endPos:
+        - 580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 27.22
+        endTime: 27.32
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 27.6
+        endTime: 27.7
+        motionType: 10
+        endPos:
+        - 580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 27.7
+        endTime: 27.8
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 28.08
+        endTime: 28.18
+        motionType: 10
+        endPos:
+        - 580
+        - -330
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 28.18
+        endTime: 28.28
+        motionType: 10
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 31.2
+        endTime: 31.7
+        motionType: 10
+        endPos:
+        - 580
+        - 720
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 5
+        beginTime: 32.16
+        endTime: 0
+        motionType: 10
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 32.88
+        endTime: 32.88
+        motionType: 10
+        endPos:
+        - 530
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 33.12
+        endTime: 33.12
+        motionType: 10
+        endPos:
+        - 480
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 33.36
+        endTime: 33.36
+        motionType: 10
+        endPos:
+        - 430
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 33.6
+        endTime: 33.6
+        motionType: 10
+        endPos:
+        - 380
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 33.84
+        endTime: 33.84
+        motionType: 10
+        endPos:
+        - 330
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 34.08
+        endTime: 34.08
+        motionType: 10
+        endPos:
+        - 280
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 34.32
+        endTime: 34.32
+        motionType: 10
+        endPos:
+        - 230
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 34.56
+        endTime: 36.48
+        motionType: 24
+        endPos:
+        - 580
+        - 135
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 36.72
+        endTime: 37.08
+        motionType: 24
+        endPos:
+        - 580
+        - 52
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 37.08
+        endTime: 37.44
+        motionType: 24
+        endPos:
+        - 580
+        - -31
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 37.44
+        endTime: 37.8
+        motionType: 24
+        endPos:
+        - 580
+        - -114
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 37.8
+        endTime: 38.16
+        motionType: 24
+        endPos:
+        - 580
+        - -197
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 38.16
+        endTime: 38.52
+        motionType: 24
+        endPos:
+        - 580
+        - -280
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 43.68
+        endTime: 46.08
+        motionType: 10
+        endPos:
+        - 580
+        - -80
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 47.52
+        endTime: 48.96
+        motionType: 10
+        endPos:
+        - 580
+        - 540
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 49.44
+        endTime: 50.4
+        motionType: 10
+        endPos:
+        - 480
+        - 400
+        - 0
+        endRotate: []
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 49.44
+        endTime: 50.4
+        motionType: 10
+        endPos:
+        - 480
+        - 400
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 50.4
+        endTime: 51.36
+        motionType: 10
+        endPos:
+        - 580
+        - 260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 50.4
+        endTime: 51.36
+        motionType: 10
+        endPos:
+        - 580
+        - 260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 51.36
+        endTime: 52.32
+        motionType: 10
+        endPos:
+        - 480
+        - 120
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 51.36
+        endTime: 52.32
+        motionType: 10
+        endPos:
+        - 480
+        - 120
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 52.32
+        endTime: 53.28
+        motionType: 10
+        endPos:
+        - 580
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 52.32
+        endTime: 53.28
+        motionType: 10
+        endPos:
+        - 580
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 55.2
+        endTime: 56.64
+        motionType: 10
+        endPos:
+        - 580
+        - -740
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 57.12
+        endTime: 58.08
+        motionType: 10
+        endPos:
+        - 680
+        - -580
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 57.12
+        endTime: 58.08
+        motionType: 10
+        endPos:
+        - 680
+        - -580
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 58.08
+        endTime: 59.04
+        motionType: 10
+        endPos:
+        - 680
+        - -260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - -45
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 58.08
+        endTime: 59.04
+        motionType: 10
+        endPos:
+        - 680
+        - -260
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000100000001000000
+      - animCommandType: 1
+        beginTime: 59.04
+        endTime: 60
+        motionType: 10
+        endPos:
+        - 680
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 45
+        directions: 040000000100000001000000
+      - animCommandType: 2
+        beginTime: 59.04
+        endTime: 60
+        motionType: 10
+        endPos:
+        - 680
+        - -80
+        - 0
+        endRotate:
+        - 0
+        - 0
+        - 0
+        directions: 040000000100000001000000
       opsvList:
       - animCommandType: 4
         beginTime: -5
@@ -92,7 +1246,7 @@ MonoBehaviour:
         endRotate: []
         directions: 
         newSpeed: 12
-      speed: 6
+      speed: 12
     noteSet:
       tapNotes:
       - noteType: 1
@@ -101,6 +1255,696 @@ MonoBehaviour:
         attackId: 1
         direction: 1
         endTime: 0
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 0.48
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 0.96
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 1.44
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 1.92
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 2.4
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 2.88
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 3.36
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 3.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 4.32
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 4.8
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 5.28
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 5.76
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 6.24
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 6.72
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 7.2
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 7.68
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 8.16
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 8.64
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 9.12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 9.6
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 10.08
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 10.56
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 11.04
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 11.52
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 3
+        endTime: 12.48
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 3
+        endTime: 12.96
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 1
+        endTime: 13.44
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 1
+        endTime: 13.92
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 15.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 16.8
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 17.76
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 18.72
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 19.68
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 20.64
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 21.12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 21.24
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 21.36
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 21.48
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 21.6
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 21.72
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 21.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 21.96
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 22.08
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 22.2
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 22.32
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 22.44
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 22.56
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 23.04
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 2
+        endTime: 23.52
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 24
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 2
+        endTime: 24.48
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 2
+        endTime: 24.96
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 2
+        endTime: 25.44
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 25.92
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 2
+        endTime: 26.4
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 26.88
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 27.12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 27.36
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 27.6
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 27.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 28.08
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 28.32
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 28.8
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 28.92
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 29.04
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 29.16
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 29.28
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 29.4
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 29.52
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 29.64
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 29.76
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 29.88
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 30
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 30.12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 30.24
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 30.72
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 31.2
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 31.68
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 32.16
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 32.88
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 33.12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 33.36
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 33.6
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 33.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 34.08
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 34.32
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 36.72
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 37.08
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 37.44
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 37.8
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 38.16
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 38.4
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 38.88
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 39.36
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 39.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 41.04
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 41.28
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 41.52
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 41.76
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 42
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 44.4
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 44.52
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 44.64
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 44.76
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 44.88
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 45
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 45.12
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 45.24
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 45.36
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 45.48
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 45.6
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 45.72
+      - noteType: 1
+        enemy: 1
+        targetOperId: 0
+        attackId: 1
+        direction: 4
+        endTime: 45.84
+      - noteType: 1
+        enemy: 1
+        targetOperId: 1
+        attackId: 1
+        direction: 4
+        endTime: 45.96
       pushNotes: []
       pullNotes: []
       longTapNotes: []

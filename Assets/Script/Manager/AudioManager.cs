@@ -17,15 +17,21 @@ class AudioManager : Singleton<AudioManager>
 
     private void StopGame(bool key)
     {
-        if(key)
+        if (key)
         {
             _audioSource.Pause();
-        }else
+        }
+        else
         {
             _audioSource.Play();
         }
     }
-    
+
+    private void Update()
+    {
+        _audioSource.pitch = Time.timeScale;
+    }
+
 
     /// <summary>
     /// 播放音频 Resources/Audios/name

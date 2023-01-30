@@ -87,7 +87,7 @@ public class BMSManager : Singleton<BMSManager>
             GameObject tapnote = new GameObject("tapNote");
             tapnote.SetActive(false);
             BaseTapNote bn = tapnote.AddComponent<BaseTapNote>();
-            UnityEngine.Debug.LogWarning($"当前的时间：{_bms.noteSet.tapNotes[_noteIdx[0]].enemy}");
+            // UnityEngine.Debug.LogWarning($"当前的时间：{_bms.noteSet.tapNotes[_noteIdx[0]].enemy}");
             bn.Init(_bms.noteSet.tapNotes[_noteIdx[0]]);
             tapnote.SetActive(true);
             _noteIdx[0]++;

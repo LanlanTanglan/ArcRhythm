@@ -134,12 +134,12 @@ public class BaseOperator : MonoBehaviour
         }
         else if (d == DIRECTION.LEFT)
         {
-            _childOperator.transform.DOLocalRotate(new Vector3(0, 180, 0), 0.25f).SetEase(Ease.OutCubic).Play();
+            _childOperator.transform.DOLocalRotate(new Vector3(0, 180, 0), 0.1f).SetEase(Ease.OutCubic).Play();
             ChangeAttackRangeDirecton(DIRECTION.LEFT);
         }
         else if (d == DIRECTION.RIGHT)
         {
-            _childOperator.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.25f).SetEase(Ease.OutCubic).Play();
+            _childOperator.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f).SetEase(Ease.OutCubic).Play();
             ChangeAttackRangeDirecton(DIRECTION.RIGHT);
         }
 
@@ -201,8 +201,10 @@ public class BaseOperator : MonoBehaviour
                 //设置位置：播放进场动画
                 case ANIM_COMMAND.OP_SetPos:
                     // Debug.Log("执行SetPos");
-                    this.transform.localPosition = _operator.animCommands[_acIdx].GetPos();
                     _animator.Play("Start");
+                    Vector3 up_pos = _operator.animCommands[_acIdx].GetPos();
+                    this.transform.localPosition = new Vector3(up_pos.x, up_pos.y + 10, up_pos.z);
+                    this.transform.DOLocalMove(up_pos, 0.1f);
                     break;
                 case ANIM_COMMAND.OP_SetSpeed:
                     break;

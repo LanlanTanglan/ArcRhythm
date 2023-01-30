@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System;
 using UnityEngine;
@@ -12,7 +13,6 @@ public class BaseNote : MonoBehaviour
     public BaseOperator _targetOperator;
     public virtual void Awake()
     {
-
     }
 
     public virtual void Update()
@@ -36,6 +36,8 @@ public class BaseNote : MonoBehaviour
     {
         _note = n;
     }
+
+    
 
     /// <summary>
     /// 设置Note的最基本的状态
