@@ -12,6 +12,7 @@ public partial class BaseLongTapNote : BaseNote
     public LongTapNote _longTapNote;
     public FiniteStateMachine<BaseLongTapNote> _stateMachine;
     public JUDGE_RESULT _firstJudgeResult;
+    public HPBar _hBar;
     public bool _stillAlive = true;//第一次判定后是否存活
 
     public float _loopTime = 0.25f;//循环判定时间
@@ -45,13 +46,20 @@ public partial class BaseLongTapNote : BaseNote
         //基础位置信息
         base.SetNote();
         //TODO 长条贴图
-
+        SetHpBar();
     }
 
     public override void Init(Note n)
     {
         base.Init(n);
         _longTapNote = n as LongTapNote;
+    }
+
+    public void SetHpBar()
+    {
+        GameObject bar = Instantiate((GameObject)Resources.Load("Prefab/AttackRange/HPBar"), this.transform);
+        _hBar = bar.AddComponent<HPBar>();
+        _hBar.Init((int)(_longTapNote.duraTime / _loopTime));
     }
 }
 
@@ -117,7 +125,10 @@ partial class BaseLongTapNote
                 Subject._stillAlive = Singleton<KeyboardInputManager>.Instance.LoadInputState(Subject._targetOperator._operator.keyType, InputType.LONG_TAP);
                 Debug.Log("此时的判断状态：" + Subject._stillAlive);
                 if (Subject._stillAlive)
+                {
                     Subject.DoJudgeAndDoAnime(Subject._targetOperator, Subject._firstJudgeResult);
+                    Subject._hBar.SubHp();
+                }
                 Subject._passTime = 0;
             }
 
@@ -138,6 +149,8 @@ partial class BaseLongTapNote
             Subject.DoJudgeAndDoAnime(Subject._targetOperator, JUDGE_RESULT.Perfect);
 
             //删除物体
+            //解决Dotween未执行完的问题
+            Subject._hBar.CompleteTween();
             Destroy(Subject.gameObject);
         }
     }

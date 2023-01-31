@@ -4,7 +4,7 @@ using UnityEngine;
 using TLTemplate;
 using System;
 
-namespace ArkRhythm
+namespace TLTemplate
 {
     /// <summary>
     /// 事件管理器
@@ -13,6 +13,7 @@ namespace ArkRhythm
     {
         private Dictionary<string, Action> eventDictionary;
         private Dictionary<string, Action<EventParam>> eventDictionaryP;
+        public Dictionary<string, bool> eventDictAsyncP;
         public Dictionary<string, bool> eventDictAsync;
 
         public bool isNeedAsyncLoop = false;
@@ -44,7 +45,7 @@ namespace ArkRhythm
                 {
                     eventDictAsync[l] = false;
                 }
-                
+
                 isNeedAsyncLoop = false;
             }
         }
@@ -86,6 +87,7 @@ namespace ArkRhythm
             Action thisEvent = null;
             if (this.eventDictionary.TryGetValue(eventName, out thisEvent))
             {
+                Debug.Log("触发" + eventName);
                 thisEvent.Invoke();
                 // OR USE instance.eventDictionary[eventName]();
             }
@@ -112,6 +114,7 @@ namespace ArkRhythm
             }
         }
 
+        //异步的一个修改函数，如果成功的话，就会在Updata中执行TriggerEvent
         public void TriggerEventAnsyc(string eventName)
         {
             if (eventDictAsync.ContainsKey(eventName))
@@ -175,33 +178,34 @@ namespace ArkRhythm
         }
 
 
-        public struct EventParam
-        {
-            public string s;
-            public int i;
-            public float f;
-            public bool b;
 
-            public EventParam SetString(string s)
-            {
-                this.s = s;
-                return this;
-            }
-            public EventParam SetInt(int i)
-            {
-                this.i = i;
-                return this;
-            }
-            public EventParam SetFloat(float f)
-            {
-                this.f = f;
-                return this;
-            }
-            public EventParam SetBool(bool b)
-            {
-                this.b = b;
-                return this;
-            }
+    }
+    public struct EventParam
+    {
+        public string s;
+        public int i;
+        public float f;
+        public bool b;
+
+        public EventParam SetString(string s)
+        {
+            this.s = s;
+            return this;
+        }
+        public EventParam SetInt(int i)
+        {
+            this.i = i;
+            return this;
+        }
+        public EventParam SetFloat(float f)
+        {
+            this.f = f;
+            return this;
+        }
+        public EventParam SetBool(bool b)
+        {
+            this.b = b;
+            return this;
         }
     }
 }

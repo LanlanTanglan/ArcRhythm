@@ -8,11 +8,14 @@ using DG.Tweening;
 public class BaseJudgePerfor : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float sustain = 0.4f;
     public virtual void Start()
     {
-        this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 0.84f, 0), 0.5f)
-                .SetEase(Ease.OutQuart)
-                .OnComplete(() =>
+        Sequence s = DOTween.Sequence();
+        s.Append(this.transform.DOLocalMove(this.transform.localPosition + new Vector3(0, 2.8f, 0), sustain).SetEase(Ease.OutQuart));
+        s.Join(this.transform.DOScale(new Vector3(2, 2, 2), sustain).SetEase(Ease.OutElastic));
+        s.Join(this.transform.DOLocalRotate(new Vector3(0, 0, Random.Range(1, 3) == 1 ? 18 : -18), sustain).SetEase(Ease.OutElastic));
+        s.OnComplete(() =>
                 {
                     Destroy(this.gameObject);
                 });

@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace TLUI
 {
-    public class TLPanel : MonoBehaviour, ITLAnim
+    [AddComponentMenu("CanvasGroup")]
+    public class TLPanel : TLBaseUI
     {
         public CanvasGroup _cGroup;
 
         public virtual void Awake()
         {
             _cGroup = GetComponent<CanvasGroup>();
-            
         }
         public virtual void Start()
         {
@@ -29,7 +29,7 @@ namespace TLUI
         /// </summary>
         public virtual void Show()
         {
-            TLUIManager.Instance.PlayAnim(gameObject, true);
+            TLUIManager.Instance.PlayAnimAndLock(gameObject, true);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace TLUI
         /// </summary>
         public virtual void Hide()
         {
-            TLUIManager.Instance.PlayAnim(gameObject, false);
+            TLUIManager.Instance.PlayAnimAndLock(gameObject, false);
         }
 
         /// <summary>
@@ -48,22 +48,23 @@ namespace TLUI
             Destroy(gameObject);
         }
 
-        public void PlayEnterAnim()
+        public override void PlayEnterAnim()
         {
             _cGroup.alpha = 1;
             transform.localPosition = new Vector3(-3000, 0, 0);
-            
-            Sequence mySequence = DOTween.Sequence();
-            mySequence.Append(transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic));
+            _enterAnim = DOTween.Sequence();
+            _enterAnim.Append(transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic));
+            base.PlayEnterAnim();
         }
 
-        public void PlayLeaveAnim()
+        public override void PlayLeaveAnim()
         {
-            Sequence mySequence = DOTween.Sequence();
-            mySequence.Append(transform.DOLocalMove(new Vector3(3000, 0, 0), 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
+            _leaveAnim = DOTween.Sequence();
+            _leaveAnim.Append(transform.DOLocalMove(new Vector3(3000, 0, 0), 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
             {
                 _cGroup.alpha = 0;
             }));
+            base.PlayLeaveAnim();
         }
     }
 

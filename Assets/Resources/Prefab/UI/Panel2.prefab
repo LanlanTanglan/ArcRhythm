@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 3784659421969220430}
   - component: {fileID: 3784659421969220428}
   - component: {fileID: 3784659421969220431}
-  - component: {fileID: 3784659421969220429}
   - component: {fileID: -1244859726946796132}
   m_Layer: 5
   m_Name: Panel2
@@ -212,18 +211,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!225 &3784659421969220429
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3784659421969220425}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &-1244859726946796132
 MonoBehaviour:
   m_ObjectHideFlags: 0
