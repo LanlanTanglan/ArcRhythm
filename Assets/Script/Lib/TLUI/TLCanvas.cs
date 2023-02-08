@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TLTemplate;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class TLCanvas : MonoBehaviour
 {
     //是否在动画当中
@@ -51,11 +52,9 @@ public class TLCanvas : MonoBehaviour
     public void LockCanvasEvent(EventParam p)
     {
         _isLock = true;
-        Debug.Log("Canvas被锁住了");
     }
     public void UnLockCanvasEvent(EventParam p)
     {
         _isLock = false;
-        Debug.Log("Canvas被打开了");
     }
 }

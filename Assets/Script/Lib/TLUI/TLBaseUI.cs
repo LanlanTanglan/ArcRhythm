@@ -10,17 +10,17 @@ namespace TLUI
         public Sequence _enterAnim;
         public Sequence _leaveAnim;
 
-        void Awake()
+        public virtual void Awake()
         {
 
         }
 
-        void Start()
+        public virtual void Start()
         {
 
         }
 
-        void Update()
+        public virtual void Update()
         {
 
         }

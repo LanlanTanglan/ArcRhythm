@@ -126,27 +126,30 @@ namespace ArkRhythm
     [System.Serializable]
     public class PushNote : Note
     {
-        public List<float> endTimeList;
-        public List<int> targetOpers;
+        // public List<float> endTimeList;//结束时间列表
+        // public List<int> targetOpers;
+        public float pushDistance;
+        public KeyCode secondKey;
 
         public PushNote()
         {
-            this.endTimeList = new List<float>();
-            this.targetOpers = new List<int>();
+            // this.endTimeList = new List<float>();
+            // this.targetOpers = new List<int>();
         }
 
         public override Note SetParam(JToken jt)
         {
-            JArray etl = (JArray)jt["endTimeList"];
-            if (etl != null)
-                for (int i = 0; i < etl.Count; i++)
-                    endTimeList.Add((float)etl[i]);
+            // JArray etl = (JArray)jt["endTimeList"];
+            // if (etl != null)
+            //     for (int i = 0; i < etl.Count; i++)
+            //         endTimeList.Add((float)etl[i]);
 
-            JArray ta = (JArray)jt["targetOpers"];
-            if (ta != null)
-                for (int i = 0; i < ta.Count; i++)
-                    targetOpers.Add((int)ta[i]);
-
+            // JArray ta = (JArray)jt["targetOpers"];
+            // if (ta != null)
+            //     for (int i = 0; i < ta.Count; i++)
+            //         targetOpers.Add((int)ta[i]);
+            this.pushDistance = (float)jt["pushDistance"];
+            this.secondKey = (KeyCode)(int)jt["secondKey"];
             return base.SetParam(jt);
         }
     }

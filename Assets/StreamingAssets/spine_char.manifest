@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3552166997
+CRC: 952534729
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3f6561a6cce59ec9f7dd715481ab753c
+    Hash: 82602f51cee8385f106bafa82a0721fb
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c08fb44b738cf25509bed1fbd95e4435
+    Hash: 9bdd27cb4eaea7203f959fa3837f1c71
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -17,6 +17,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 49
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 83eaebb2421291449af4544aa8839d63, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
 - Class: 114
@@ -28,5 +34,7 @@ SerializeReferenceClassIdentifiers:
   ClassName: Spine.Unity.BlendModeMaterials
 Assets:
 - Assets/GameAssets/SpineChar/Operator/Myrtle_b/myrtle_b_SkeletonData.asset
+- Assets/GameAssets/SpineChar/Operator/Shaw/f/shaw_SkeletonData.asset
 - Assets/GameAssets/SpineChar/Operator/Myrtle/myrtle_SkeletonData.asset
+- Assets/GameAssets/SpineChar/Operator/Shaw/b/shaw_b_SkeletonData.asset
 Dependencies: []

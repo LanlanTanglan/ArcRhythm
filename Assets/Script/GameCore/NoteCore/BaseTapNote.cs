@@ -91,10 +91,7 @@ partial class BaseTapNote
         }
         public override void Enter()
         {
-            float ct = GameClockManager.Instance.currentGamePalyTime;
-            JUDGE_RESULT res = ArkRhythmUtil.GetJudgeResult(Subject._tapNote.endTime, ct, true);
-            Debug.Log(res);
-            Subject.DoJudgeAndDoAnime(Subject._targetOperator, res);
+            Subject.DOFirstJudge(Subject._targetOperator);
             Destroy(Subject.gameObject);
         }
     }
@@ -145,7 +142,7 @@ partial class BaseTapNote
 
         public override bool ConditionCheck(BaseTapNote subject)
         {
-            return subject.AliveMiss();
+            return false;
         }
     }
 

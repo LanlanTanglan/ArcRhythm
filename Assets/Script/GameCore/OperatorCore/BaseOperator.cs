@@ -19,6 +19,7 @@ public class BaseOperator : MonoBehaviour
     public List<GameObject> _attackRanges = new List<GameObject>();
     public int _acIdx = 0;//判定线动画指针
     public int _setSpeedIdx = 0;//设置速度指针
+    public List<DIRECTION> _currentDirect = new List<DIRECTION>();
 
     public virtual void Awake()
     {
@@ -116,19 +117,22 @@ public class BaseOperator : MonoBehaviour
     /// <param name="d"></param>
     public void SetDirection(DIRECTION d)
     {
+        string name = Enum.GetName(typeof(OPERATOR), _operator.operatorType);
         //朝前，使用背面素材
         if (d == DIRECTION.UP)
         {
-            _meshRenderer.material = ABManager.Instance.GetMaterial("myrtle_b");
-            _skeletonMecanim.skeletonDataAsset = ABManager.Instance.GetSkeletonDataAsset("myrtle_b");
+            name.ToLower();
+
+            _meshRenderer.material = ABManager.Instance.GetMaterial($"{name}_b");
+            _skeletonMecanim.skeletonDataAsset = ABManager.Instance.GetSkeletonDataAsset($"{name}_b");
             _skeletonMecanim.Initialize(true);
             ChangeAttackRangeDirecton(DIRECTION.UP);
         }
         //使用正面素材
         else if (d == DIRECTION.DOWN)
         {
-            _meshRenderer.material = ABManager.Instance.GetMaterial("myrtle");
-            _skeletonMecanim.skeletonDataAsset = ABManager.Instance.GetSkeletonDataAsset("myrtle");
+            _meshRenderer.material = ABManager.Instance.GetMaterial(name);
+            _skeletonMecanim.skeletonDataAsset = ABManager.Instance.GetSkeletonDataAsset(name);
             _skeletonMecanim.Initialize(true);
             ChangeAttackRangeDirecton(DIRECTION.DOWN);
         }
@@ -213,6 +217,7 @@ public class BaseOperator : MonoBehaviour
                     SetDirection(od.directions[0]);
                     SetDirection(od.directions[1]);
                     SetDirection(od.directions[2]);
+                    _currentDirect = od.directions;
                     break;
             }
             //下一条命令

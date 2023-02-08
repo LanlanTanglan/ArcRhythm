@@ -162,7 +162,7 @@ public class KeyboardInputManager : Singleton<KeyboardInputManager>
     {
         if (it == InputType.TAP)
         {
-            Debug.Log("添加一个");
+            // Debug.Log("添加一个");
             BaseInput bi = new KeyboardInput().SetInpuKey(kc, kc).SetTTL(ttl).SetInputType(it);
             this.currentInputState.Add(bi);
             return;

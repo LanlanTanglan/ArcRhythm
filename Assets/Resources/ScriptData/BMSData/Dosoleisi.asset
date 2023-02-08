@@ -23,7 +23,7 @@ MonoBehaviour:
       length: 0
       totalNoteNum: 0
     operSet:
-    - operatorType: 1
+    - operatorType: 3
       attackRange: 2
       direction: 3
       keyType: 97

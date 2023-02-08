@@ -18,7 +18,7 @@ public class BMSManager : Singleton<BMSManager>
     public List<BaseOperator> _baseOperators;
 
     //Note的idx
-    public int[] _noteIdx = new int[4] { 0, 0, 0, 0 };//Tap、LongTap
+    public int[] _noteIdx = new int[4] { 0, 0, 0, 0 };//Tap、LongTap、Push
 
     // public BMSData _bmsData;
 
@@ -44,10 +44,11 @@ public class BMSManager : Singleton<BMSManager>
     /// <summary>
     /// 从BMSData加载铺面
     /// </summary>
-    public void LoadBMSFromData(string name)
+    public void LoadBMSFromScriptData(string name)
     {
-
+#if UNITY_EDITOR
         this._bms = AssetDatabase.LoadAssetAtPath<BMSData>($"Assets/Resources/ScriptData/BMSData/{name}.asset")._bms;
+#endif
         _baseOperators = new List<BaseOperator>();
     }
 
@@ -75,12 +76,13 @@ public class BMSManager : Singleton<BMSManager>
     {
         _loadTapNote();
         _loadLongTapNote();
+        _loadPushNote();
     }
 
     public void _loadTapNote()
     {
         float ct = GameClockManager.Instance.currentGamePalyTime;
-        
+
         //加载TapNote
         while (_bms.noteSet.tapNotes != null && _noteIdx[0] < _bms.noteSet.tapNotes.Count && _bms.noteSet.tapNotes[_noteIdx[0]].endTime - ct <= 5f)
         {
@@ -106,6 +108,21 @@ public class BMSManager : Singleton<BMSManager>
             bn.Init(_bms.noteSet.longTapNotes[_noteIdx[1]] as LongTapNote);
             longtapnote.SetActive(true);
             _noteIdx[1]++;
+        }
+    }
+
+    public void _loadPushNote()
+    {
+        float ct = GameClockManager.Instance.currentGamePalyTime;
+        //加载TapNote
+        while (_bms.noteSet.pushNotes != null && _noteIdx[2] < _bms.noteSet.pushNotes.Count && _bms.noteSet.pushNotes[_noteIdx[2]].endTime - ct <= 5f)
+        {
+            GameObject longtapnote = new GameObject("pushNote");
+            longtapnote.SetActive(false);
+            BasePushNote bn = longtapnote.AddComponent<BasePushNote>();
+            bn.Init(_bms.noteSet.pushNotes[_noteIdx[2]] as PushNote);
+            longtapnote.SetActive(true);
+            _noteIdx[2]++;
         }
     }
 

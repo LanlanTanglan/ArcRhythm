@@ -28,11 +28,12 @@ namespace ArkRhythm
         YSC = 1,
     }
     [System.Serializable]
-    //干员
+    //干员-使用小写，大写的问题就不管了
     public enum OPERATOR
     {
         Myrtle = 1,//桃金娘
-        Bpipe = 2
+        Bpipe = 2,
+        shaw = 3,//阿消
     }
     [System.Serializable]
     //Note种类

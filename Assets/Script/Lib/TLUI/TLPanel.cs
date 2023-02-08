@@ -1,25 +1,28 @@
+using System.Security.Cryptography.X509Certificates;
 using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TLUI
 {
-    [AddComponentMenu("CanvasGroup")]
+    [RequireComponent(typeof(CanvasGroup))]
     public class TLPanel : TLBaseUI
     {
         public CanvasGroup _cGroup;
+        
 
-        public virtual void Awake()
+        public override void Awake()
         {
             _cGroup = GetComponent<CanvasGroup>();
         }
-        public virtual void Start()
+        public override void Start()
         {
 
         }
-        public virtual void Update()
+        public override void Update()
         {
 
         }

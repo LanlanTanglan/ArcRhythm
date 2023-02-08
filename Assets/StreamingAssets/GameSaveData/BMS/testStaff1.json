@@ -11,15 +11,17 @@
     },
     "noteSet": {
         "tapNotes": [],
-        "longTapNotes": [
+        "longTapNotes": [],
+        "pushNotes": [
             {
-                "noteType": 2,
+                "noteType": 3,
                 "enemy": 1,
                 "targetOperId": 0,
                 "attackId": 1,
                 "direction": 4,
                 "endTime": 5,
-                "duraTime": 2
+                "pushDistance": 500,
+                "secondKey": 115
             }
         ]
     },
@@ -27,7 +29,7 @@
         {
             "idx": 0,
             "speed": 7,
-            "operatorType": 1,
+            "operatorType": 3,
             "attackRange": 2,
             "direction": 3,
             "keyType": 97,

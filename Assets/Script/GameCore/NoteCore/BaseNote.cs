@@ -9,10 +9,14 @@ using TLTemplate;
 public class BaseNote : MonoBehaviour
 {
     Note _note;
+    /// <summary>
+    /// Note的贴图
+    /// </summary>
     public GameObject _noteImagePrefeb;
     public BaseOperator _targetOperator;
     public virtual void Awake()
     {
+
     }
 
     public virtual void Update()
@@ -37,7 +41,7 @@ public class BaseNote : MonoBehaviour
         _note = n;
     }
 
-    
+
 
     /// <summary>
     /// 设置Note的最基本的状态
@@ -91,6 +95,19 @@ public class BaseNote : MonoBehaviour
         return ct - _note.endTime >= ArcNum.prJudgeTime &&
                ct - _note.endTime <= ArcNum.neJudgeTime &&
                Singleton<KeyboardInputManager>.Instance.LoadInputState(_targetOperator._operator.keyType, InputType.TAP);
+    }
+
+    /// <summary>
+    /// 第一次判定
+    /// </summary>
+    /// <param name="_targetOperator"></param>
+    public virtual JUDGE_RESULT DOFirstJudge(BaseOperator _targetOperator)
+    {
+        float ct = GameClockManager.Instance.currentGamePalyTime;
+        JUDGE_RESULT res = ArkRhythmUtil.GetJudgeResult(_note.endTime, ct, true);
+        Debug.Log(res);
+        DoJudgeAndDoAnime(_targetOperator, res);
+        return res;
     }
 
     //统计并且播放动画

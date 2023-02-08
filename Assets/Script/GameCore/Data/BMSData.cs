@@ -6,6 +6,5 @@ using ArkRhythm;
 public class BMSData : ScriptableObject
 {
     [SerializeField] public BMS _bms;
-
     
 }

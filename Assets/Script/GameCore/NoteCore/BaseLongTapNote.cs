@@ -108,11 +108,8 @@ partial class BaseLongTapNote
 
         public override void Enter()
         {
-            float ct = GameClockManager.Instance.currentGamePalyTime;
             //查看第一次判断是什么判定
-            Subject._firstJudgeResult = ArkRhythmUtil.GetJudgeResult(Subject._longTapNote.endTime, ct, true);
-            Subject.DoJudgeAndDoAnime(Subject._targetOperator, Subject._firstJudgeResult);
-            Debug.Log("第一判定: " + Subject._firstJudgeResult);
+            Subject._firstJudgeResult = Subject.DOFirstJudge(Subject._targetOperator);
         }
 
         public override void Update()

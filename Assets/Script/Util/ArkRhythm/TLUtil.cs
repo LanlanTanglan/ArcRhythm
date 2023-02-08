@@ -142,8 +142,7 @@ namespace TLUtil
         public static JUDGE_RESULT GetJudgeResult(float et, float ct, bool playSound)
         {
             float c = ct - et;
-            if (playSound)
-            {
+            
                 if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
                 {
                     return JUDGE_RESULT.Bad;
@@ -151,13 +150,13 @@ namespace TLUtil
                 //Good
                 else if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (c > ArcNum.perJudgeTime && c <= 2 * ArcNum.perJudgeTime))
                 {
-                    Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+                    if (playSound) Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
                     return JUDGE_RESULT.Good;
                 }
                 //Perfect
                 else if ((c >= -ArcNum.perJudgeTime && c <= 0) || (c >= 0 && c <= ArcNum.perJudgeTime))
                 {
-                    Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
+                    if (playSound) Singleton<AudioManager>.Instance.AudioInstantiate("Note/Dead/tap");
                     return JUDGE_RESULT.Perfect;
                 }
                 //Miss
@@ -165,29 +164,6 @@ namespace TLUtil
                 {
                     return JUDGE_RESULT.Miss;
                 }
-            }
-            else
-            {
-                if (c >= ArcNum.prJudgeTime && c < ArcNum.prJudgeTime + ArcNum.badJudgeTime)
-                {
-                    return JUDGE_RESULT.Bad;
-                }
-                //Good
-                else if ((c >= -2 * ArcNum.perJudgeTime && c < -ArcNum.perJudgeTime) || (c > ArcNum.perJudgeTime && c <= 2 * ArcNum.perJudgeTime))
-                {
-                    return JUDGE_RESULT.Good;
-                }
-                //Perfect
-                else if ((c >= -ArcNum.perJudgeTime && c <= 0) || (c >= 0 && c <= ArcNum.perJudgeTime))
-                {
-                    return JUDGE_RESULT.Perfect;
-                }
-                //Miss
-                else //(c > ArcNum.neJudgeTime)
-                {
-                    return JUDGE_RESULT.Miss;
-                }
-            }
 
         }
 
