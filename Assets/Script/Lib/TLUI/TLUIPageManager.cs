@@ -39,6 +39,17 @@ namespace TLUI
             return this;
         }
 
+        public TLUIPanelManager LoadPanelPrefab(string root, string name)
+        {
+            if (!_panelPrefabObjs.ContainsKey(name))
+            {
+                GameObject o = Resources.Load<GameObject>(root + name);
+                _panelPrefabObjs[name] = o;
+                Debug.Log($"加载{name}");
+            }
+            return this;
+        }
+
         /// <summary>
         /// 打开某一个Panel但不显示
         /// </summary>

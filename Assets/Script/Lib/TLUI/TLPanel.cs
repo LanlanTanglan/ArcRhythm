@@ -11,16 +11,16 @@ namespace TLUI
     [RequireComponent(typeof(CanvasGroup))]
     public class TLPanel : TLBaseUI
     {
-        public CanvasGroup _cGroup;
-        
+
 
         public override void Awake()
         {
+            base.Awake();
             _cGroup = GetComponent<CanvasGroup>();
         }
         public override void Start()
         {
-
+            base.Start();
         }
         public override void Update()
         {
@@ -32,6 +32,8 @@ namespace TLUI
         /// </summary>
         public virtual void Show()
         {
+            TLUIManager.Instance.DOUIEnter(gameObject);
+            //调用动画
             TLUIManager.Instance.PlayAnimAndLock(gameObject, true);
         }
 
@@ -40,6 +42,8 @@ namespace TLUI
         /// </summary>
         public virtual void Hide()
         {
+            TLUIManager.Instance.DOUILeave(gameObject);
+
             TLUIManager.Instance.PlayAnimAndLock(gameObject, false);
         }
 
@@ -49,25 +53,6 @@ namespace TLUI
         public virtual void Destroy()
         {
             Destroy(gameObject);
-        }
-
-        public override void PlayEnterAnim()
-        {
-            _cGroup.alpha = 1;
-            transform.localPosition = new Vector3(-3000, 0, 0);
-            _enterAnim = DOTween.Sequence();
-            _enterAnim.Append(transform.DOLocalMove(new Vector3(0, 0, 0), 0.5f).SetEase(Ease.OutCubic));
-            base.PlayEnterAnim();
-        }
-
-        public override void PlayLeaveAnim()
-        {
-            _leaveAnim = DOTween.Sequence();
-            _leaveAnim.Append(transform.DOLocalMove(new Vector3(3000, 0, 0), 0.5f).SetEase(Ease.OutCubic).OnComplete(() =>
-            {
-                _cGroup.alpha = 0;
-            }));
-            base.PlayLeaveAnim();
         }
     }
 

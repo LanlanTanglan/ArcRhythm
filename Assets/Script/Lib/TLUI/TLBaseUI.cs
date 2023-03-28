@@ -5,14 +5,24 @@ using TLTemplate;
 using DG.Tweening;
 namespace TLUI
 {
-    public class TLBaseUI : MonoBehaviour, ITLAnim
+    [SerializeField]
+    public class TLBaseUI : MonoBehaviour, ITLLifeCycle
     {
-        public Sequence _enterAnim;
-        public Sequence _leaveAnim;
+
+        //是否遵循上层的DO
+        public bool isFollowParentDoEnter = true;
+        public bool isFollowParentDoLeave = true;
+
+        public GameObject parentWarp;
+        public RectTransform _rectTransform;
+        public BoxCollider2D _boxCollider2D;
+        public CanvasGroup _cGroup;
+
 
         public virtual void Awake()
         {
-
+            _rectTransform = GetComponent<RectTransform>();
+            _cGroup = GetComponent<CanvasGroup>();
         }
 
         public virtual void Start()
@@ -25,20 +35,17 @@ namespace TLUI
 
         }
 
-        public virtual void PlayEnterAnim()
+        public virtual void TLUIEnter()
         {
-            _enterAnim.OnComplete(() =>
-            {
-                EventManager.Instance.TriggerEvent("unlockCanvas", new EventParam());
-            });
+
         }
-        public virtual void PlayLeaveAnim()
+
+        public virtual void TLUILeave()
         {
-            _leaveAnim.OnComplete(() =>
-            {
-                EventManager.Instance.TriggerEvent("unlockCanvas", new EventParam());
-            });
+
         }
+
+
     }
 
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 using ArkRhythm;
 using TLUtil;
 using DG.Tweening;
-using Cysharp.Threading.Tasks;
 using TLTemplate;
 
 public partial class BasePushNote : BaseNote
