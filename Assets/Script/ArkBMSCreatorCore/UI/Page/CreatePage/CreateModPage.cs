@@ -30,6 +30,8 @@ public class CreateModPage : TLPanel
     {
         TLUIManager.Instance.PlayAnimAndLock(_inputBMSWarpObj, false);
         TLUIManager.Instance.DOUILeave(_inputBMSWarpObj);
+        //TODO 获取输入框上的数据
+        //TODO 建立一个json文件用于存储数据，放在指定的文件夹下
     }
 
     public override void TLUIEnter()

@@ -7,6 +7,7 @@ using TLTemplate;
 public class BMSCManager : Singleton<BMSCManager>
 {
     private string _root = "BMSCreator/UI/Panel/";
+    public string _rootBMS = "";
     public bool isTest = true;
 
     void Awake()
