@@ -12,7 +12,7 @@ public class CreateBMSTopController : MonoBehaviour
 {
     public Transform scaleLineWarp;
     public CreateLineController createLineController;
-    public Transform operatorGroupWarp;
+
     public Transform musicWarp;
 
     void Awake()
@@ -22,16 +22,13 @@ public class CreateBMSTopController : MonoBehaviour
         operatorGroupController = operatorGroupWarp.GetComponent<OperatorGroupController>();
 
         audioSource = GetComponent<AudioSource>();
+
+        Init();
     }
 
     void Start()
     {
-        InitMusicInfo();
 
-        InitScaleLine();
-
-        UpdateNoteWarpHeght();
-        UpdateOperatorGroupWarpMin();
     }
 
     void Update()
@@ -62,8 +59,22 @@ public class CreateBMSTopController : MonoBehaviour
         }
 
 
+
         //全局位移相关
         UpdateWarpYPos();
+
+        //按键事件更新
+        UpdateShortcutKey();
+    }
+
+    void LateUpdate()
+    {
+
+    }
+
+    void OnPostRender()
+    {
+
     }
 
 
@@ -73,6 +84,24 @@ public class CreateBMSTopController : MonoBehaviour
         scaleLineWarp.position = new Vector3(scaleLineWarp.position.x, operatorGroupWarp.position.y);
     }
 
+    public void Init()
+    {
+        //初始化音乐信息
+        InitMusicInfo();
+
+        //初始化缩放尺
+        InitScaleLine();
+
+        //初始化可移动范围
+        UpdateOperatorGroupWarpMin();
+
+        //更新OperatorGroupWarp的相关内容
+        operatorGroupController.createBMSTopController = this;
+        operatorGroupController.Init();
+
+        //更新NoteWarp的高度
+        UpdateNoteWarpHeight();
+    }
     #region 缩放尺功能
     //初始化缩放尺
     void InitScaleLine()
@@ -86,6 +115,7 @@ public class CreateBMSTopController : MonoBehaviour
 
     #region setting功能区
     //缩放功能
+    [Header("Setting功能区")]
     public Slider zoomSlider;
     public float currentZoom = 1;
     //BPM修改
@@ -93,14 +123,14 @@ public class CreateBMSTopController : MonoBehaviour
     public TMP_InputField SpaceCountInputField;
     public float currentBPM;
     public int currentSpaceCount;
-    //间隔修改
+
+    //随着缩放条的变化，修改相应UI的信息
     public void OnZommChange()
     {
-
         //更新scaleLine的缩放
         createLineController.UpdateZoom(zoomSlider.value);
         currentZoom = zoomSlider.value;
-        UpdateNoteWarpHeght();
+        UpdateNoteWarpHeight();
         UpdateOperatorGroupWarpMin();
 
         //修改音乐的时间
@@ -108,6 +138,18 @@ public class CreateBMSTopController : MonoBehaviour
         currentPlayIdx = moveYLen / (speed * currentZoom);
         // audioSource.time = currentPlayIdx;
         ChangeMusicCurrentPlayTime(currentPlayIdx);
+
+        //更新OperatorGropWarp的Rect的范围
+        operatorGroupController.UpdateByZomm(currentZoom);
+
+        //更新Note的位置
+        foreach (Transform o in operatorWarpRectList)
+        {
+            Transform noteWarp = o.GetChild(0);
+            NoteWatpController noteWatpController = noteWarp.GetComponent<NoteWatpController>();
+            if (noteWatpController != null)
+                noteWatpController.UpdateTapNotePos(currentZoom);
+        }
     }
     //BPM修改
     public void UpdateBPM()
@@ -115,7 +157,7 @@ public class CreateBMSTopController : MonoBehaviour
         float t;
         if (float.TryParse(BPMInputField.text, out t))
         {
-            Debug.LogWarning(BPMInputField.text);
+            // Debug.LogWarning(BPMInputField.text);
             if (currentBPM != t)
             {
                 createLineController.UpdateBPM(t);
@@ -140,6 +182,8 @@ public class CreateBMSTopController : MonoBehaviour
     #endregion
 
     #region BMS信息区
+    [Header("BMS信息区")]
+
     public float musicLen = 300;
     public float speed = 100;//版面流速
     public BMS bms;//当前铺面
@@ -147,29 +191,32 @@ public class CreateBMSTopController : MonoBehaviour
     //TODO 初始化铺面数据
     public void InitBMS()
     {
-        
+
     }
     //TODO 设置干员信息
     public void SetOperator(int idx)
     {
-        
+
     }
     #endregion
 
     #region 干员轨道管理
+    [Header("干员轨道管理")]
     public GameObject operatorWarpItem;
+    public GameObject tapNoteItem;
     public List<Transform> operatorWarpRectList;
     public OperatorGroupController operatorGroupController;
+    public Transform operatorGroupWarp;
     void UpdateOperatorGroupWarpMin()
     {
         //更新移动框的可移动距离
         RectTransform r = operatorGroupWarp.GetComponent<RectTransform>();
         // Debug.LogWarning(r.rect.width);
-        operatorGroupController.minX = r.rect.width - 740.48f;
+        operatorGroupController.minX = r.rect.width <= 740.48f ? 0 : 740.48f - r.rect.width;
         operatorGroupController.minY = -speed * musicLen * currentZoom;
     }
 
-    void UpdateNoteWarpHeght()
+    void UpdateNoteWarpHeight()
     {
         for (int i = 0; i < operatorWarpRectList.Count; i++)
         {
@@ -192,9 +239,29 @@ public class CreateBMSTopController : MonoBehaviour
         // musicPosSlider.value = currentPlayIdx;
         ChangeMusicPosSliderValue(currentPlayIdx);
     }
+
+    //新建轨道
+    public void CreateOperatorWarp()
+    {
+        GameObject g = Instantiate(operatorWarpItem);
+        g.transform.SetParent(operatorGroupWarp.transform);
+        g.transform.localScale = operatorWarpItem.transform.localScale;
+        g.transform.localPosition = new Vector3(0, 0, operatorWarpItem.transform.localPosition.z);
+        RectTransform r = g.transform.GetChild(0).GetComponent<RectTransform>();
+        // r.anchoredPosition = r.rect.position;
+        r.sizeDelta = new Vector2(r.sizeDelta.x, speed * musicLen * currentZoom);
+        //添加
+        operatorWarpRectList.Add(g.transform);
+
+        //修改MinX
+        RectTransform c = operatorGroupWarp.GetComponent<RectTransform>();
+        float cw = c.rect.width + g.GetComponent<RectTransform>().rect.width + 20;
+        operatorGroupController.minX = cw <= 740.48f ? 0 : 740.48f - cw;
+    }
     #endregion
 
     #region 音乐控制
+    [Header("音乐控制")]
     public AudioClip musicClip;
     public float currentPlayIdx = 0;//当前播放位置,音乐提前五秒开始
     public AudioSource audioSource;
@@ -290,6 +357,26 @@ public class CreateBMSTopController : MonoBehaviour
         else
         {
             musicPosSlider.value = a;
+        }
+    }
+    #endregion
+
+    #region 按键事件控制
+    [Header("按键事件控制")]
+    public bool isPutTapNote = false;
+    public bool isShortcutKeyEvent = false;
+    public void UpdateShortcutKey()
+    {
+        //放置TapNote快捷键
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            isPutTapNote = true;
+            isShortcutKeyEvent = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.T))
+        {
+            isPutTapNote = false;
+            isShortcutKeyEvent = false;
         }
     }
     #endregion

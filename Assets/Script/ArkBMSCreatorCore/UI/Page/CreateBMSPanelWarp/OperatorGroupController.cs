@@ -8,6 +8,7 @@ using UnityEngine.Events;
 //统一管理下级的干员Note列表组
 public class OperatorGroupController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
+    public CreateBMSTopController createBMSTopController;
     public bool isDragging = false;
     public bool isVerticalDrag = false;
     public bool isHorizonDrag = false;
@@ -108,5 +109,20 @@ public class OperatorGroupController : MonoBehaviour, IPointerDownHandler, IPoin
                 isVerticalOut = false;
             }
         }
+    }
+    public void Init()
+    {
+        //初始化高度
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        float h = createBMSTopController.speed * createBMSTopController.currentZoom * createBMSTopController.musicLen + 150;
+        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h);
+    }
+
+    public void UpdateByZomm(float zoom)
+    {
+        //初始化高度
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        float h = createBMSTopController.speed * zoom * createBMSTopController.musicLen + 150;
+        rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h);
     }
 }
